@@ -1,0 +1,286 @@
+Changelog
+=========
+
+-----
+2.0.3
+-----
+
+*Translations*
+
+- translator credits: http://bundles.openttdcoop.org/fish/push/LATEST/credits.txt
+
+
+-----
+2.0.2
+-----
+
+*Fixes*
+
+- Little Cumbrae Freighter and Frisco Bay Freighter sometimes hidden due to incorrect setting of replacement_id property
+
+*Language Updates*
+
+- italian
+- translator credits: http://bundles.openttdcoop.org/fish/push/LATEST/credits.txt
+
+*Docs*
+
+- update to Bootstrap 3 framework
+- include Font Awesome for resolution-independent icons
+
+-----
+2.0.1
+-----
+
+*Language Updates*
+
+- Polish
+- Italian
+- German
+
+*Codechanges*
+
+- compile now uses python 3 not python 2
+- compile now requires nml 0.4.0 or newer
+- refactored compile scripts, keeping pyflakes happy, and not relying on weird magic related to python imports
+
+-----
+2.0.0
+-----
+
+*Changes / Features*
+
+- it's 2.0.0 (Squid Ate FISH)
+
+*Fixes*
+
+- sorted out spritesheets for hovercraft, now correctly positioned and not clipping
+- fixed a bug with Fish Island trawler being 1px too high when loaded
+
+
+-------------------
+Release Candidate 9
+-------------------
+
+*Changes / Features*
+
+- Provence Edibles Tanker
+- Sprites by Pikka for Nanaimo and Pegwell hovercraft (known to need some tweaks)
+- First ships available 1860 (instead of 1870) to match Iron Horse and Road Hog
+
+*Language Updates*
+
+- Afrikaans (telanus)
+- Catalan (juanjo)
+- Croatian (Voyager1)
+- Dutch (Alberth)
+- Finnish (Arexander)
+- French (Arikover)
+- Korean KR (kevin)
+- Portugese (vesgo)
+- Russian (aantano)
+- Scots Gaelic (GunChleoc)
+- Spanish (SilverSurferZzZ)
+
+-------------------
+Release Candidate 8
+-------------------
+
+*Changes / Features*
+
+- Adjust costs for some of the smaller ships
+- Improved sprites for Eddystone Tanker
+
+-------------------
+Release Candidate 7
+-------------------
+
+*Fixes*
+
+- Cap max ship speed to 79mph at compile time (to prevent overflow to negative)
+- Some buy / run costs were wrong
+
+-------------------
+Release Candidate 6
+-------------------
+
+*Fixes*
+
+- Removed red pixel on Little Cumbrae Freighter
+- Remove unwanted space between ship names and type string
+
+-------------------
+Release Candidate 5
+-------------------
+
+*Fixes*
+
+- Nanaimo 70 hovercraft speed was too high, causing it to travel too slowly (speed values above 79mph overflow to negative)
+
+-------------------
+Release Candidate 4
+-------------------
+
+*Features*
+
+- smoke for most ships, requires OpenTTD nightly version r26747 or newer
+
+*Fixes*
+
+- lighting was wrong on Cadiz Freighter, also fixed offsets
+- offsets for Fastnet Paddle Steamer, Altamira Freighter, Little Cumbrae Freighter, Hopetown Tanker
+
+*Language Updates*
+
+- Dutch (Alberth)
+
+-------------------
+Release Candidate 3
+-------------------
+
+*Features*
+
+- correct-sized sprites for Cadiz Freighter
+
+*Fixes*
+
+- offsets for Frisco Bay Freighter
+
+
+-------------------
+Release Candidate 2
+-------------------
+
+*Fixes*
+
+- Hovercraft now have proper names
+- Castle Point Steamer: fixed offsets, added wake sprites, removed bad pixel
+
+*Language Updates*
+
+- Catalan (juanjo)
+- Scots Gaelic (GunChleoc)
+
+
+-------------------
+Release Candidate 1
+-------------------
+
+*New Features / Changes*
+
+- remove parameter for turning Sea / River ships on / off
+- introduce Rosters (work in progress): choose one set of ships from a range of options
+- only one roster available in 0.1: This Sceptred Isle, a British-ish set of ships
+- some ships removed
+- some new ships added
+- river ships no longer have a speed penalty on open sea, for gameplay balance
+- adjust speeds, capacities and intro dates for gameplay balance
+- remove some confusing graphic variations
+- remove smoke from all ships, present in alphas as a test only, may return in future
+
+*Language Updates*
+
+- Afrikaans (telanus)
+- Catalan (juanjo)
+- Croatian (Voyager1)
+- Dutch (foobar)
+- Finnish (Arexander)
+- French (Arikover)
+- Korean KR (kevin, konlee0518)
+- German (Planetmaker)
+- Polish (ciekma)
+- Russian (George)
+- Scots Gaelic (GunChleoc)
+- Spanish (SilverSurferZzZ)
+
+
+-------
+Alpha 5
+-------
+
+*New Features / Changes*
+
+- cargo aging bonus for livestock cargo when using Livestock ship  (50% of normal cargo decay rate)
+
+*Language Updates*
+
+- Croatian (Voyager1)
+- German (Planetmaker)
+- Spanish (SilverSurferZzZ)
+
+-------
+Alpha 4
+-------
+
+*New Features / Changes*
+
+- rebalanced Mount Blaze cat, reducing some stats overkill
+- Enoshima Ferry now river capable
+- Autorefit info in buy menu
+
+*Fixes*
+
+- correct buy menu sprites for Saint Marie Barge Tug
+
+*Language Updates*
+
+- Russian (George)
+- Spanish (SilverSurferZzZ)
+
+-------
+Alpha 3
+-------
+
+*New Features / Changes*
+
+- updated sprites for Little Cumbrae Freighter, including generation 2 variant from 1920 (Coxx)
+
+*Fixes*
+
+- correct offsets and provide missing sprites for Saint Marie Barge Tug
+
+*Language Updates*
+
+- Croatian (Voyager1)
+- Dutch (Alberth)
+- Finnish (juzza1)
+- Hungarian (zaza)
+- Norwegian (Trond)
+- Russion (George)
+- Spanish (SilverSurferZzZ)
+
+-------
+Alpha 2
+-------
+
+**Not savegame compatible with Alpha 1 (ship IDs changed).**
+
+*New Features / Changes*
+
+- create two groups of ships: Sea Ships and River Boats, which can be turned on/off by parameter
+- provide a basic group of river boats (unfinished)
+    - most river boats have reduced performance at sea
+    - added Geneva and Constance (large freight barges) and Dieze Container Carrier (offsets known to be wrong)
+- Saint Marie tug now 200t capacity (offsets known to be wrong)
+- introduce Cadiz and Meteor freighters and shuffle other freighter dates and capacities for gameplay balance
+- reduce canal / river speed of the faster sea freighters for gameplay balance
+- Barletta Paddle Steamer now available from 1870, not 1878
+
+*Fixes*
+
+- Grindavik Reefer
+    - improved sprites (DanMacK)
+    - spritesheet missing rows
+    - removed flashing pixels
+- remove white pixel from Little Cumbrae Freigher
+
+*Language Updates*
+
+- Hungarian (zaza)
+- Norwegian (Trond)
+
+-------
+Alpha 1
+-------
+
+First release for testing

@@ -1,0 +1,87 @@
+##grflangid 0x03
+##plural 2
+##gender m m2 f
+STR_GRF_DESCRIPTION                                             :Licence: {SILVER}GPL v2{}{BLACK}
+
+
+STR_EMPTY                                                       :
+
+
+STR_PARAM_RESET_CONSTRUCTION_COSTS                              :Coûts de construction améliorés pour les canaux, aqueducs et écluses
+STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :Réduit les coûts de construction (et de démolition) des canaux, aqueducs et écluses.  Meilleur équilibre entre les bateaux et les autres moyens de transport.
+STR_PARAM_ADJUST_SHIP_SPEEDS                                    :Vitesse des navires
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :Lent, comme regarder la peinture sécher
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :Idéal
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :Triche
+STR_PARAM_ROSTER                                                :Assortiment
+STR_PARAM_ROSTER_DESC                                           :Sélectionner quels navires utiliser.
+STR_PARAM_ROSTER_OPTION_0                                       :L'île de Grande Bretagne
+STR_PARAM_ROSTER_OPTION_1                                       :Le Beau Danube Bleu
+
+STR_NAME_SUFFIX_BARGE_TUG                                       :Remorqueur de barges
+STR_NAME_SUFFIX_CATAMARAN                                       :Catamaran
+STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Navire collecteur
+STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Péniche à conteneurs
+STR_NAME_SUFFIX_FERRY                                           :Ferry
+STR_NAME_SUFFIX_FAST_FERRY                                      :Ferry rapide
+STR_NAME_SUFFIX_FREIGHTER                                       :Cargo
+STR_NAME_SUFFIX_FREIGHT_BARGE                                   :Péniche
+STR_NAME_SUFFIX_HOVERCRAFT                                      :Aéroglisseur
+STR_NAME_SUFFIX_HYDROFOIL                                       :Hydroptère
+STR_NAME_SUFFIX_LIVESTOCK_SHIP                                  :Navire de bétail
+STR_NAME_SUFFIX_LOG_TUG                                         :Remorqueur de grumes
+STR_NAME_SUFFIX_PADDLE_STEAMER                                  :Navire à roues à aubes
+STR_NAME_SUFFIX_REEFER                                          :Navire frigorifique
+STR_NAME_SUFFIX_RIG_SUPPLY_FAST_CATAMARAN                       :Navire de ravitaillement rapide
+STR_NAME_SUFFIX_STEAMER                                         :Steamer
+STR_NAME_SUFFIX_TANKER                                          :Navire-citerne
+STR_NAME_SUFFIX_TANKER_BARGE                                    :Péniche-citerne
+STR_NAME_SUFFIX_TRAWLER                                         :Chalutier
+STR_NAME_SUFFIX_UTILITY_VESSEL                                  :Bateau utilitaire
+STR_NAME_SUFFIX_UTILITY_TUG                                     :Remorqueur
+
+
+STR_BUY_MENU_TEXT                                               :{}Type : {GOLD}{STRING}{}{STRING}
+STR_BUY_MENU_REFIT_CAPACITIES_PACKET                            :{}{BLACK}Capacité quand réaménagé{NBSP}: {GOLD}{COMMA}{NBSP}sac{P 0 "" s} de courrier ou {COMMA}{NBSP}t de marchandises express
+STR_BUY_MENU_REFIT_CAPACITIES_TRAWLER                           :{}{BLACK}Capacité quand réaménagé : {GOLD}{COMMA} passagers, {COMMA} sacs de courrier, {COMMA}t de poisson dans les cales, ou {COMMA}t de marchandises express sur le pont
+STR_BUY_MENU_REFIT_CAPACITIES_UTILITY                           :{}{BLACK}Capacité quand réaménagé : {GOLD}{COMMA} sacs de courrier ou {COMMA}{NBSP}t de marchandises
+
+
+STR_BARGE_TUG                                                   :Remorqueur de barges
+STR_CARGO_HOVERCRAFT                                            :Aéroglisseur de marchandises
+STR_CARGO_VESSEL_INLAND                                         :Navire marchandises pour voies navigables
+STR_SMALL_CARGO_VESSEL_INLAND                                   :Petit cargo pour voies navigables
+STR_CATAMARAN_FAST_FERRY                                        :Ferry rapide (catamaran)
+STR_COASTAL_TANKER                                              :Navire-citerne côtier
+STR_COASTER                                                     :Navire côtier
+STR_CONTAINER_FEEDER                                            :Petit porte conteneurs
+STR_CONTAINER_BARGE                                             :Porte conteneurs pour voies navigables
+STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Petit navire polyvalent rapide
+STR_FAST_PACKET_STEAMER                                         :Vapeur rapide
+STR_SMALL_FERRY                                                 :Petit ferry
+STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :Navire polyvalent de haute mer
+STR_GENERAL_PURPOSE_VESSEL                                      :Navire polyvalent
+STR_HOVERCRAFT_FAST_FERRY                                       :Ferry rapide (aéroglisseur)
+STR_HYDROFOIL_FAST_FERRY                                        :Ferry rapide (hydroptère)
+STR_JUMBO_VEHICLE_FERRY                                         :Grand ferry pour véhicules
+STR_LARGE_COASTAL_TANKER                                        :Grand navire citerne côtier
+STR_LARGE_TANKER_COASTAL_INLAND                                 :Grand navire citerne côtier ou pour voies navigables
+STR_LARGE_COASTER                                               :Grand navire côtier
+STR_LIVESTOCK_SHIP                                              :Navire transporteur de bétail
+STR_LOG_TUG                                                     :Remorqueur de grumes flottantes
+STR_PADDLE_STEAMER                                              :Navire à vapeur à roues à aubes
+STR_RIG_SUPPLY_FAST_CATAMARAN                                   :Catamaran rapide pour ravitailler îles ou industries au large
+STR_REEFER                                                      :Navire réfrigéré (valeur des marchandises périssables améliorée)
+STR_SMALL_FREIGHTER                                             :Petit cargo
+STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Petit navire polyvalent
+STR_SMALL_TANKER_COASTAL_INLAND                                 :Petit navire citerne côtier ou pour voies navigables
+STR_TRAWLER                                                     :Chalutier (cale réservée au poisson)
+STR_VEHICLE_FERRY                                               :Ferry pour véhicules
+
+
+STR_GENERIC_REFIT_SUBTYPE                                       : ({COMMA}{STRING})
+STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}Capacités de réaménagement : {GOLD}{COMMA}, {COMMA} ou {COMMA}{STRING}
+STR_QUANTITY_WOOD                                               : tonnes de bois
+STR_QUANTITY_LIVESTOCK                                          : têtes de bétail
+STR_UNIT_TONNES                                                 : tonnes
+STR_UNIT_ITEMS                                                  : têtes

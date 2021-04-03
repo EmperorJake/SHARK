@@ -1,0 +1,11 @@
+<tal:main_template metal:use-macro="load:main_template.pt">
+<div metal:fill-slot='body'>
+    <div>
+        <h2>Help Translate Squid Ate FISH</h2>
+        <p>Squid Ate FISH has already been translated into multiple languages, and more translations are always welcome.</p>
+        <p>Translations can be added, checked and updated using the <a href="https://translator.openttdcoop.org/project/fish">web translator</a>.</p>
+        <a class="btn btn-primary btn-large" href="https://translator.openttdcoop.org/project/fish">Web Translator</a>
+        <br /><br />
+    </div>
+</div>
+</tal:main_template>

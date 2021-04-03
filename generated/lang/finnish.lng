@@ -1,0 +1,86 @@
+##grflangid 0x35
+##plural 0
+STR_GRF_DESCRIPTION                                             :Lisenssi: {SILVER}GPL v2{}{BLACK}
+
+
+STR_EMPTY                                                       :
+
+
+STR_PARAM_RESET_CONSTRUCTION_COSTS                              :Käytä parannettuja rakennuskuluja kanaaleille, akvedukteille ja suluille.
+STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :Vähentää kanaalien, akveduktien ja sulkujen rakennus- ja poistokuluja. Tämä asetus mahdollistaa paremman tasapainon vesiliikenteen ja muiden kuljetustapojen kesken.
+STR_PARAM_ADJUST_SHIP_SPEEDS                                    :Laivan nopeus
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :Hidas kuin etana
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :Ihanteellinen
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :Huijaava
+STR_PARAM_ROSTER                                                :Kokoelma
+STR_PARAM_ROSTER_DESC                                           :Valitse, mitä laivakokoelmaa käytetään.
+STR_PARAM_ROSTER_OPTION_0                                       :This Sceptered Isle
+STR_PARAM_ROSTER_OPTION_1                                       :The Blue Danube
+
+STR_NAME_SUFFIX_BARGE_TUG                                       :Proomuhinaaja
+STR_NAME_SUFFIX_CATAMARAN                                       :Katamaraani
+STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Konttialus syöttöliikenteeseen
+STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Konttiproomu
+STR_NAME_SUFFIX_FERRY                                           :Lautta
+STR_NAME_SUFFIX_FAST_FERRY                                      :Nopea lautta
+STR_NAME_SUFFIX_FREIGHTER                                       :Rahtilaiva
+STR_NAME_SUFFIX_FREIGHT_BARGE                                   :Kansiproomu
+STR_NAME_SUFFIX_HOVERCRAFT                                      :Ilmatyynyalus
+STR_NAME_SUFFIX_HYDROFOIL                                       :Kantosiipialus
+STR_NAME_SUFFIX_LIVESTOCK_SHIP                                  :Karjalaiva
+STR_NAME_SUFFIX_LOG_TUG                                         :Tukkihinaaja
+STR_NAME_SUFFIX_PADDLE_STEAMER                                  :Siipiratasalus
+STR_NAME_SUFFIX_REEFER                                          :Jäähdytysalus
+STR_NAME_SUFFIX_RIG_SUPPLY_FAST_CATAMARAN                       :Nopea apulaiva
+STR_NAME_SUFFIX_STEAMER                                         :Höyrylaiva
+STR_NAME_SUFFIX_TANKER                                          :Säiliöalus
+STR_NAME_SUFFIX_TANKER_BARGE                                    :Säiliöproomu
+STR_NAME_SUFFIX_TRAWLER                                         :Troolari
+STR_NAME_SUFFIX_UTILITY_VESSEL                                  :Hyötylaiva
+STR_NAME_SUFFIX_UTILITY_TUG                                     :Hyötyhinaaja
+
+
+STR_BUY_MENU_TEXT                                               :{}Tyyppi: {GOLD}{STRING}{}{STRING}
+STR_BUY_MENU_REFIT_CAPACITIES_PACKET                            :{}{BLACK}Tilavuus sovitettuna: {GOLD}{COMMA} säkkiä postia tai {COMMA}t pikarahtia
+STR_BUY_MENU_REFIT_CAPACITIES_TRAWLER                           :{}{BLACK}Tilavuus sovitettuna: {GOLD}{COMMA} matkustajaa, {COMMA} säkkiä postia, {COMMA}t kalaa ruumassa, tai {COMMA}t pikarahtia kansitavarana
+STR_BUY_MENU_REFIT_CAPACITIES_UTILITY                           :{}{BLACK}Tilavuus sovitettuna: {GOLD}{COMMA} säkkiä postia tai {COMMA}t rahtia
+
+
+STR_BARGE_TUG                                                   :Proomuhinaaja
+STR_CARGO_HOVERCRAFT                                            :Ilmatyynyalus rahdille
+STR_CARGO_VESSEL_INLAND                                         :Rahtilaiva sisävesille
+STR_SMALL_CARGO_VESSEL_INLAND                                   :Pieni rahtilaiva sisävesille
+STR_CATAMARAN_FAST_FERRY                                        :Nopea katamaraanilautta
+STR_COASTAL_TANKER                                              :Rannikkosäiliöalus
+STR_COASTER                                                     :Rannikkorahtilaiva
+STR_CONTAINER_FEEDER                                            :Pieni konttialus
+STR_CONTAINER_BARGE                                             :Konttialus sisävesille
+STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Nopea yleislaiva
+STR_FAST_PACKET_STEAMER                                         :Nopea postihöyrylaiva
+STR_SMALL_FERRY                                                 :Pieni lautta
+STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :Merikelpoinen yleislaiva
+STR_GENERAL_PURPOSE_VESSEL                                      :Yleislaiva
+STR_HOVERCRAFT_FAST_FERRY                                       :Nopea ilmatyynylautta
+STR_HYDROFOIL_FAST_FERRY                                        :Nopea kantosiipilautta
+STR_JUMBO_VEHICLE_FERRY                                         :Jättikokoinen ajoneuvolautta
+STR_LARGE_COASTAL_TANKER                                        :Suuri rannikkosäiliöalus
+STR_LARGE_TANKER_COASTAL_INLAND                                 :Suuri säiliöalus rannikolle ja sisävesille
+STR_LARGE_COASTER                                               :Suuri rannikkorahtilaiva
+STR_LIVESTOCK_SHIP                                              :Karjalaiva
+STR_LOG_TUG                                                     :Hinaaja tukkilauttojen uittoon
+STR_PADDLE_STEAMER                                              :Siipiratasalus
+STR_RIG_SUPPLY_FAST_CATAMARAN                                   :Nopea katamaraani sisävesien ja rannikkoalueiden teollisuuden käyttöön
+STR_REEFER                                                      :Jäähdytetty alus (parannetut rahtitaksat pilaantuvalle rahdille)
+STR_SMALL_FREIGHTER                                             :Pieni rahtilaiva rannikolle ja sisävesille
+STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Pieni yleislaiva
+STR_SMALL_TANKER_COASTAL_INLAND                                 :Pieni säiliöalus rannikolle ja sisävesille
+STR_TRAWLER                                                     :Troolari (kalalle suunniteltu ruuma)
+STR_VEHICLE_FERRY                                               :Ajoneuvolautta
+
+
+STR_GENERIC_REFIT_SUBTYPE                                       : ({COMMA}{STRING})
+STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}Sovitettavat kapasiteetit: {GOLD}{COMMA}, {COMMA} tai {COMMA}{STRING}
+STR_QUANTITY_WOOD                                               :tonnia puuta
+STR_QUANTITY_LIVESTOCK                                          :erää karjaa
+STR_UNIT_TONNES                                                 :tonnia
+STR_UNIT_ITEMS                                                  :erää

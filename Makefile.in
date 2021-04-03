@@ -1,0 +1,24 @@
+# Here also go all build targets specific to this very newgrf
+
+GENERATE_NML := fish-nml
+GENERATE_LNG := fish-nml
+GENERATE_DOC := fish-nml
+
+GENERATE=src/build_fish.py
+
+ # default num. pool workers for python compile, default is 1 to avoid accidental DoS of people's system
+pw = 1
+ic = False
+roster = *
+
+fish-nml:
+	$(_E) [GENERATE]
+	$(_V) python3.6 src/build_fish.py '${REPO_TITLE}' '${REPO_REVISION}' '${ic}' '${pw}' '${roster}'
+
+clean::
+	$(_V)-rm fish.nml
+	$(_V)-rm -r docs
+	$(_V)-rm -r chameleon_cache
+	$(_V)-rm -r generated
+	$(_V)-rm src/*.pyc
+	$(_V)-rm src/*/*.pyc

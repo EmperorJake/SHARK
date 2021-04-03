@@ -1,0 +1,87 @@
+##grflangid 0x04
+##plural 0
+##gender m f
+STR_GRF_DESCRIPTION                                             :Licencia: {SILVER}GPL v2{}{BLACK}
+
+
+STR_EMPTY                                                       :
+
+
+STR_PARAM_RESET_CONSTRUCTION_COSTS                              :Usar costes de construcción mejorados para canales, acueductos y dársenas.
+STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :Reduce los costes de construcción (y retirada) para canales, acueductos y dársenas. Proporciona un mayor equilibrio entre los transportes marítimos (y/o fluviales) y el resto de tipos de transporte.
+STR_PARAM_ADJUST_SHIP_SPEEDS                                    :Velocidad del barco
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :Lento, como ver secarse la pintura
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :Perfecto
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :Rápido, podríamos decir que es hacer una pequeña trampa
+STR_PARAM_ROSTER                                                :Lista a usar
+STR_PARAM_ROSTER_DESC                                           :Selecciona el grupo de barcos que se usarán.
+STR_PARAM_ROSTER_OPTION_0                                       :Este trono real de reyes, esta isla por el cetro consagrada, ...
+STR_PARAM_ROSTER_OPTION_1                                       :El Danubio Azul
+
+STR_NAME_SUFFIX_BARGE_TUG                                       :Barcaza remolcadora
+STR_NAME_SUFFIX_CATAMARAN                                       :Catamarán
+STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Barco portacontenedores
+STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Barcaza portacontenedores
+STR_NAME_SUFFIX_FERRY                                           :Ferry
+STR_NAME_SUFFIX_FAST_FERRY                                      :Ferry rápido
+STR_NAME_SUFFIX_FREIGHTER                                       :Buque carguero
+STR_NAME_SUFFIX_FREIGHT_BARGE                                   :Barcaza de carga
+STR_NAME_SUFFIX_HOVERCRAFT                                      :Hovercraft
+STR_NAME_SUFFIX_HYDROFOIL                                       :Aerodeslizador
+STR_NAME_SUFFIX_LIVESTOCK_SHIP                                  :Barco ganadero
+STR_NAME_SUFFIX_LOG_TUG                                         :Remolcador de troncos de madera
+STR_NAME_SUFFIX_PADDLE_STEAMER                                  :Vapor de ruedas
+STR_NAME_SUFFIX_REEFER                                          :Contenedor refrigerado
+STR_NAME_SUFFIX_RIG_SUPPLY_FAST_CATAMARAN                       :Catamarán de suministros rápido
+STR_NAME_SUFFIX_STEAMER                                         :Barco a vapor
+STR_NAME_SUFFIX_TANKER                                          :Cisterna
+STR_NAME_SUFFIX_TANKER_BARGE                                    :Barcaza cisterna
+STR_NAME_SUFFIX_TRAWLER                                         :Barco rastreador
+STR_NAME_SUFFIX_UTILITY_VESSEL                                  :Barco polivalente
+STR_NAME_SUFFIX_UTILITY_TUG                                     :Remolcador polivalente
+
+
+STR_BUY_MENU_TEXT                                               :{}Tipo: {GOLD}{STRING}{}{STRING}
+STR_BUY_MENU_REFIT_CAPACITIES_PACKET                            :{}{BLACK}Capacidad al ser reformado: {GOLD}{COMMA} sacos de correo o {COMMA}t de carga express
+STR_BUY_MENU_REFIT_CAPACITIES_TRAWLER                           :{}{BLACK}Capacidad al ser reformado: {GOLD}{COMMA} pasajeros, {COMMA} sacos de correo, {COMMA}t de pescado en la bodega, o {COMMA}t de carga express en la cubierta
+STR_BUY_MENU_REFIT_CAPACITIES_UTILITY                           :{}{BLACK}Capacidad al ser reformado: {GOLD}{COMMA} sacos de correo o {COMMA}t de carga
+
+
+STR_BARGE_TUG                                                   :Barcaza remolcadora
+STR_CARGO_HOVERCRAFT                                            :Hovercraft de carga
+STR_CARGO_VESSEL_INLAND                                         :Barco de carga para vías fluviales (ríos, canales y lagos)
+STR_SMALL_CARGO_VESSEL_INLAND                                   :Carguero pequeño para vías fluviales (ríos, canales y lagos)
+STR_CATAMARAN_FAST_FERRY                                        :Catamarán rápido
+STR_COASTAL_TANKER                                              :Barco cisterna costero
+STR_COASTER                                                     :Barco costero
+STR_CONTAINER_FEEDER                                            :Barco pequeño portacontenedores
+STR_CONTAINER_BARGE                                             :Carguero (portacontenedores) para vías fluviales (ríos, canales y lagos)
+STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Barco rápido de propósito general
+STR_FAST_PACKET_STEAMER                                         :Vapor rápido de carga
+STR_SMALL_FERRY                                                 :Ferry pequeño
+STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :Barco de altura de propósito general
+STR_GENERAL_PURPOSE_VESSEL                                      :Barco de propósito general
+STR_HOVERCRAFT_FAST_FERRY                                       :Ferry hovercraft rápido
+STR_HYDROFOIL_FAST_FERRY                                        :Ferry aerodeslizador rápido
+STR_JUMBO_VEHICLE_FERRY                                         :Ferry gigante
+STR_LARGE_COASTAL_TANKER                                        :Barco cisterna costero grande
+STR_LARGE_TANKER_COASTAL_INLAND                                 :Barco cisterna grande para costas y vías fluviales (ríos, canales y lagos)
+STR_LARGE_COASTER                                               :Barco costero grande
+STR_LIVESTOCK_SHIP                                              :Barco ganadero
+STR_LOG_TUG                                                     :Remolcador de troncos de madera
+STR_PADDLE_STEAMER                                              :Vapor de ruedas
+STR_RIG_SUPPLY_FAST_CATAMARAN                                   :Catamarán rápido para el suministro a las islas e industrias marinas
+STR_REEFER                                                      :Barco refrigerado (ideal para un estado óptimo de las cargas perecederas así como mejorar su ratio de pagos)
+STR_SMALL_FREIGHTER                                             :Carguero pequeño para la costa y vías fluviales (ríos, canales y lagos)
+STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Pequeño barco de propósito general
+STR_SMALL_TANKER_COASTAL_INLAND                                 :Barco cisterna pequeño para costas y vías fluviales (ríos, canales y lagos)
+STR_TRAWLER                                                     :Barco rastreador (pesquero con redes de arrastre)
+STR_VEHICLE_FERRY                                               :Ferry de vehículos
+
+
+STR_GENERIC_REFIT_SUBTYPE                                       :({COMMA}{STRING})
+STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}Capacidades de reforma: {GOLD}{COMMA}, {COMMA} o {COMMA}{STRING}
+STR_QUANTITY_WOOD                                               :toneladas de madera
+STR_QUANTITY_LIVESTOCK                                          :cabezas de ganado
+STR_UNIT_TONNES                                                 :toneladas
+STR_UNIT_ITEMS                                                  :objetos

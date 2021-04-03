@@ -1,0 +1,6 @@
+STR_GRF_NAME                                                    :${repo_vars.repo_title}
+
+<!--! ship names -->
+<tal:build_vehicle_names repeat="ship ships">
+STR_NAME_${ship.id}                                          :${ship.get_name_substr()}{STRING} <!--! no space between name and substr -->
+</tal:build_vehicle_names>

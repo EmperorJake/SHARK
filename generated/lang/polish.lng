@@ -1,0 +1,88 @@
+##grflangid 0x30
+##plural 7
+##gender m f n
+##case b c d m n w
+STR_GRF_DESCRIPTION                                             :Licencja: {SILVER}GPL v2{}{BLACK}
+
+
+STR_EMPTY                                                       :
+
+
+STR_PARAM_RESET_CONSTRUCTION_COSTS                              :Używaj ulepszonych kosztów budowy dla kanałów, akweduktów i śluz
+STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :Obniża koszty budowy i usuwania kanałów, akweduktów i śluz. Wprowadza lepsze proporcje pomiędzy kosztami transportu wodnego i innych typów transportu.
+STR_PARAM_ADJUST_SHIP_SPEEDS                                    :Prędkość statków
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :Tempo żółwia
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :Idealna
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :Podrasowana
+STR_PARAM_ROSTER                                                :Rejestr
+STR_PARAM_ROSTER_DESC                                           :Wybierz, który zestaw statków użyć.
+STR_PARAM_ROSTER_OPTION_0                                       :Wyspy Zjednoczonego Królestwa
+STR_PARAM_ROSTER_OPTION_1                                       :Die Blaue Donau
+
+STR_NAME_SUFFIX_BARGE_TUG                                       :Holownik barek
+STR_NAME_SUFFIX_CATAMARAN                                       :Katamaran
+STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Kontenerowiec
+STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Barka - kontenerowiec
+STR_NAME_SUFFIX_FERRY                                           :Prom
+STR_NAME_SUFFIX_FAST_FERRY                                      :Szybki prom
+STR_NAME_SUFFIX_FREIGHTER                                       :Frachtowiec
+STR_NAME_SUFFIX_FREIGHT_BARGE                                   :Barka towarowa
+STR_NAME_SUFFIX_HOVERCRAFT                                      :Poduszkowiec
+STR_NAME_SUFFIX_HYDROFOIL                                       :Wodolot
+STR_NAME_SUFFIX_LIVESTOCK_SHIP                                  :Statek do przewozu żywca
+STR_NAME_SUFFIX_LOG_TUG                                         :Holownik tratw
+STR_NAME_SUFFIX_PADDLE_STEAMER                                  :Parowiec bocznokołowy
+STR_NAME_SUFFIX_REEFER                                          :Chłodnicowiec
+STR_NAME_SUFFIX_RIG_SUPPLY_FAST_CATAMARAN                       :Szybki statek zaopatrzeniowy
+STR_NAME_SUFFIX_STEAMER                                         :Parowiec
+STR_NAME_SUFFIX_TANKER                                          :Tankowiec
+STR_NAME_SUFFIX_TANKER_BARGE                                    :Barka - tankowiec
+STR_NAME_SUFFIX_TRAWLER                                         :Trawler
+STR_NAME_SUFFIX_UTILITY_VESSEL                                  :Statek pomocniczy
+STR_NAME_SUFFIX_UTILITY_TUG                                     :Holownik pomocniczy
+
+
+STR_BUY_MENU_TEXT                                               :Typ: {GOLD}{STRING}{}{STRING}
+STR_BUY_MENU_REFIT_CAPACITIES_PACKET                            :{}{BLACK}Pojemność po przebudowie: {GOLD}{COMMA} paczek poczty {COMMA}t drobnicy
+STR_BUY_MENU_REFIT_CAPACITIES_TRAWLER                           :{}{BLACK}Pojemność po przebudowie: {GOLD}{COMMA} pasażerów, {COMMA} paczek poczty, {COMMA}t ryb w ładowni, lub {COMMA}t drobnicy na pokładzie
+STR_BUY_MENU_REFIT_CAPACITIES_UTILITY                           :{}{BLACK}Pojemność po przebudowie: {GOLD}{COMMA} paczek poczty {COMMA}t drobnicy
+
+
+STR_BARGE_TUG                                                   :Holownik barek
+STR_CARGO_HOVERCRAFT                                            :Frachtowiec - poduszkowiec
+STR_CARGO_VESSEL_INLAND                                         :Frachtowiec do żeglugi śródlądowej
+STR_SMALL_CARGO_VESSEL_INLAND                                   :Mały frachtowiec do żeglugi śródlądowej
+STR_CATAMARAN_FAST_FERRY                                        :Szybki prom - katamaran
+STR_COASTAL_TANKER                                              :Kabotażowiec zbiornikowy
+STR_COASTER                                                     :Kabotażowiec
+STR_CONTAINER_FEEDER                                            :Mały kontenerowiec
+STR_CONTAINER_BARGE                                             :Kontenerowiec do żeglugi śródlądowej
+STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Szybki statek ogólnego przeznaczenia
+STR_FAST_PACKET_STEAMER                                         :Szybki parowiec liniowy
+STR_SMALL_FERRY                                                 :Mały prom
+STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :Statek dalekomorski ogólnego przeznaczenia
+STR_GENERAL_PURPOSE_VESSEL                                      :Statek ogólnego przeznaczenia
+STR_HOVERCRAFT_FAST_FERRY                                       :Szybki prom - poduszkowiec
+STR_HYDROFOIL_FAST_FERRY                                        :Szybki prom - wodolot
+STR_JUMBO_VEHICLE_FERRY                                         :Olbrzymi prom
+STR_LARGE_COASTAL_TANKER                                        :Duży kabotażowiec zbiornikowy
+STR_LARGE_TANKER_COASTAL_INLAND                                 :Duży tankowiec do żeglugi przybrzeżnej i śródlądowej
+STR_LARGE_COASTER                                               :Duży kabotażowiec
+STR_LIVESTOCK_SHIP                                              :Statek do przewozu żywca
+STR_LOG_TUG                                                     :Holownik wspomagający spław drewna
+STR_PADDLE_STEAMER                                              :Parowiec bocznokołowy
+STR_RIG_SUPPLY_FAST_CATAMARAN                                   :Szybki katamaran do zaopatrywania wysp i przemysłu morskiego
+STR_REEFER                                                      :Chłodnicowiec (ograniczony spadek dochodów w czasie dla ładunków psujących się)
+STR_SMALL_FREIGHTER                                             :Mały frachtowiec do żeglugi przybrzeżnej i śródlądowej
+STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Mały statek ogólnego przeznaczenia
+STR_SMALL_TANKER_COASTAL_INLAND                                 :Mały tankowiec do żeglugi przybrzeżnej i śródlądowej
+STR_TRAWLER                                                     :Trawler (ładownie przeznaczone dla ryb)
+STR_VEHICLE_FERRY                                               :Prom do przewozu pojazdów
+
+
+STR_GENERIC_REFIT_SUBTYPE                                       :({COMMA}{STRING})
+STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}Możliwe pojemności: {GOLD}{COMMA}, {COMMA} lub {COMMA}{STRING}
+STR_QUANTITY_WOOD                                               :ton drewna
+STR_QUANTITY_LIVESTOCK                                          :sztuk żywca
+STR_UNIT_TONNES                                                 :ton
+STR_UNIT_ITEMS                                                  :sztuk

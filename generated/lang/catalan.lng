@@ -1,0 +1,87 @@
+##grflangid 0x22
+##plural 0
+##gender Masculin Femenin
+STR_GRF_DESCRIPTION                                             :Llicència: {SILVER}GPL v2{}{BLACK}
+
+
+STR_EMPTY                                                       :
+
+
+STR_PARAM_RESET_CONSTRUCTION_COSTS                              :Usar costos de construcció millorats per a canals, aqüeductes i rescloses.
+STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :Redueix els costos de construcció (i de demolició) de canals, aqüeductes i rescloses. Proporciona un millor equilibri entre el transport amb vaixells i els altres tipus de transport.
+STR_PARAM_ADJUST_SHIP_SPEEDS                                    :Velocitat dels vaixells
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :Com veure com es seca la pintura
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :Ideal
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :Excessiva
+STR_PARAM_ROSTER                                                :Llistat a emprar
+STR_PARAM_ROSTER_DESC                                           :Selecciona quin conjunt de vaixells emprar.
+STR_PARAM_ROSTER_OPTION_0                                       :Gran Bretanya
+STR_PARAM_ROSTER_OPTION_1                                       :El Danubi Blau
+
+STR_NAME_SUFFIX_BARGE_TUG                                       :Barcassa remolcadora
+STR_NAME_SUFFIX_CATAMARAN                                       :Catamarà
+STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Vaixell per Contenidors
+STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Barcassa per Contenidors
+STR_NAME_SUFFIX_FERRY                                           :Ferri
+STR_NAME_SUFFIX_FAST_FERRY                                      :Ferri ràpid
+STR_NAME_SUFFIX_FREIGHTER                                       :Vaixell per Càrrega
+STR_NAME_SUFFIX_FREIGHT_BARGE                                   :Barcassa per Càrrega
+STR_NAME_SUFFIX_HOVERCRAFT                                      :Aerolliscador
+STR_NAME_SUFFIX_HYDROFOIL                                       :Hidrolliscador
+STR_NAME_SUFFIX_LIVESTOCK_SHIP                                  :Vaixell per Bestiar
+STR_NAME_SUFFIX_LOG_TUG                                         :Remolcador de troncs
+STR_NAME_SUFFIX_PADDLE_STEAMER                                  :Vaixell de vapor a pales
+STR_NAME_SUFFIX_REEFER                                          :Refrigeració de bodegues
+STR_NAME_SUFFIX_RIG_SUPPLY_FAST_CATAMARAN                       :Nau ràpida per Subministraments
+STR_NAME_SUFFIX_STEAMER                                         :Vaixell de vapor
+STR_NAME_SUFFIX_TANKER                                          :Vaixell cisterna
+STR_NAME_SUFFIX_TANKER_BARGE                                    :Barcassa cisterna
+STR_NAME_SUFFIX_TRAWLER                                         :Traïnya
+STR_NAME_SUFFIX_UTILITY_VESSEL                                  :Embarcació de servei
+STR_NAME_SUFFIX_UTILITY_TUG                                     :Remolcador d'ús públic
+
+
+STR_BUY_MENU_TEXT                                               :Tipus: {GOLD}{STRING}{}{STRING}
+STR_BUY_MENU_REFIT_CAPACITIES_PACKET                            :{}{BLACK}Capacitat quan es remodela: {GOLD}{COMMA}{NBSP}bosses de correu o {COMMA}{NBSP}t de mercaderies exprés
+STR_BUY_MENU_REFIT_CAPACITIES_TRAWLER                           :{}{BLACK}Capacitat quan es remodela: {GOLD}{COMMA}{NBSP}passatgers, {COMMA}{NBSP}bosses de correu, {COMMA}{NBSP}t de peix a les bodegues, or {COMMA}{NBSP}t de mercaderies exprés com a càrrega de coberta
+STR_BUY_MENU_REFIT_CAPACITIES_UTILITY                           :{}{BLACK}Capacitat amb remodelació: {GOLD}{COMMA}{NBSP}sacs de correu o {COMMA}{NBSP}t de càrrega
+
+
+STR_BARGE_TUG                                                   :Barcassa remolcadora
+STR_CARGO_HOVERCRAFT                                            :Aerolliscador per Càrrega
+STR_CARGO_VESSEL_INLAND                                         :Vaixell per Càrrega per a vies d'aigua d'interior
+STR_SMALL_CARGO_VESSEL_INLAND                                   :Vaixell per Càrrega petit per a vies d'aigua d'interior
+STR_CATAMARAN_FAST_FERRY                                        :Ferri catamarà ràpid
+STR_COASTAL_TANKER                                              :Vaixell cisterna coster
+STR_COASTER                                                     :Vaixell per Càrrega coster
+STR_CONTAINER_FEEDER                                            :Vaixell per Contenidors petit
+STR_CONTAINER_BARGE                                             :Transportador de Contenidors per a vies d'aigua d'interior
+STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Nau ràpida d'ús general
+STR_FAST_PACKET_STEAMER                                         :Vaixell de vapor ràpid Packet
+STR_SMALL_FERRY                                                 :Ferri petit
+STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :Nau d'alta mar per a ús general
+STR_GENERAL_PURPOSE_VESSEL                                      :Embarcacions d'ús general
+STR_HOVERCRAFT_FAST_FERRY                                       :Ferri aerolliscador ràpid
+STR_HYDROFOIL_FAST_FERRY                                        :Ferri hidrolliscador ràpid
+STR_JUMBO_VEHICLE_FERRY                                         :Ferri gran
+STR_LARGE_COASTAL_TANKER                                        :Vaixell cisterna coster gran
+STR_LARGE_TANKER_COASTAL_INLAND                                 :Vaixell cisterna gran per a costa i interior
+STR_LARGE_COASTER                                               :Vaixell per Càrrega coster gran
+STR_LIVESTOCK_SHIP                                              :Vaixell per Bestiar
+STR_LOG_TUG                                                     :Remolcador per arrossegar troncs de fusta
+STR_PADDLE_STEAMER                                              :Vaixell de vapor a pales
+STR_RIG_SUPPLY_FAST_CATAMARAN                                   :Catamarà ràpid per subministrar illes i indústries costeres
+STR_REEFER                                                      :Vaixell amb bodegues refrigerades (millora el pagament per a càrregues peribles)
+STR_SMALL_FREIGHTER                                             :Vaixell per Càrrega petit
+STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Nau petita per a ús general
+STR_SMALL_TANKER_COASTAL_INLAND                                 :Vaixell cisterna petit tant per a alta mar com per a interior
+STR_TRAWLER                                                     :Traïnya (coberta usada per a les captures de pesca)
+STR_VEHICLE_FERRY                                               :Ferri per Vehicles
+
+
+STR_GENERIC_REFIT_SUBTYPE                                       : ({COMMA}{STRING})
+STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}Remodelable a: {GOLD}{COMMA}, {COMMA} o {COMMA}{STRING}
+STR_QUANTITY_WOOD                                               :tones de fusta
+STR_QUANTITY_LIVESTOCK                                          :caps de bestiar
+STR_UNIT_TONNES                                                 :tones
+STR_UNIT_ITEMS                                                  :ítems

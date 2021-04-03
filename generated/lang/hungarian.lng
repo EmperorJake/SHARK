@@ -1,0 +1,87 @@
+##grflangid 0x24
+##plural 2
+##case ba t
+STR_GRF_DESCRIPTION                                             :Licenc: {SILVER}GPL v2{}{BLACK}
+
+
+STR_EMPTY                                                       :
+
+
+STR_PARAM_RESET_CONSTRUCTION_COSTS                              :Javított csatorna, csatornahíd és zsilip építési költségek
+STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :Csökkenti a csatornák, csatornahidak és a zsilipek építkezési (és eltávolítási) költségeit. Lehetőséget teremt, hogy jobban kiegyensúlyozd a vízi közlekedést a többivel.
+STR_PARAM_ADJUST_SHIP_SPEEDS                                    :Hajó sebessége
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :ahogy a festék szárad
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :Ideális
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :Csalás
+STR_PARAM_ROSTER                                                :Menetrend
+STR_PARAM_ROSTER_DESC                                           :Válassz egy hajógyüjteményt
+STR_PARAM_ROSTER_OPTION_0                                       :This Sceptred Isle
+STR_PARAM_ROSTER_OPTION_1                                       :A kék Duna
+
+STR_NAME_SUFFIX_BARGE_TUG                                       :uszály
+STR_NAME_SUFFIX_CATAMARAN                                       :katamarán
+STR_NAME_SUFFIX_CONTAINER_FEEDER                                :konténerszállító hajó
+STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Konténerszállító uszály
+STR_NAME_SUFFIX_FERRY                                           :komp
+STR_NAME_SUFFIX_FAST_FERRY                                      :gyors komp
+STR_NAME_SUFFIX_FREIGHTER                                       :teherhajó
+STR_NAME_SUFFIX_FREIGHT_BARGE                                   :uszály
+STR_NAME_SUFFIX_HOVERCRAFT                                      :légpárnás hajó
+STR_NAME_SUFFIX_HYDROFOIL                                       :szárnyashajó
+STR_NAME_SUFFIX_LIVESTOCK_SHIP                                  :állatszállító hajó
+STR_NAME_SUFFIX_LOG_TUG                                         :farönkvontató hajó
+STR_NAME_SUFFIX_PADDLE_STEAMER                                  :gőzhajó
+STR_NAME_SUFFIX_REEFER                                          :hűtőhajó
+STR_NAME_SUFFIX_RIG_SUPPLY_FAST_CATAMARAN                       :gyors katamarán
+STR_NAME_SUFFIX_STEAMER                                         :gőzhajó
+STR_NAME_SUFFIX_TANKER                                          :tankhajó
+STR_NAME_SUFFIX_TANKER_BARGE                                    :olajszállító uszály
+STR_NAME_SUFFIX_TRAWLER                                         :halászhajó
+STR_NAME_SUFFIX_UTILITY_VESSEL                                  :szállítóhajó
+STR_NAME_SUFFIX_UTILITY_TUG                                     :vontatóhajó
+
+
+STR_BUY_MENU_TEXT                                               :{}Típus: {GOLD}{STRING}{}{STRING}
+STR_BUY_MENU_REFIT_CAPACITIES_PACKET                            :{}{BLACK}Kapacitás, ha átalakítod: {GOLD}{COMMA} csomag levél vagy {COMMA}t express rakomány
+STR_BUY_MENU_REFIT_CAPACITIES_TRAWLER                           :{}{BLACK}Átalakított kapacitás: {GOLD}{COMMA} utas, {COMMA} csomag levél, {COMMA}t hal, vagy {COMMA}t egyéb rakomány a fedélzeten szállítva.
+STR_BUY_MENU_REFIT_CAPACITIES_UTILITY                           :{}{BLACK}Kapacitás, ha átalakítod: {GOLD}{COMMA} csomag levél vagy {COMMA}t rakomány
+
+
+STR_BARGE_TUG                                                   :vontatóhajó
+STR_CARGO_HOVERCRAFT                                            :Teherszállító légpárnás hajó
+STR_CARGO_VESSEL_INLAND                                         :Teherhajó belső vizekre
+STR_SMALL_CARGO_VESSEL_INLAND                                   :Kis teherhajó csatornákra
+STR_CATAMARAN_FAST_FERRY                                        :Gyors katamarán komp
+STR_COASTAL_TANKER                                              :Tengerparti tankhajó
+STR_COASTER                                                     :Partmenti teherszállító
+STR_CONTAINER_FEEDER                                            :Konténerszállító hajó
+STR_CONTAINER_BARGE                                             :Konténerszállító csatornákra
+STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Gyors szállítóhajó
+STR_FAST_PACKET_STEAMER                                         :Gyors gőzhajó
+STR_SMALL_FERRY                                                 :Kis komp
+STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :Általános tengerjáró szállítóhajó
+STR_GENERAL_PURPOSE_VESSEL                                      :Általános célú hajó
+STR_HOVERCRAFT_FAST_FERRY                                       :Gyors légpárnás komp
+STR_HYDROFOIL_FAST_FERRY                                        :Szárnyashajó
+STR_JUMBO_VEHICLE_FERRY                                         :Hatalmas komphajó
+STR_LARGE_COASTAL_TANKER                                        :Nagy partmenti tankhajó
+STR_LARGE_TANKER_COASTAL_INLAND                                 :Nagy tankhajó partmenti és belvizi szállításra
+STR_LARGE_COASTER                                               :Nagy partmenti teherhajó
+STR_LIVESTOCK_SHIP                                              :Állatszállító hajó
+STR_LOG_TUG                                                     :Vontatóhajó úszó farönkökhöz
+STR_PADDLE_STEAMER                                              :Gőzhajó
+STR_RIG_SUPPLY_FAST_CATAMARAN                                   :Gyors katamarán a szigetek és a partmenti gyárak ellátásához.
+STR_REEFER                                                      :Hűtőkamrás hajó (romlandó áruk szállításakor jobban fizet)
+STR_SMALL_FREIGHTER                                             :Kisebb teherhajó partmenti és belvizi szállításra.
+STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Kis általános célú szállítóhajó
+STR_SMALL_TANKER_COASTAL_INLAND                                 :Kis tankhajó partmenti és belvizi szállításra
+STR_TRAWLER                                                     :Halászhajó (elsősorban halszállításra)
+STR_VEHICLE_FERRY                                               :Autós komp
+
+
+STR_GENERIC_REFIT_SUBTYPE                                       :({COMMA}{STRING})
+STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}Átalakítható rakományokra: {GOLD}{COMMA}, {COMMA} vagy {COMMA}{STRING}
+STR_QUANTITY_WOOD                                               :tonna fa
+STR_QUANTITY_LIVESTOCK                                          :darab élőállat
+STR_UNIT_TONNES                                                 :tonna
+STR_UNIT_ITEMS                                                  :darab

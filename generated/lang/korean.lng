@@ -1,0 +1,87 @@
+##grflangid 0x3a
+##plural 11
+##gender m f
+STR_GRF_DESCRIPTION                                             :라이선스: {SILVER}GPL v2{}{BLACK}
+
+
+STR_EMPTY                                                       :
+
+
+STR_PARAM_RESET_CONSTRUCTION_COSTS                              :운하, 송수로, 갑문 건설시 개선된 건설 비용을 사용합니다.
+STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :운하, 송수로, 갑문 건설 및 파괴시 비용을 감소시킵니다. 해안 운송과 다른 운송을 더 균형잡히게 합니다.
+STR_PARAM_ADJUST_SHIP_SPEEDS                                    :배의 속력
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :매우 지루하다
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :필수적인
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :치트
+STR_PARAM_ROSTER                                                :등록부
+STR_PARAM_ROSTER_DESC                                           :어떤 종류의 선박 세트를 사용할 것인지 고르십시오.
+STR_PARAM_ROSTER_OPTION_0                                       :중심 섬
+STR_PARAM_ROSTER_OPTION_1                                       :푸른 다뉴브 호
+
+STR_NAME_SUFFIX_BARGE_TUG                                       :예인 바지선
+STR_NAME_SUFFIX_CATAMARAN                                       :쌍둥선
+STR_NAME_SUFFIX_CONTAINER_FEEDER                                :컨테이너 선박
+STR_NAME_SUFFIX_CONTAINER_BARGE                                 :컨테이너 바지선
+STR_NAME_SUFFIX_FERRY                                           :연락선
+STR_NAME_SUFFIX_FAST_FERRY                                      :빠른 연락선
+STR_NAME_SUFFIX_FREIGHTER                                       :화물선
+STR_NAME_SUFFIX_FREIGHT_BARGE                                   :화물 바지선
+STR_NAME_SUFFIX_HOVERCRAFT                                      :호버크래프트
+STR_NAME_SUFFIX_HYDROFOIL                                       :수중익선
+STR_NAME_SUFFIX_LIVESTOCK_SHIP                                  :가축 선박
+STR_NAME_SUFFIX_LOG_TUG                                         :나무 예인선
+STR_NAME_SUFFIX_PADDLE_STEAMER                                  :외륜선
+STR_NAME_SUFFIX_REEFER                                          :냉장 선박
+STR_NAME_SUFFIX_RIG_SUPPLY_FAST_CATAMARAN                       :빠른 공급 선박
+STR_NAME_SUFFIX_STEAMER                                         :증기선
+STR_NAME_SUFFIX_TANKER                                          :유조선
+STR_NAME_SUFFIX_TANKER_BARGE                                    :유조 바지선
+STR_NAME_SUFFIX_TRAWLER                                         :저인망 어선
+STR_NAME_SUFFIX_UTILITY_VESSEL                                  :다용도 선박
+STR_NAME_SUFFIX_UTILITY_TUG                                     :다용도 예인선
+
+
+STR_BUY_MENU_TEXT                                               :{} 화물: {GOLD}{STRING}{}{STRING}
+STR_BUY_MENU_REFIT_CAPACITIES_PACKET                            :{}{BLACK}수개조되었을 때의 수송량: {GOLD}우편{COMMA}자루 또는 급행 화물{COMMA}톤
+STR_BUY_MENU_REFIT_CAPACITIES_TRAWLER                           :{}{BLACK}개조되었을 때의 수송량: 승객{GOLD}{COMMA}명, 우편 {COMMA}자루, 수산물 {COMMA}톤, 또는 갑판 수송 급행 화물 {COMMA}톤
+STR_BUY_MENU_REFIT_CAPACITIES_UTILITY                           :{}{BLACK}개조되었을 떄의 수송량: {GOLD}우편{COMMA}자루 또는 화물 {COMMA}톤
+
+
+STR_BARGE_TUG                                                   :예인 바지선
+STR_CARGO_HOVERCRAFT                                            :화물 호버크래프트
+STR_CARGO_VESSEL_INLAND                                         :근해 운항을 위한 화물선
+STR_SMALL_CARGO_VESSEL_INLAND                                   :내륙 수로를 위한 작은 화물선
+STR_CATAMARAN_FAST_FERRY                                        :속력이 빠른 페리형 쌍둥선
+STR_COASTAL_TANKER                                              :연안 유조선
+STR_COASTER                                                     :근해 운항을 위한 화물선
+STR_CONTAINER_FEEDER                                            :작은 컨테이너 선박
+STR_CONTAINER_BARGE                                             :내륙 수로를 위한 컨테이너 화물선
+STR_FAST_GENERAL_PURPOSE_VESSEL                                 :빠른 다목적 선박
+STR_FAST_PACKET_STEAMER                                         :빠른 증기 우편선
+STR_SMALL_FERRY                                                 :작은 페리
+STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :다용도 해양 선박
+STR_GENERAL_PURPOSE_VESSEL                                      :다목적 선박
+STR_HOVERCRAFT_FAST_FERRY                                       :속력이 빠른 호버크라프트 페리
+STR_HYDROFOIL_FAST_FERRY                                        :고속 수중익선 연락선
+STR_JUMBO_VEHICLE_FERRY                                         :점보 연락선
+STR_LARGE_COASTAL_TANKER                                        :매우 큰 연안 유조선
+STR_LARGE_TANKER_COASTAL_INLAND                                 :근해와 내륙 수로를 위한 큰 유조선
+STR_LARGE_COASTER                                               :큰 연안 화물선
+STR_LIVESTOCK_SHIP                                              :가축 선박
+STR_LOG_TUG                                                     :통나무 운송 예인선
+STR_PADDLE_STEAMER                                              :외륜선
+STR_RIG_SUPPLY_FAST_CATAMARAN                                   :섬 및 해안 산업을 공급해주는 빠른 쌍둥선
+STR_REEFER                                                      :냉장 기능 포함 선박 (상할 수 있는 화물의 지불 금액 증가)
+STR_SMALL_FREIGHTER                                             :작은 화물선
+STR_SMALL_GENERAL_PURPOSE_VESSEL                                :작은 다목적 선박
+STR_SMALL_TANKER_COASTAL_INLAND                                 :내륙 수로와 근해를 위한 작은 유조선
+STR_TRAWLER                                                     :저인망 어선(물고기를 잡고 있기 위한)
+STR_VEHICLE_FERRY                                               :차량 연락선
+
+
+STR_GENERIC_REFIT_SUBTYPE                                       :{COMMA}{STRING}
+STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}확장 가능 수용량: {GOLD}{COMMA}, {COMMA} 또는 {COMMA}{STRING}
+STR_QUANTITY_WOOD                                               :톤의 나무
+STR_QUANTITY_LIVESTOCK                                          :가축의 수량
+STR_UNIT_TONNES                                                 :톤
+STR_UNIT_ITEMS                                                  :아이템

@@ -1,0 +1,88 @@
+##grflangid 0x13
+##plural 13
+##gender m f
+##case dat gen nom voc
+STR_GRF_DESCRIPTION                                             :Ceadachas: {SILVER}GPL v2{}{BLACK}
+
+
+STR_EMPTY                                                       :
+
+
+STR_PARAM_RESET_CONSTRUCTION_COSTS                              :Cleachd cosgaisean togail leasaichte airson chanalan, ductaichean-uisge ’s locan.
+STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :Ìslichidh seo na cosgaisean togail (’s toirt air falbh) airson canalan, ductaichean-uisge ’s locan.  Bheir seo meidh nas fhearr dut eadar giùlan uisge ’s seòrsaichean giùlain eile.
+STR_PARAM_ADJUST_SHIP_SPEEDS                                    :Luaths luinge
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :Cho mall ri seilcheig
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :Barrail
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :Cealgaireachd
+STR_PARAM_ROSTER                                                :Clàr nan longan
+STR_PARAM_ROSTER_DESC                                           :Tagh an seata de longan a chleachdas tu.
+STR_PARAM_ROSTER_OPTION_0                                       :A' Bhreatann
+STR_PARAM_ROSTER_OPTION_1                                       :An Danub Ghorm
+
+STR_NAME_SUFFIX_BARGE_TUG                                       :Tuga bàirc
+STR_NAME_SUFFIX_CATAMARAN                                       :Catamaran
+STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Soitheach-solair bhogsaichean-luchd
+STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Bàrc bhogsaichean-luchd
+STR_NAME_SUFFIX_FERRY                                           :Bàta-aiseig
+STR_NAME_SUFFIX_FAST_FERRY                                      :Bàta-aiseig luath
+STR_NAME_SUFFIX_FREIGHTER                                       :Bàta-frachd
+STR_NAME_SUFFIX_FREIGHT_BARGE                                   :Bàrc frachd
+STR_NAME_SUFFIX_HOVERCRAFT                                      :Bàta-falbhain
+STR_NAME_SUFFIX_HYDROFOIL                                       :Hàidreafoidhl
+STR_NAME_SUFFIX_LIVESTOCK_SHIP                                  :Long sprèidhe
+STR_NAME_SUFFIX_LOG_TUG                                         :Tuga stiuc fiodha
+STR_NAME_SUFFIX_PADDLE_STEAMER                                  :Bàta-smùide le cuibhle-ràmh
+STR_NAME_SUFFIX_REEFER                                          :Long fuaraidh
+STR_NAME_SUFFIX_RIG_SUPPLY_FAST_CATAMARAN                       :Soitheach solair luath
+STR_NAME_SUFFIX_STEAMER                                         :Bàta-smùide
+STR_NAME_SUFFIX_TANKER                                          :Tancair
+STR_NAME_SUFFIX_TANKER_BARGE                                    :Bàrc tancair
+STR_NAME_SUFFIX_TRAWLER                                         :Bàta-sgrìobaidh
+STR_NAME_SUFFIX_UTILITY_VESSEL                                  :Soitheach ghoireasan
+STR_NAME_SUFFIX_UTILITY_TUG                                     :Tuga ghoireasan
+
+
+STR_BUY_MENU_TEXT                                               :{}Seòrsa: {GOLD}{STRING}{}{STRING}
+STR_BUY_MENU_REFIT_CAPACITIES_PACKET                            :{}{BLACK}Tomhas-lìonaidh às dèidh a’ mùthaidh: {GOLD}{COMMA} {P bhaga bhaga bagaichean baga}-puist no {COMMA}t de luath-fhrachd
+STR_BUY_MENU_REFIT_CAPACITIES_TRAWLER                           :{}{BLACK}Tomhas-lìonaidh às dèidh a’ mùthaidh: {GOLD}{COMMA} {P taistealach thaistealach taistealaich taistealach}, {COMMA} {P bhaga bhaga bagaichean baga}-puist, {COMMA}t de dh’iasg sa cheàrn no {COMMA}t de luath-fhrachd mar charago uachdair
+STR_BUY_MENU_REFIT_CAPACITIES_UTILITY                           :{}{BLACK}Tomhas-lìonaidh às dèidh a’ mùthaidh: {GOLD}{COMMA} {P bhaga bhaga bagaichean baga}-puist no {COMMA}t de fhrachd
+
+
+STR_BARGE_TUG                                                   :Tuga bàirc
+STR_CARGO_HOVERCRAFT                                            :Bàta-falbhain frachd
+STR_CARGO_VESSEL_INLAND                                         :Bàta-frachd airson slighean-uisge meadhan tìre
+STR_SMALL_CARGO_VESSEL_INLAND                                   :Bàta-frachd beag airson slighean-uisge meadhan tìre
+STR_CATAMARAN_FAST_FERRY                                        :Catamaran-aiseig luath
+STR_COASTAL_TANKER                                              :Tancair cladaich
+STR_COASTER                                                     :Long-frachd cladaich
+STR_CONTAINER_FEEDER                                            :Long bhogsaichean-luchd bheag
+STR_CONTAINER_BARGE                                             :Bàta bhogsaichean-luchd airson slighean-uisge meadhan tìre
+STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Soitheach coitcheann luath
+STR_FAST_PACKET_STEAMER                                         :Bàta-smùide phacaidean luath
+STR_SMALL_FERRY                                                 :Bàta-aiseig beag
+STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :Soitheach-mara coitcheann
+STR_GENERAL_PURPOSE_VESSEL                                      :Soitheach coitcheann
+STR_HOVERCRAFT_FAST_FERRY                                       :Bàta-falbhain-aiseig luath
+STR_HYDROFOIL_FAST_FERRY                                        :Bàta-aiseig hàidreafoidhl luath
+STR_JUMBO_VEHICLE_FERRY                                         :Long-aiseig mhòr
+STR_LARGE_COASTAL_TANKER                                        :Tancair cladaich mòr
+STR_LARGE_TANKER_COASTAL_INLAND                                 :Tancair mòr airson slighean-uisge meadhan tìre ’s a’ chladaich
+STR_LARGE_COASTER                                               :Long-frachd cladaich mhòr
+STR_LIVESTOCK_SHIP                                              :Long sprèidhe
+STR_LOG_TUG                                                     :Tuga gus stiuc fiodha a thobhadh
+STR_PADDLE_STEAMER                                              :Bàta-smùide le cuibhle-ràmh
+STR_RIG_SUPPLY_FAST_CATAMARAN                                   :Catamaran luath gus bathar a sholar a dh’eileanan ’s gnìomhachasan far-chladach
+STR_REEFER                                                      :Long fuaraidh (gheibh thu barrachd airgid airson carago meathach)
+STR_SMALL_FREIGHTER                                             :Bàta-frachd beag
+STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Soitheach beag coitcheann
+STR_SMALL_TANKER_COASTAL_INLAND                                 :Tancair beag airson slighean-uisge meadhan tìre ’s a’ chladaich
+STR_TRAWLER                                                     :Bàta-sgrìobaidh (le ceàrn airson iasg)
+STR_VEHICLE_FERRY                                               :Bàta-aiseig charbadan
+
+
+STR_GENERIC_REFIT_SUBTYPE                                       : ({COMMA}{STRING})
+STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}Tomhasan-lìonaidh a ghabhas mùthadh: {GOLD}{COMMA}, {COMMA} no {COMMA}{STRING}
+STR_QUANTITY_WOOD                                               :tunna de dh’fhiodh
+STR_QUANTITY_LIVESTOCK                                          :aonadan sprèidhe
+STR_UNIT_TONNES                                                 :tunna
+STR_UNIT_ITEMS                                                  :aonadan

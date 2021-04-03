@@ -1,0 +1,18 @@
+<tal:main_template metal:use-macro="load:main_template.pt">
+<tal:body_content metal:fill-slot='body'>
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="nav nav-list well">
+                <metal:block define-slot="sidebar_nav">
+                    <p>Ooooops - there is no content for some reason. Something has probably gone nuts in the build. </p>
+                </metal:block>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <metal:block define-slot="body">
+                <p>Ooooops - there is no content for some reason. Something has probably gone nuts in the build. </p>
+            </metal:block>
+        </div>
+    </div>
+</tal:body_content>
+</tal:main_template>

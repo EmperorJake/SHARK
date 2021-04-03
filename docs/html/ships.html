@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title >Squid Ate FISH</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="static/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link type="text/css" href="static/css/style.css" rel="stylesheet">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="static/font-awesome/css/font-awesome.min.css" />
+    <!--/Font Awesome-->
+
+    <script type="text/javascript" src="static/js/jquery-1.9.1.min.js"></script>
+
+    <script type="text/javascript" src="static/js/jquery.metadata.js"></script>
+    <script type="text/javascript" src="static/js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="static/js/jquery.tablesorter.widgets.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.tablesorter').tablesorter({
+                textExtraction: function(node){
+                            var cell_value = $(node).text();
+                            var sort_value = $(node).data('value');
+                    return (sort_value != undefined) ? sort_value : cell_value;
+                 },
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-static-top" style="margin-bottom:0; border-bottom:1px solid #000;">
+        <div class="container">
+            <ul class="nav navbar-nav pull-left">
+                <li class="">
+                    <a href="get_started.html">Get Started</a>
+                </li>
+                <li class="active">
+                    <a href="ships.html">Ships</a>
+                </li>
+                <li class="">
+                    <a href="code_reference.html">Code Reference</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li class="">
+                    <a href="translations.html"><i class="icon-globe icon-white"></i> Help Translate FISH</a>
+                </li>
+                <li>
+                    <a href="http://www.tt-forums.net/viewtopic.php?f=26&amp;t=44613"><i class="icon-comment icon-white"></i> Discuss at TT-Forums.net</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="hero-unit subhead">
+        <script language="JavaScript">
+        function random_img(){
+            var images=new Array("",
+                                 "");
+
+            var random_image=images[Math.floor(Math.random()*images.length)];
+            document.write('<a href="ships.html#' + random_image + '"><img class="pull-right" style="margin-top:-30px; margin-bottom:0;" src="static/img/industries/'+ random_image +'.png"></a>')
+        }
+        random_img()
+        </script>
+        <div class="container">
+            <h1 style="font-size:48px; padding-top:30px;">Squid Ate FISH</h1>
+            <p class="lead">New Ships for OpenTTD</p>
+        </div>
+    </div>
+    
+        
+    
+    <div class="container">
+        <div>
+
+    <div class="span12">
+        <h2>49 ships for OpenTTD</h2>
+        <hr />
+        
+            <h3 id="There is only one roster">There is only one roster</h3>
+            <p>49 Ships</p>
+            <table class="table table-striped tablesorter">
+                <thead>
+                    <tr>
+                        <th>Ship Name</th>
+                        <th class="number">Intro Date</th>
+                        <th>Extra Info</th>
+                        <th>Speed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                        
+                            <tr>
+                                <td>Fitzroy  Ferry</td>
+                                <td class="number">1860</td>
+                                <td>Small Ferry</td>
+                                <td>20 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Johann Strauss  Paddle Steamer</td>
+                                <td class="number">1860</td>
+                                <td>Paddle steamer</td>
+                                <td>20 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Fish Island  Trawler</td>
+                                <td class="number">1860</td>
+                                <td>Trawler (dedicated hold for fish)</td>
+                                <td>18 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Harbour Point  Utility Vessel</td>
+                                <td class="number">1860</td>
+                                <td>Small general purpose vessel</td>
+                                <td>19 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Whitgift  Freight Barge</td>
+                                <td class="number">1860</td>
+                                <td>Small freighter for inland waterways</td>
+                                <td>18 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Saint Marie  Freight Barge</td>
+                                <td class="number">1860</td>
+                                <td>Freighter for inland waterways</td>
+                                <td>16 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Little Cumbrae  Freighter</td>
+                                <td class="number">1860</td>
+                                <td>Small Freighter</td>
+                                <td>18 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Saint Marie  Freight Barge</td>
+                                <td class="number">1860</td>
+                                <td>Freighter for inland waterways</td>
+                                <td>16 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Constance  Freight Barge</td>
+                                <td class="number">1885</td>
+                                <td>Freighter for inland waterways</td>
+                                <td>18 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Banquereau  Ferry</td>
+                                <td class="number">1890</td>
+                                <td>Small Ferry</td>
+                                <td>20 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Altamira  Freighter</td>
+                                <td class="number">1890</td>
+                                <td>Coastal freighter</td>
+                                <td>18 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Quessant  Freighter</td>
+                                <td class="number">1895</td>
+                                <td>Large coastal freighter</td>
+                                <td>18 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Fastnet  Paddle Steamer</td>
+                                <td class="number">1900</td>
+                                <td>Paddle steamer</td>
+                                <td>28 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Castle Point  Steamer</td>
+                                <td class="number">1900</td>
+                                <td>Fast Packet steamer</td>
+                                <td>28 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Pine Island  Log Tug</td>
+                                <td class="number">1900</td>
+                                <td>Tugboat for towing floating logs</td>
+                                <td>12 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Frisco Bay  Freighter</td>
+                                <td class="number">1905</td>
+                                <td>Large coastal freighter</td>
+                                <td>18 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Tiree  Ferry</td>
+                                <td class="number">1917</td>
+                                <td>Vehicle ferry</td>
+                                <td>21 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Castle Point  Tanker</td>
+                                <td class="number">1920</td>
+                                <td>Small tanker for coastal and inland waterways</td>
+                                <td>20 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Geneva  Freight Barge</td>
+                                <td class="number">1920</td>
+                                <td>Freighter for inland waterways</td>
+                                <td>16 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Roland  Tanker</td>
+                                <td class="number">1926</td>
+                                <td>Coastal tanker</td>
+                                <td>20 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Volgoneft 630  Tanker</td>
+                                <td class="number">1930</td>
+                                <td>Large tanker for coastal and inland waterways</td>
+                                <td>18 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Shannon  Freighter</td>
+                                <td class="number">1934</td>
+                                <td>Large coastal freighter</td>
+                                <td>23 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Rosario  Ferry</td>
+                                <td class="number">1937</td>
+                                <td>Vehicle ferry</td>
+                                <td>23 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Cape Spear  Trawler</td>
+                                <td class="number">1948</td>
+                                <td>Trawler (dedicated hold for fish)</td>
+                                <td>21 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Grindavik  Reefer</td>
+                                <td class="number">1950</td>
+                                <td>Refrigerated ship (improved payment rate for perishable cargos)</td>
+                                <td>26 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Oran  Freighter</td>
+                                <td class="number">1952</td>
+                                <td>Coastal freighter</td>
+                                <td>23 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Santorini  Freighter</td>
+                                <td class="number">1953</td>
+                                <td>Large coastal freighter</td>
+                                <td>23 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Stornoway  Ferry</td>
+                                <td class="number">1956</td>
+                                <td>Vehicle ferry</td>
+                                <td>23 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Klyazma  Hydrofoil</td>
+                                <td class="number">1957</td>
+                                <td>Hydrofoil fast ferry</td>
+                                <td>45 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Volgoneft 320  Tanker</td>
+                                <td class="number">1958</td>
+                                <td>Small tanker for coastal and inland waterways</td>
+                                <td>18 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Maddalena  Ferry</td>
+                                <td class="number">1959</td>
+                                <td>Vehicle ferry</td>
+                                <td>23 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Shark Island  Livestock Ship</td>
+                                <td class="number">1960</td>
+                                <td>Livestock ship</td>
+                                <td>26 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Nanaimo 70  Hovercraft</td>
+                                <td class="number">1965</td>
+                                <td>Hovercraft fast ferry</td>
+                                <td>70 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Provence Edibles  Tanker</td>
+                                <td class="number">1965</td>
+                                <td>Small tanker for coastal and inland waterways</td>
+                                <td>26 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Pegwell Super 4  Hovercraft</td>
+                                <td class="number">1968</td>
+                                <td>Hovercraft fast ferry</td>
+                                <td>70 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Meteor  Freighter</td>
+                                <td class="number">1968</td>
+                                <td>Small Freighter</td>
+                                <td>26 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Marstein  Freighter</td>
+                                <td class="number">1968</td>
+                                <td>Small Freighter</td>
+                                <td>26 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Cadiz  Freighter</td>
+                                <td class="number">1970</td>
+                                <td>Coastal freighter</td>
+                                <td>26 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Thunder Bay  Hovercraft</td>
+                                <td class="number">1972</td>
+                                <td>Freight hovercraft</td>
+                                <td>46 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>DANUBE LARGE  Ferry</td>
+                                <td class="number">1973</td>
+                                <td>Vehicle ferry</td>
+                                <td>30 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Yokohama  Tanker</td>
+                                <td class="number">1973</td>
+                                <td>Large coastal tanker</td>
+                                <td>26 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Matsushima  Hydrofoil</td>
+                                <td class="number">1978</td>
+                                <td>Hydrofoil fast ferry</td>
+                                <td>56 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Nieuwpoort  Container Feeder</td>
+                                <td class="number">1979</td>
+                                <td>Small container ship</td>
+                                <td>30 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Maspalomas  Freighter</td>
+                                <td class="number">1985</td>
+                                <td>Large coastal freighter</td>
+                                <td>26 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Endeavour  Fast Supply Vessel</td>
+                                <td class="number">1988</td>
+                                <td>Fast catamaran for supplying islands and offshore industries</td>
+                                <td>45 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>San Juan  Ferry</td>
+                                <td class="number">1990</td>
+                                <td>Vehicle ferry</td>
+                                <td>30 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Dieze  Container Barge</td>
+                                <td class="number">1990</td>
+                                <td>Small container ship</td>
+                                <td>25 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Enoshima  Fast Ferry</td>
+                                <td class="number">1997</td>
+                                <td>Catamaran fast ferry</td>
+                                <td>50 mph</td>
+                            </tr>
+                        
+                    
+                        
+                            <tr>
+                                <td>Mount Blaze  Fast Ferry</td>
+                                <td class="number">2008</td>
+                                <td>Catamaran fast ferry</td>
+                                <td>60 mph</td>
+                            </tr>
+                        
+                    
+                </tbody>
+            </table>
+        
+    </div>
+
+</div>
+    </div>
+    <div style="margin-top:30px; text-align:center; color:#999; padding:5px; background-color:#eee; border-top:solid 1px #ddd; box-shadow: inset 0px 1px 1px #ddd">
+        Squid Ate FISH, with thanks to all who helped
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

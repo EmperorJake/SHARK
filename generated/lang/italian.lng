@@ -1,0 +1,88 @@
+##grflangid 0x27
+##plural 0
+##gender m ma f
+##case fp fs mp ms
+STR_GRF_DESCRIPTION                                             :Licenza: {SILVER}GPL v2{}{BLACK}
+
+
+STR_EMPTY                                                       :
+
+
+STR_PARAM_RESET_CONSTRUCTION_COSTS                              :Migliora i costi di costruzione di canali, acquedotti e chiuse.
+STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :Riduce i costi di costruzione (e rimozione) di canali, aquedotti e chiuse. Offre maggior equilibrio tra trasporto su acqua e altri tipi di trasporto.
+STR_PARAM_ADJUST_SHIP_SPEEDS                                    :Velocità delle navi
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :Come guardare la vernice asciugarsi
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :Ideale
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :Troppo facile
+STR_PARAM_ROSTER                                                :Lista
+STR_PARAM_ROSTER_DESC                                           :Scegli quale set di navi utilizzare.
+STR_PARAM_ROSTER_OPTION_0                                       :Questa Grande Inghilterra
+STR_PARAM_ROSTER_OPTION_1                                       :Il Danubio Blu
+
+STR_NAME_SUFFIX_BARGE_TUG                                       :Rimorchiatore per chiatte
+STR_NAME_SUFFIX_CATAMARAN                                       :Catamarano
+STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Feeder per container
+STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Chiatta per container
+STR_NAME_SUFFIX_FERRY                                           :Nave passeggeri
+STR_NAME_SUFFIX_FAST_FERRY                                      :Nave passeggeri veloce
+STR_NAME_SUFFIX_FREIGHTER                                       :Nave mercantile
+STR_NAME_SUFFIX_FREIGHT_BARGE                                   :Chiatta per merci
+STR_NAME_SUFFIX_HOVERCRAFT                                      :Hovercraft
+STR_NAME_SUFFIX_HYDROFOIL                                       :Aliscafo
+STR_NAME_SUFFIX_LIVESTOCK_SHIP                                  :Nave bestiame
+STR_NAME_SUFFIX_LOG_TUG                                         :Rimorchiatore per tronchi
+STR_NAME_SUFFIX_PADDLE_STEAMER                                  :Piroscafo a ruota
+STR_NAME_SUFFIX_REEFER                                          :Nave frigorifera
+STR_NAME_SUFFIX_RIG_SUPPLY_FAST_CATAMARAN                       :Nave veloce per rifornimento
+STR_NAME_SUFFIX_STEAMER                                         :Piroscafo
+STR_NAME_SUFFIX_TANKER                                          :Petroliera
+STR_NAME_SUFFIX_TANKER_BARGE                                    :Chiatta petroliera
+STR_NAME_SUFFIX_TRAWLER                                         :Peschereccio da strascico
+STR_NAME_SUFFIX_UTILITY_VESSEL                                  :Nave di supporto
+STR_NAME_SUFFIX_UTILITY_TUG                                     :Rimorchiatore di supporto
+
+
+STR_BUY_MENU_TEXT                                               :{}Tipo: {GOLD}{STRING}{}{STRING}
+STR_BUY_MENU_REFIT_CAPACITIES_PACKET                            :{}{BLACK}Capacità dopo riadattamento: {GOLD}{COMMA} sacchi di posta o {COMMA}t di merci leggere
+STR_BUY_MENU_REFIT_CAPACITIES_TRAWLER                           :{}{BLACK}Capacità dopo riadattamento: {GOLD}{COMMA} passeggeri, {COMMA} sacchi di posta, {COMMA}t pesce nella stiva, o {COMMA}t di merci leggere come carico sul ponte
+STR_BUY_MENU_REFIT_CAPACITIES_UTILITY                           :{}{BLACK}Capacità dopo riadattamento: {GOLD}{COMMA} sacchi di posta o {COMMA}t di merci
+
+
+STR_BARGE_TUG                                                   :Rimorchiatore per chiatte
+STR_CARGO_HOVERCRAFT                                            :Hovercraft mercantile
+STR_CARGO_VESSEL_INLAND                                         :Nave mercantile per acque interne
+STR_SMALL_CARGO_VESSEL_INLAND                                   :Piccola imbarcazione mercantile per le acque interne
+STR_CATAMARAN_FAST_FERRY                                        :Catamarano passeggeri veloce
+STR_COASTAL_TANKER                                              :Petroliera costiera
+STR_COASTER                                                     :Nave mercantile costiera
+STR_CONTAINER_FEEDER                                            :Nave portacontainer piccola
+STR_CONTAINER_BARGE                                             :Nave portacontainer per acque interne
+STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Imbarcazione veloce per uso universale
+STR_FAST_PACKET_STEAMER                                         :Piroscafo veloce
+STR_SMALL_FERRY                                                 :Nave passeggeri piccola
+STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :Imbarcazione marittima per uso universale
+STR_GENERAL_PURPOSE_VESSEL                                      :Imbarcazione per uso universale
+STR_HOVERCRAFT_FAST_FERRY                                       :Hovercraft veloce
+STR_HYDROFOIL_FAST_FERRY                                        :Aliscafo veloce
+STR_JUMBO_VEHICLE_FERRY                                         :Nave passeggeri ad alta capacità
+STR_LARGE_COASTAL_TANKER                                        :Petroliera costiera grande
+STR_LARGE_TANKER_COASTAL_INLAND                                 :Petroliera grande per acque interne e costali
+STR_LARGE_COASTER                                               :Nave mercantile costiera grande
+STR_LIVESTOCK_SHIP                                              :Nave bestiame
+STR_LOG_TUG                                                     :Rimorchiatore per tronchi galleggianti
+STR_PADDLE_STEAMER                                              :Piroscafo a ruota
+STR_RIG_SUPPLY_FAST_CATAMARAN                                   :Catamarano veloce per rifornimento di isole e industrie in mare aperto
+STR_REEFER                                                      :Nave frigorifera (profitti superiori dai carichi deperibili)
+STR_SMALL_FREIGHTER                                             :Nave mercantile piccola
+STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Piccola imbarcazione per uso universale
+STR_SMALL_TANKER_COASTAL_INLAND                                 :Petroliera piccola costiera e per acque interne
+STR_TRAWLER                                                     :Peschereccio da strascico (con stiva per il pesce)
+STR_VEHICLE_FERRY                                               :Traghetto
+
+
+STR_GENERIC_REFIT_SUBTYPE                                       : ({COMMA}{STRING})
+STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}Capacità di riadattamento: {GOLD}{COMMA}, {COMMA} o {COMMA}{STRING}
+STR_QUANTITY_WOOD                                               :tonnellate di legname
+STR_QUANTITY_LIVESTOCK                                          :capi di bestiame
+STR_UNIT_TONNES                                                 :tonnellate
+STR_UNIT_ITEMS                                                  :capi

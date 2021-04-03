@@ -1,0 +1,36 @@
+<tal:main_template metal:use-macro="load:main_template.pt">
+<div metal:fill-slot='body'>
+
+    <div class="span12">
+        <h2>${len(ships)} ships for OpenTTD</h2>
+        <hr />
+        <tal:rosters repeat="roster registered_rosters">
+            <h3 id="${doc_helper.get_roster_name(repeat.roster.index)}">${doc_helper.get_roster_name(repeat.roster.index)}</h3>
+            <p>${len(roster.buy_menu_sort_order)} Ships</p>
+            <table class="table table-striped tablesorter">
+                <thead>
+                    <tr>
+                        <th>Ship Name</th>
+                        <th class="number">Intro Date</th>
+                        <th>Extra Info</th>
+                        <th>Speed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tal:build_ships_list repeat="ship ships">
+                        <tal:ship_in_roster condition="ship.id in roster.buy_menu_sort_order">
+                            <tr>
+                                <td>${ship.get_name_substr()} ${base_lang_strings[ship.get_str_name_suffix()]}</td>
+                                <td class="number">${ship.intro_date}</td>
+                                <td>${base_lang_strings[ship.get_str_type_info()]}</td>
+                                <td>${int(ship.speed)} mph</td>
+                            </tr>
+                        </tal:ship_in_roster>
+                    </tal:build_ships_list>
+                </tbody>
+            </table>
+        </tal:rosters>
+    </div>
+
+</div>
+</tal:main_template>

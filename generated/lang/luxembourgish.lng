@@ -1,0 +1,86 @@
+##grflangid 0x23
+##plural 0
+STR_GRF_DESCRIPTION                                             :Lizenz: {SILVER}GPL v2{}{BLACK}
+
+
+STR_EMPTY                                                       :
+
+
+STR_PARAM_RESET_CONSTRUCTION_COSTS                              :Benotz verbessert Konstruktiounskäschten fir Kanäl, Aquadukter a Schleisen.
+STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :Reduzéiert Konstruktiouns- (an Ofrapp) Käschten fir anäl, Aquadukter a Schleisen. Liwwert eng besser Balance tëscht dem Waassertransport an aneren Transporttypen.
+STR_PARAM_ADJUST_SHIP_SPEEDS                                    :Schëffsgeschw.
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :Dem Gras beim wuessen nokucken
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :Optimal
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :Fuddelen
+STR_PARAM_ROSTER                                                :Lëscht
+STR_PARAM_ROSTER_DESC                                           :Wiel wellecht Set vu Schëffer soll benotzt ginn.
+STR_PARAM_ROSTER_OPTION_0                                       :D'Zepterinsel
+STR_PARAM_ROSTER_OPTION_1                                       :D'Blo Donau
+
+STR_NAME_SUFFIX_BARGE_TUG                                       :Schlepper
+STR_NAME_SUFFIX_CATAMARAN                                       :Katamaran
+STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Containerschëff
+STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Containerfrachter
+STR_NAME_SUFFIX_FERRY                                           :Fähr
+STR_NAME_SUFFIX_FAST_FERRY                                      :Schnellfähr
+STR_NAME_SUFFIX_FREIGHTER                                       :Frachter
+STR_NAME_SUFFIX_FREIGHT_BARGE                                   :Frachter
+STR_NAME_SUFFIX_HOVERCRAFT                                      :Hovercraft
+STR_NAME_SUFFIX_HYDROFOIL                                       :Hydrofoil
+STR_NAME_SUFFIX_LIVESTOCK_SHIP                                  :Véitransporter
+STR_NAME_SUFFIX_LOG_TUG                                         :Beemstämmschlepper
+STR_NAME_SUFFIX_PADDLE_STEAMER                                  :Raddampschëff
+STR_NAME_SUFFIX_REEFER                                          :Killschëff
+STR_NAME_SUFFIX_RIG_SUPPLY_FAST_CATAMARAN                       :Schnellboot mat Ersatzdeeler
+STR_NAME_SUFFIX_STEAMER                                         :Dampschëff
+STR_NAME_SUFFIX_TANKER                                          :Tanker
+STR_NAME_SUFFIX_TANKER_BARGE                                    :Tankfrachter
+STR_NAME_SUFFIX_TRAWLER                                         :Kutter
+STR_NAME_SUFFIX_UTILITY_VESSEL                                  :Mehrzweckschëff
+STR_NAME_SUFFIX_UTILITY_TUG                                     :Mehrzweckschlepper
+
+
+STR_BUY_MENU_TEXT                                               :{}Typ: {GOLD}{STRING}{}{STRING}
+STR_BUY_MENU_REFIT_CAPACITIES_PACKET                            :{}{BLACK}Kapazitéit wann ëmgebaut: {GOLD}{COMMA} Postsäck {COMMA}t Expressliwwerungen
+STR_BUY_MENU_REFIT_CAPACITIES_TRAWLER                           :{}{BLACK}Kapazitéit wann ëmgebaut: {GOLD}{COMMA} Passagéier, {COMMA} Postsäck, {COMMA}t Fësch, oder {COMMA}t Expressliwwerung un Deck.
+STR_BUY_MENU_REFIT_CAPACITIES_UTILITY                           :{}{BLACK}Kapazitéit wann ëmgebaut: {GOLD}{COMMA} Säck Post oder {COMMA}t Fracht
+
+
+STR_BARGE_TUG                                                   :Schlepper
+STR_CARGO_HOVERCRAFT                                            :Frachthovercraft
+STR_CARGO_VESSEL_INLAND                                         :Frachter fir Kanäl
+STR_SMALL_CARGO_VESSEL_INLAND                                   :Klenge Frachter fir Kanäl
+STR_CATAMARAN_FAST_FERRY                                        :Katamaran Schnellfähr
+STR_COASTAL_TANKER                                              :Tanker fir Küstegewässer
+STR_COASTER                                                     :Frachter fir Küstegewässer
+STR_CONTAINER_FEEDER                                            :Klengt Containerschëff
+STR_CONTAINER_BARGE                                             :Containerschëff fir Kanäl
+STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Séiert Schëff fir allgemeng Aufgaben
+STR_FAST_PACKET_STEAMER                                         :Damppakschëff
+STR_SMALL_FERRY                                                 :Kleng Fähr
+STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :Héichséischëff fir allgemeng Aufgaben
+STR_GENERAL_PURPOSE_VESSEL                                      :Schëff fir allgemeng Aufgaben
+STR_HOVERCRAFT_FAST_FERRY                                       :Schnell Hovercraftfähr
+STR_HYDROFOIL_FAST_FERRY                                        :Hydrofoil Schnellfähr
+STR_JUMBO_VEHICLE_FERRY                                         :Riesefähr
+STR_LARGE_COASTAL_TANKER                                        :Groussen Tanker fir Küstegewässer
+STR_LARGE_TANKER_COASTAL_INLAND                                 :Groussen Tanker fir Küstegewässer a Kanäl
+STR_LARGE_COASTER                                               :Grousse Frachter fir Küstegewässer
+STR_LIVESTOCK_SHIP                                              :Véitransporter
+STR_LOG_TUG                                                     :Schlepper fir Beem am Waasser ze zéien
+STR_PADDLE_STEAMER                                              :Dampschëff
+STR_RIG_SUPPLY_FAST_CATAMARAN                                   :Séiere Katamaran fir Insel an Offshore Industrien ze beliwweren
+STR_REEFER                                                      :Killschëff (verbessert Akommes fir verdierfbar Wueren)
+STR_SMALL_FREIGHTER                                             :Klenge Frachter
+STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Klengt Schëff fir allgemeng Aufgaben
+STR_SMALL_TANKER_COASTAL_INLAND                                 :Klengen Tanker fir Küstegewässer a Kanäl
+STR_TRAWLER                                                     :Fëschkutter
+STR_VEHICLE_FERRY                                               :Autosfähr
+
+
+STR_GENERIC_REFIT_SUBTYPE                                       : ({COMMA}{STRING})
+STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}Emgebaute Kapazitéiten: {GOLD}{COMMA}, {COMMA} oder {COMMA}{STRING}
+STR_QUANTITY_WOOD                                               :Tonnen Holz
+STR_QUANTITY_LIVESTOCK                                          :Eenheete Véi
+STR_UNIT_TONNES                                                 :Tonnen
+STR_UNIT_ITEMS                                                  :Eenheeten

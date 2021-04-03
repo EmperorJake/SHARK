@@ -1,0 +1,88 @@
+##grflangid 0x07
+##plural 6
+##gender m f n p
+##case abl acc dat f gen m n nom p pre
+STR_GRF_DESCRIPTION                                             :Лицензия: {SILVER}GPL v2{}{BLACK}
+
+
+STR_EMPTY                                                       :
+
+
+STR_PARAM_RESET_CONSTRUCTION_COSTS                              :Использовать улучшенные стоимости строительства каналов, акведуков и шлюзов.
+STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :Уменьшить стоимость строительства каналов, акведуков и шлюзов. Улучшает баланс между водным транспортом и другими видами транспорта.
+STR_PARAM_ADJUST_SHIP_SPEEDS                                    :Скорость судна
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :Очень медленная
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :Оптимальная
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :Слишком просто
+STR_PARAM_ROSTER                                                :Распорядок
+STR_PARAM_ROSTER_DESC                                           :Определяет, какой набор судов использовать
+STR_PARAM_ROSTER_OPTION_0                                       :Остров Sceptered
+STR_PARAM_ROSTER_OPTION_1                                       :Дунай
+
+STR_NAME_SUFFIX_BARGE_TUG                                       :Буксир
+STR_NAME_SUFFIX_CATAMARAN                                       :Катамаран
+STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Контейнеровоз
+STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Баржа-контейнеровоз
+STR_NAME_SUFFIX_FERRY                                           :Паром
+STR_NAME_SUFFIX_FAST_FERRY                                      :Скоростной паром
+STR_NAME_SUFFIX_FREIGHTER                                       :Сухогруз
+STR_NAME_SUFFIX_FREIGHT_BARGE                                   :Баржа
+STR_NAME_SUFFIX_HOVERCRAFT                                      :Судно на воздушной подушке
+STR_NAME_SUFFIX_HYDROFOIL                                       :Судно на подводных крыльях
+STR_NAME_SUFFIX_LIVESTOCK_SHIP                                  :Судно-скотовоз
+STR_NAME_SUFFIX_LOG_TUG                                         :Лихтеровоз
+STR_NAME_SUFFIX_PADDLE_STEAMER                                  :Колесный пароход
+STR_NAME_SUFFIX_REEFER                                          :Рефрижератор
+STR_NAME_SUFFIX_RIG_SUPPLY_FAST_CATAMARAN                       :Скоростное судно обеспечения
+STR_NAME_SUFFIX_STEAMER                                         :Пароход
+STR_NAME_SUFFIX_TANKER                                          :Танкер
+STR_NAME_SUFFIX_TANKER_BARGE                                    :Баржа для перевозки жидких грузов
+STR_NAME_SUFFIX_TRAWLER                                         :Траулер
+STR_NAME_SUFFIX_UTILITY_VESSEL                                  :Судно обеспечения
+STR_NAME_SUFFIX_UTILITY_TUG                                     :Буксир обеспечения
+
+
+STR_BUY_MENU_TEXT                                               :{}Тип: {GOLD}{STRING}{}{STRING}
+STR_BUY_MENU_REFIT_CAPACITIES_PACKET                            :{}{BLACK}Вместимость: {GOLD}{COMMA} мешков почты или {COMMA} тонн грузов
+STR_BUY_MENU_REFIT_CAPACITIES_TRAWLER                           :{}{BLACK}Вместимость: {GOLD}{COMMA} пассажиров, {COMMA} мешков почты, {COMMA} тонн рыбы, или {COMMA} тонн грузов на верхней палубе
+STR_BUY_MENU_REFIT_CAPACITIES_UTILITY                           :{}{BLACK}Вместимость: {GOLD}{COMMA} мешков почты или {COMMA} тонн грузов
+
+
+STR_BARGE_TUG                                                   :Буксир
+STR_CARGO_HOVERCRAFT                                            :Грузовое суда на воздушной подушке
+STR_CARGO_VESSEL_INLAND                                         :Сухогруз речного класса
+STR_SMALL_CARGO_VESSEL_INLAND                                   :Малый сухогруз речного класса
+STR_CATAMARAN_FAST_FERRY                                        :Двухкорпусный скоростной паром
+STR_COASTAL_TANKER                                              :Танкер ближнего плавания
+STR_COASTER                                                     :Сухогруз класса река-море
+STR_CONTAINER_FEEDER                                            :Малый контейнеровоз
+STR_CONTAINER_BARGE                                             :Контейнеровоз речного класса
+STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Скоростной сухогруз
+STR_FAST_PACKET_STEAMER                                         :Скоростной пароход
+STR_SMALL_FERRY                                                 :Малый паром
+STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :Сухогруз дальнего плаванья
+STR_GENERAL_PURPOSE_VESSEL                                      :Сухогруз
+STR_HOVERCRAFT_FAST_FERRY                                       :Скоростной паром на воздушной подушке
+STR_HYDROFOIL_FAST_FERRY                                        :Скоростной паром на подводных крыльях
+STR_JUMBO_VEHICLE_FERRY                                         :Огромный паром
+STR_LARGE_COASTAL_TANKER                                        :Большой танкер ближнего плавания
+STR_LARGE_TANKER_COASTAL_INLAND                                 :Большой танкер ближнего плавания класса река-море
+STR_LARGE_COASTER                                               :Большой сухогруз класса река-море
+STR_LIVESTOCK_SHIP                                              :Судно-скотовоз
+STR_LOG_TUG                                                     :Буксир для буксировки леса
+STR_PADDLE_STEAMER                                              :Колесный пароход
+STR_RIG_SUPPLY_FAST_CATAMARAN                                   :Быстрый катамаран для обслуживания островов и морских объектов
+STR_REEFER                                                      :Рефрижератор (улучшенная оплата при перевозке скоропортящихся грузов)
+STR_SMALL_FREIGHTER                                             :Малый сухогруз ближнего плавания класса река-море
+STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Малый сухогруз
+STR_SMALL_TANKER_COASTAL_INLAND                                 :Малый танкер ближнего плавания класса река-море
+STR_TRAWLER                                                     :Траулер
+STR_VEHICLE_FERRY                                               :Автомобильный паром
+
+
+STR_GENERIC_REFIT_SUBTYPE                                       : ({COMMA}{STRING})
+STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}Вместимость: {GOLD}{COMMA}, {COMMA} или {COMMA}{STRING}
+STR_QUANTITY_WOOD                                               :тонн леса
+STR_QUANTITY_LIVESTOCK                                          :голов скота
+STR_UNIT_TONNES                                                 :тонн
+STR_UNIT_ITEMS                                                  :единиц

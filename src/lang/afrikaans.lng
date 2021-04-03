@@ -1,0 +1,87 @@
+##grflangid 0x1b
+##plural 0
+##gender male
+STR_GRF_DESCRIPTION                                             :Lisensie: {SILVER}GPL v2{}{BLACK}
+
+
+STR_EMPTY                                                       :
+
+
+STR_PARAM_RESET_CONSTRUCTION_COSTS                              :Gebruik verbeterde boukoste vir kanale, waterleidings en "locks".
+STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :Verminder konstruksie (en verwydering) koste vir kanale, waterleidings en "locks". Verskaf 'n beter balans tussen water vervoer en ander vervoer tipes.
+STR_PARAM_ADJUST_SHIP_SPEEDS                                    :Skip Spoed
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :Baie Stadig
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :Ideaal
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :Verneuk
+STR_PARAM_ROSTER                                                :Rooster
+STR_PARAM_ROSTER_DESC                                           :Kies watter stel skepe om te gebruik.
+STR_PARAM_ROSTER_OPTION_0                                       :Die 'Sceptered' Eiland
+STR_PARAM_ROSTER_OPTION_1                                       :Die Blou Danube
+
+STR_NAME_SUFFIX_BARGE_TUG                                       :Skip Sloep
+STR_NAME_SUFFIX_CATAMARAN                                       :Katamaran
+STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Boks Vervoerder
+STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Boks Sloep
+STR_NAME_SUFFIX_FERRY                                           :Veerboot
+STR_NAME_SUFFIX_FAST_FERRY                                      :Vinnige Veerboot
+STR_NAME_SUFFIX_FREIGHTER                                       :Verskeper
+STR_NAME_SUFFIX_FREIGHT_BARGE                                   :Vragsloep
+STR_NAME_SUFFIX_HOVERCRAFT                                      :Skeertuig
+STR_NAME_SUFFIX_HYDROFOIL                                       :Skeerboot
+STR_NAME_SUFFIX_LIVESTOCK_SHIP                                  :Lewendehawe Skip
+STR_NAME_SUFFIX_LOG_TUG                                         :Stomp Sleepboot
+STR_NAME_SUFFIX_PADDLE_STEAMER                                  :Spaanstoomboot
+STR_NAME_SUFFIX_REEFER                                          :Verkoeling
+STR_NAME_SUFFIX_RIG_SUPPLY_FAST_CATAMARAN                       :Vinnige Voorraad Skip
+STR_NAME_SUFFIX_STEAMER                                         :Stoomboot
+STR_NAME_SUFFIX_TANKER                                          :Tenkskip
+STR_NAME_SUFFIX_TANKER_BARGE                                    :Sloep Tenkskip
+STR_NAME_SUFFIX_TRAWLER                                         :Treiler
+STR_NAME_SUFFIX_UTILITY_VESSEL                                  :Veeldoelige Vaartuig
+STR_NAME_SUFFIX_UTILITY_TUG                                     :Veeldoelige Sleepboot
+
+
+STR_BUY_MENU_TEXT                                               :{}Tipe: {GOLD}{STRING}{}{STRING}
+STR_BUY_MENU_REFIT_CAPACITIES_PACKET                            :{}{BLACK}Dravermoë wanneer herbou: {GOLD}{COMMA} sakke pos of {COMMA}t snel vrag
+STR_BUY_MENU_REFIT_CAPACITIES_TRAWLER                           :{}{BLACK}Dravermoë wanneer herbou: {GOLD}{COMMA} passasiers, {COMMA} sakke pos, {COMMA}t of vis in skeepsruim, of {COMMA}t of snel vrag as dek vrag
+STR_BUY_MENU_REFIT_CAPACITIES_UTILITY                           :{}{BLACK}Dravermoë wanneer herbou: {GOLD}{COMMA} sakke pos of {COMMA}t vrag
+
+
+STR_BARGE_TUG                                                   :Skip sloep
+STR_CARGO_HOVERCRAFT                                            :Vrag skeertuig
+STR_CARGO_VESSEL_INLAND                                         :Vragskip vir binnelansdse waterweë (riviere, kanale en mere)
+STR_SMALL_CARGO_VESSEL_INLAND                                   :Klein verskeper vir binnelansdse waterweë
+STR_CATAMARAN_FAST_FERRY                                        :Vinnige Katamaran veerboot
+STR_COASTAL_TANKER                                              :Kus tenkskip
+STR_COASTER                                                     :Kusvaarder
+STR_CONTAINER_FEEDER                                            :Klein boks boot
+STR_CONTAINER_BARGE                                             :Boks vervoerder vir binnelandse waterweë
+STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Vinnige Algemeene Veeldoelige Vaartuig
+STR_FAST_PACKET_STEAMER                                         :Vinnige Pakket Stoomboot
+STR_SMALL_FERRY                                                 :Klein Veerboot
+STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :Veeldoelige seegaande vaartuig
+STR_GENERAL_PURPOSE_VESSEL                                      :Veeldoelige vaartuig
+STR_HOVERCRAFT_FAST_FERRY                                       :Vinnige Skeerveerboot
+STR_HYDROFOIL_FAST_FERRY                                        :Vinnige Skeerveerboot
+STR_JUMBO_VEHICLE_FERRY                                         :Jumbo veerboot
+STR_LARGE_COASTAL_TANKER                                        :Groot Kus tenkskip
+STR_LARGE_TANKER_COASTAL_INLAND                                 :Groot tenker vir kus en binnelandse waterweë
+STR_LARGE_COASTER                                               :Groot Kusvaarder
+STR_LIVESTOCK_SHIP                                              :Lewendehawe skip
+STR_LOG_TUG                                                     :Sleepboot wat hout sleep
+STR_PADDLE_STEAMER                                              :Spaanstoomboot
+STR_RIG_SUPPLY_FAST_CATAMARAN                                   :Vinnige katamaran wat eilande en see gebonde nywerhede voorsien
+STR_REEFER                                                      :Verkoelde skip (verbeterde betalings koers vir bederfbare vrag)
+STR_SMALL_FREIGHTER                                             :Klein Verskeper
+STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Klein veeldoelige vaartuig
+STR_SMALL_TANKER_COASTAL_INLAND                                 :Klein tenker vir kus en binnelandse waterweë
+STR_TRAWLER                                                     :Treiler (bedoel om vis te hou)
+STR_VEHICLE_FERRY                                               :Voertuig veerboot
+
+
+STR_GENERIC_REFIT_SUBTYPE                                       : ({COMMA}{STRING})
+STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}herboubare hoeveelheid: {GOLD}{COMMA}, {COMMA} of {COMMA}{STRING}
+STR_QUANTITY_WOOD                                               :ton hout
+STR_QUANTITY_LIVESTOCK                                          :items lewendehawe
+STR_UNIT_TONNES                                                 :Ton
+STR_UNIT_ITEMS                                                  : items

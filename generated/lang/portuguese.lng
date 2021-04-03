@@ -1,0 +1,66 @@
+##grflangid 0x36
+##plural 0
+##gender n m f mp fp
+STR_GRF_DESCRIPTION                                             :Licença: {SILVER}GPL v2{}{BLACK}
+
+
+STR_EMPTY                                                       :
+
+
+STR_PARAM_RESET_CONSTRUCTION_COSTS                              :Usar Custos de construção melhorados para canais, aquedutos e diques.
+STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :Reduz construção (e remoção) de custos para canais, aquedutos e diques. Fornece um melhor balanço entre transportes marítimos e outros tipos de transporte
+STR_PARAM_ADJUST_SHIP_SPEEDS                                    :Velocidade do navio
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :Como assistir a tinta a secar
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :Ideal
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :Batota
+STR_PARAM_ROSTER                                                :Registo
+STR_PARAM_ROSTER_DESC                                           :Escolher que conjunto de barcos usar.
+STR_PARAM_ROSTER_OPTION_0                                       :Esta Ilha de ceptro
+STR_PARAM_ROSTER_OPTION_1                                       :O Danúbio Azul
+
+STR_NAME_SUFFIX_BARGE_TUG                                       :Barcaça Rebocadora
+STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Alimentador de Contentores
+STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Porta Contentores
+STR_NAME_SUFFIX_FAST_FERRY                                      :Ferry rápido
+STR_NAME_SUFFIX_FREIGHT_BARGE                                   :Barcaça de transporte de mercadorias
+STR_NAME_SUFFIX_HYDROFOIL                                       :Hidrodinâmica
+STR_NAME_SUFFIX_LIVESTOCK_SHIP                                  :Navio de gado
+STR_NAME_SUFFIX_LOG_TUG                                         :Rebocador de troncos
+STR_NAME_SUFFIX_RIG_SUPPLY_FAST_CATAMARAN                       :Navio rápido de apoio
+STR_NAME_SUFFIX_TRAWLER                                         :Traineira
+STR_NAME_SUFFIX_UTILITY_TUG                                     :Rebocador Utilitário
+
+
+STR_BUY_MENU_REFIT_CAPACITIES_PACKET                            :{}{BLACK}Capacidade quando readaptado: {GOLD}{COMMA} sacos de correio ou {COMMA}t de frete expresso
+STR_BUY_MENU_REFIT_CAPACITIES_UTILITY                           :{}{BLACK}Capacidade quando readaptado: {GOLD}{COMMA} sacos de correio ou {COMMA}t de carga
+
+
+STR_CARGO_HOVERCRAFT                                            :Hovercraft de transporte de mercadorias
+STR_CARGO_VESSEL_INLAND                                         :Cargueiro para navegação interior
+STR_SMALL_CARGO_VESSEL_INLAND                                   :Pequeno cargueiro para navegação interior
+STR_COASTAL_TANKER                                              :Petroleiro costeiro
+STR_CONTAINER_BARGE                                             :Porta contentores para navegação interior
+STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Embarcação rápida de propósito geral
+STR_FAST_PACKET_STEAMER                                         :Navio rápido de embalagens
+STR_SMALL_FERRY                                                 :Pequeno Ferry
+STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :Embarcação de propósito geral de alto mar
+STR_HOVERCRAFT_FAST_FERRY                                       :Hovercraft ferry rápido
+STR_HYDROFOIL_FAST_FERRY                                        :Ferry rápido hidrodinâmico
+STR_JUMBO_VEHICLE_FERRY                                         :Barco ferry Jumbo
+STR_LARGE_COASTAL_TANKER                                        :Grande petroleiro costeiro
+STR_LARGE_TANKER_COASTAL_INLAND                                 :Grande petroleiro para navegação costeira e interior
+STR_LARGE_COASTER                                               :Grande cargueiro costeiro
+STR_LIVESTOCK_SHIP                                              :Navio de gado
+STR_LOG_TUG                                                     :Rebocador de troncos flutuantes
+STR_PADDLE_STEAMER                                              :Navio a remos
+STR_REEFER                                                      :Navio refrigerado (taxas de pagamento melhoradas para carga perecível)
+STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Pequena embarcação de propósito geral
+STR_SMALL_TANKER_COASTAL_INLAND                                 :Pequeno petroleiro para navegação ​​costeira e interior
+STR_TRAWLER                                                     :Traineira (porão dedicado para peixe)
+STR_VEHICLE_FERRY                                               :Ferry de veículos
+
+
+STR_GENERIC_REFIT_SUBTYPE                                       : ({COMMA}{STRING})
+STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}Capacidades readaptadas: {GOLD}{COMMA}, {COMMA} ou {COMMA}{STRING}
+STR_QUANTITY_WOOD                                               :toneladas de madeira
+STR_UNIT_TONNES                                                 :toneladas

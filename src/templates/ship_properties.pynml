@@ -1,0 +1,71 @@
+// -- some switches are common to all vehicles so included with properties -- //
+
+// -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
+switch (FEAT_SHIPS, SELF, ${ship.id}_switch_purchase_cargo_capacity, cargo_type_in_veh) {
+    <!--! if FISH cargo is missing, trawlers need to still work -->
+    <tal:trawlers condition="ship.str_type_info.lower()=='trawler'">
+        FISH: return ${ship.capacity_fish_holds};
+        PASS: return ${ship.capacity_pax};
+    </tal:trawlers>
+    return ${ship.default_cargo_capacity};
+}
+
+// -- smoke -- //
+switch (FEAT_SHIPS, SELF, ${ship.id}_create_visual_effect, ${ship.get_expression_for_effects()}) {
+    return ${len(ship.effects)};
+}
+
+
+// -- props -- //
+item(FEAT_SHIPS, ${ship.id}, ${ship.numeric_id}) {
+    property {
+        name:                           ${ship.get_name()};
+        climates_available:             NO_CLIMATE; // nml constant
+        sound_effect:                   ${('SOUND_SHIP_HORN','SOUND_FERRY_HORN')[ship.default_cargo=='PASS']};
+        effect_spawn_model:             ${ship.effect_spawn_model};
+        introduction_date:              date(${ship.intro_date},01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 ${ship.default_cargo_capacity};
+        sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
+        speed:                          ${ship.speed}mph;
+        ocean_speed_fraction:           ${ship.ocean_speed};
+        canal_speed_fraction:           ${ship.canal_speed};
+        cost_factor:                    ${ship.buy_cost};
+        running_cost_factor:            ${ship.running_cost};
+        refit_cost:                     0; // leave at 0 for refitting without defining cb
+        is_refittable:                  1;
+        refittable_cargo_classes:       bitmask(${ship.refittable_classes});
+        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
+        cargo_allow_refit:              [${ship.get_label_refits_allowed()}];
+        cargo_disallow_refit:           [${ship.get_label_refits_disallowed()}];
+        default_cargo_type:             ${ship.default_cargo};
+        loading_speed:                  ${ship.loading_speed};
+        cargo_age_period:               ${ship.cargo_age_period};
+        misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
+        model_life:                     ${ship.adjusted_model_life};
+        retire_early:                   ${ship.vehicle_life - 4}; // magic from Eddi
+        reliability_decay:              20; // default value
+        vehicle_life:                   ${ship.vehicle_life};
+    }
+    graphics {
+        speed:                          ${ship.id}_switch_speed_varies_with_load_amount;
+        purchase_speed:                 ${ship.id}_switch_purchase_speed;
+        cargo_capacity:                 ${ship.id}_switch_cargo_capacity;
+        purchase_cargo_capacity:        ${ship.id}_switch_purchase_cargo_capacity;
+        additional_text:                ${ship.get_buy_menu_string()};
+        cargo_subtype_text:             ${ship.id}_switch_cargo_subtype_text;
+        default:                        ${ship.id}_switch_graphics;
+        purchase:                       ${ship.id}_sg_purchase;
+        create_effect:                  ${ship.id}_create_visual_effect;
+    }
+}
+
+if (${ship.get_expression_for_rosters()}) {
+    item(FEAT_SHIPS, ${ship.id}, ${ship.numeric_id}) {
+        property {
+            climates_available:             ALL_CLIMATES;
+        }
+    }
+}
+
+// -- end ${ship.title} -- <!--! another comment to aid reading the final nml  -->
+
