@@ -16,7 +16,7 @@
 #
 ##################################################################
 
-PYTHON3 = python3.6
+PYTHON3 = python3
 
 # Definition of the grfs
 REPO_NAME           ?= My NewGRF
