@@ -1,12 +1,12 @@
 import global_constants
 from ship import PacketBoat
 
-ship = PacketBoat(id = 'castle_point_steamer',
+ship = PacketBoat(id = 'tramp_steamer',
             numeric_id = 1030,
-            title = 'Castle Point [Steamer]',
-            capacity_pax = 300,
+            title = 'Tramp [Steamer]',
+            capacity_pax = 250,
             capacity_cargo_holds = 180,
-            capacity_mail = 240,
+            capacity_mail = 480,
             replacement_id = '-none',
             buy_cost = 36,
             fixed_run_cost_factor = 5.0,

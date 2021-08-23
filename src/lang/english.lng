@@ -56,7 +56,7 @@ STR_COASTER                                                     :Coastal freight
 STR_CONTAINER_FEEDER                                            :Small container ship
 STR_CONTAINER_BARGE                                             :Container carrier for inland waterways
 STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Fast general purpose vessel
-STR_FAST_PACKET_STEAMER                                         :Fast Packet steamer
+STR_FAST_PACKET_STEAMER                                         :Fast Packet ship
 STR_SMALL_FERRY                                                 :Small Ferry
 STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :General purpose sea-going vessel
 STR_GENERAL_PURPOSE_VESSEL                                      :General purpose vessel

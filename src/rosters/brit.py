@@ -5,7 +5,9 @@ from ships import barletta_paddle_steamer
 from ships import cadiz_freighter
 from ships import cape_spear_trawler
 from ships import maddalena_vehicle_ferry
-from ships import castle_point_steamer
+from ships import tramp_steamer
+from ships import island_trader
+from ships import sam_cargo_ship
 from ships import eddystone_tanker
 from ships import enoshima_catamaran_ferry
 from ships import fastnet_paddle_steamer
@@ -58,6 +60,7 @@ from ships import geneva_freight_barge
 from ships import saint_marie_freight_barge
 from ships import volgoneft_six_thirty_tanker_barge
 from ships import volgoneft_two_seventy_tanker_barge
+from ships import huanghai_lng_tanker
 
 roster = Roster(id = 'brit',
                 numeric_id = 1,
@@ -68,7 +71,9 @@ roster = Roster(id = 'brit',
                          johann_strauss_paddle_steamer,
                          fastnet_paddle_steamer,
 
-                         castle_point_steamer,
+                         tramp_steamer,
+                         island_trader,
+                         sam_cargo_ship,
 
                          tiree_vehicle_ferry,
                          patos_island_vehicle_ferry,
@@ -108,6 +113,8 @@ roster = Roster(id = 'brit',
                          eddystone_tanker,
                          hopetown_tanker,
                          yokohama_tanker,
+                         huanghai_lng_tanker,
+                        
                          shark_island_livestock_ship,
                          provence_edibles_tanker,
                          grindavik_reefer,

@@ -424,7 +424,7 @@ class ContainerCarrier(Ship):
         self.template = 'container_carrier.pynml'
         # maintain other sets (e.g. IH etc) when changing container refits
         self.class_refit_groups = ['express_freight','packaged_freight']
-        self.label_refits_allowed = ['FRUT','WATR']
+        self.label_refits_allowed = ['MAIL','FRUT','WATR']
         self.label_refits_disallowed = ['FISH','LVST','OIL_','TOUR','WOOD']
         self.capacity_freight = kwargs.get('capacity_cargo_holds', None)
         self.default_cargo = 'GOOD'

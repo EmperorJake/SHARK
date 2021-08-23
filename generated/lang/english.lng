@@ -56,7 +56,7 @@ STR_COASTER                                                     :Coastal freight
 STR_CONTAINER_FEEDER                                            :Small container ship
 STR_CONTAINER_BARGE                                             :Container carrier for inland waterways
 STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Fast general purpose vessel
-STR_FAST_PACKET_STEAMER                                         :Fast Packet steamer
+STR_FAST_PACKET_STEAMER                                         :Fast Packet ship
 STR_SMALL_FERRY                                                 :Small Ferry
 STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :General purpose sea-going vessel
 STR_GENERAL_PURPOSE_VESSEL                                      :General purpose vessel
@@ -84,103 +84,109 @@ STR_QUANTITY_WOOD                                               : tonnes of wood
 STR_QUANTITY_LIVESTOCK                                          : items of livestock
 STR_UNIT_TONNES                                                 : tonnes
 STR_UNIT_ITEMS                                                  : items
-STR_GRF_NAME                                                    :SHARK r1701
+STR_GRF_NAME                                                    :SHARK r1702
 
 
 
-STR_NAME_endeavour_utility_catamaran                                          :Endeavour {STRING} 
-
-STR_NAME_nieuwpoort_container_feeder                                          :Nieuwpoort {STRING} 
-
-STR_NAME_sunk_rock_ferry                                          :Banquereau {STRING} 
+STR_NAME_altamira_freighter                                          :Altamira {STRING} 
 
 STR_NAME_whitgift_freight_barge                                          :Whitgift {STRING} 
 
-STR_NAME_shannon_freighter                                          :Shannon {STRING} 
+STR_NAME_santorini_freighter                                          :Santorini {STRING} 
+
+STR_NAME_island_trader                                          :Island Trader {STRING} 
+
+STR_NAME_danube_large_ferry                                          :DANUBE LARGE {STRING} 
 
 STR_NAME_san_juan_vehicle_ferry                                          :San Juan {STRING} 
 
-STR_NAME_geneva_freight_barge                                          :Geneva {STRING} 
+STR_NAME_feodosiya_hydrofoil                                          :Klyazma {STRING} 
 
-STR_NAME_provence_edibles_tanker                                          :Provence Edibles {STRING} 
+STR_NAME_hopetown_tanker                                          :Roland {STRING} 
 
-STR_NAME_shark_island_livestock_ship                                          :Shark Island {STRING} 
+STR_NAME_volgoneft_three_twenty_tanker_barge                                          :Volgoneft 320 {STRING} 
+
+STR_NAME_frisco_bay_freighter                                          :Frisco Bay {STRING} 
+
+STR_NAME_dieze_container_barge                                          :Dieze {STRING} 
 
 STR_NAME_thunder_bay_hovercraft                                          :Thunder Bay {STRING} 
 
-STR_NAME_yokohama_tanker                                          :Yokohama {STRING} 
+STR_NAME_shannon_freighter                                          :Shannon {STRING} 
+
+STR_NAME_shark_island_livestock_ship                                          :Shark Island {STRING} 
 
 STR_NAME_meteor_freighter                                          :Meteor {STRING} 
 
-STR_NAME_mount_blaze_catamaran_ferry                                          :Mount Blaze {STRING} 
+STR_NAME_pine_island_log_tug                                          :Pine Island {STRING} 
 
-STR_NAME_pegwell_super_4_hovercraft                                          :Pegwell Super 4 {STRING} 
+STR_NAME_oran_freighter                                          :Oran {STRING} 
 
-STR_NAME_saint_marie_freight_barge                                          :Saint Marie {STRING} 
+STR_NAME_huanghai_lng_tanker                                          :Huanghai LNG {STRING} 
 
-STR_NAME_patos_island_vehicle_ferry                                          :Rosario {STRING} 
+STR_NAME_endeavour_utility_catamaran                                          :Endeavour {STRING} 
 
-STR_NAME_santorini_freighter                                          :Santorini {STRING} 
-
-STR_NAME_feodosiya_hydrofoil                                          :Klyazma {STRING} 
-
-STR_NAME_cape_spear_trawler                                          :Cape Spear {STRING} 
-
-STR_NAME_danube_large_ferry                                          :DANUBE LARGE {STRING} 
+STR_NAME_yokohama_tanker                                          :Yokohama {STRING} 
 
 STR_NAME_marstein_freighter                                          :Marstein {STRING} 
 
 STR_NAME_cadiz_freighter                                          :Cadiz {STRING} 
 
-STR_NAME_danube_utility_vessel                                          :Fitzroy {STRING} 
-
-STR_NAME_tiree_vehicle_ferry                                          :Tiree {STRING} 
-
-STR_NAME_little_cumbrae_freighter                                          :Little Cumbrae {STRING} 
-
-STR_NAME_nanaimo_70_hovercraft                                          :Nanaimo 70 {STRING} 
-
-STR_NAME_castle_point_steamer                                          :Castle Point {STRING} 
-
-STR_NAME_altamira_freighter                                          :Altamira {STRING} 
-
-STR_NAME_constance_freight_barge                                          :Constance {STRING} 
-
-STR_NAME_quessant_freighter                                          :Quessant {STRING} 
-
-STR_NAME_volgoneft_six_thirty_tanker_barge                                          :Volgoneft 630 {STRING} 
-
-STR_NAME_johann_strauss_paddle_steamer                                          :Johann Strauss {STRING} 
-
-STR_NAME_grindavik_reefer                                          :Grindavik {STRING} 
-
-STR_NAME_maspalomas_freighter                                          :Maspalomas {STRING} 
-
-STR_NAME_volgoneft_three_twenty_tanker_barge                                          :Volgoneft 320 {STRING} 
+STR_NAME_pegwell_super_4_hovercraft                                          :Pegwell Super 4 {STRING} 
 
 STR_NAME_maddalena_vehicle_ferry                                          :Maddalena {STRING} 
 
-STR_NAME_matsushima_hydrofoil                                          :Matsushima {STRING} 
-
-STR_NAME_oran_freighter                                          :Oran {STRING} 
-
-STR_NAME_pine_island_log_tug                                          :Pine Island {STRING} 
-
-STR_NAME_stornoway_vehicle_ferry                                          :Stornoway {STRING} 
-
-STR_NAME_enoshima_catamaran_ferry                                          :Enoshima {STRING} 
-
-STR_NAME_hopetown_tanker                                          :Roland {STRING} 
-
 STR_NAME_harbour_point_utility_vessel                                          :Harbour Point {STRING} 
 
-STR_NAME_dieze_container_barge                                          :Dieze {STRING} 
+STR_NAME_patos_island_vehicle_ferry                                          :Rosario {STRING} 
 
-STR_NAME_fish_island_trawler                                          :Fish Island {STRING} 
+STR_NAME_geneva_freight_barge                                          :Geneva {STRING} 
 
 STR_NAME_fastnet_paddle_steamer                                          :Fastnet {STRING} 
 
-STR_NAME_frisco_bay_freighter                                          :Frisco Bay {STRING} 
+STR_NAME_sunk_rock_ferry                                          :Banquereau {STRING} 
+
+STR_NAME_provence_edibles_tanker                                          :Provence Edibles {STRING} 
+
+STR_NAME_johann_strauss_paddle_steamer                                          :Johann Strauss {STRING} 
+
+STR_NAME_constance_freight_barge                                          :Constance {STRING} 
+
+STR_NAME_stornoway_vehicle_ferry                                          :Stornoway {STRING} 
 
 STR_NAME_eddystone_tanker                                          :Castle Point {STRING} 
+
+STR_NAME_tiree_vehicle_ferry                                          :Tiree {STRING} 
+
+STR_NAME_saint_marie_freight_barge                                          :Saint Marie {STRING} 
+
+STR_NAME_mount_blaze_catamaran_ferry                                          :Mount Blaze {STRING} 
+
+STR_NAME_danube_utility_vessel                                          :Fitzroy {STRING} 
+
+STR_NAME_fish_island_trawler                                          :Fish Island {STRING} 
+
+STR_NAME_cape_spear_trawler                                          :Cape Spear {STRING} 
+
+STR_NAME_grindavik_reefer                                          :Grindavik {STRING} 
+
+STR_NAME_sam_cargo_ship                                          :Sam Cargo {STRING} 
+
+STR_NAME_volgoneft_six_thirty_tanker_barge                                          :Volgoneft 630 {STRING} 
+
+STR_NAME_little_cumbrae_freighter                                          :Little Cumbrae {STRING} 
+
+STR_NAME_nieuwpoort_container_feeder                                          :Nieuwpoort {STRING} 
+
+STR_NAME_maspalomas_freighter                                          :Maspalomas {STRING} 
+
+STR_NAME_tramp_steamer                                          :Tramp {STRING} 
+
+STR_NAME_quessant_freighter                                          :Quessant {STRING} 
+
+STR_NAME_nanaimo_70_hovercraft                                          :Nanaimo 70 {STRING} 
+
+STR_NAME_enoshima_catamaran_ferry                                          :Enoshima {STRING} 
+
+STR_NAME_matsushima_hydrofoil                                          :Matsushima {STRING} 
 
