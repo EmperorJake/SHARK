@@ -88,11 +88,11 @@ STR_GRF_NAME                                                    :SHARK r1702
 
 
 
-STR_NAME_altamira_freighter                                          :Altamira {STRING} 
-
 STR_NAME_whitgift_freight_barge                                          :Whitgift {STRING} 
 
 STR_NAME_santorini_freighter                                          :Santorini {STRING} 
+
+STR_NAME_little_cumbrae_freighter                                          :Little Cumbrae {STRING} 
 
 STR_NAME_island_trader                                          :Island Trader {STRING} 
 
@@ -104,7 +104,7 @@ STR_NAME_feodosiya_hydrofoil                                          :Klyazma {
 
 STR_NAME_hopetown_tanker                                          :Roland {STRING} 
 
-STR_NAME_volgoneft_three_twenty_tanker_barge                                          :Volgoneft 320 {STRING} 
+STR_NAME_altamira_freighter                                          :Altamira {STRING} 
 
 STR_NAME_frisco_bay_freighter                                          :Frisco Bay {STRING} 
 
@@ -119,6 +119,8 @@ STR_NAME_shark_island_livestock_ship                                          :S
 STR_NAME_meteor_freighter                                          :Meteor {STRING} 
 
 STR_NAME_pine_island_log_tug                                          :Pine Island {STRING} 
+
+STR_NAME_volgoneft_three_twenty_tanker_barge                                          :Volgoneft 320 {STRING} 
 
 STR_NAME_oran_freighter                                          :Oran {STRING} 
 
@@ -173,8 +175,6 @@ STR_NAME_grindavik_reefer                                          :Grindavik {S
 STR_NAME_sam_cargo_ship                                          :Sam Cargo {STRING} 
 
 STR_NAME_volgoneft_six_thirty_tanker_barge                                          :Volgoneft 630 {STRING} 
-
-STR_NAME_little_cumbrae_freighter                                          :Little Cumbrae {STRING} 
 
 STR_NAME_nieuwpoort_container_feeder                                          :Nieuwpoort {STRING} 
 
