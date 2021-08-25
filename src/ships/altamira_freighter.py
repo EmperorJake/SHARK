@@ -2,14 +2,14 @@ import global_constants
 from ship import GeneralCargoVessel
 
 ship = GeneralCargoVessel(id = 'altamira_freighter',
-            numeric_id = 1110,
+            numeric_id = 1111,
             title = 'Altamira [Freighter]',
             capacity_cargo_holds = 360,
             replacement_id = '-none',
             buy_cost = 28,
             fixed_run_cost_factor = 3.5,
             fuel_run_cost_factor = 1.0,
-            speed = 18.0,
+            speed = 20.0,
             speed_factor_unladen = 1.1,
             inland_capable = False,
             sea_capable = True,
@@ -26,3 +26,7 @@ ship = GeneralCargoVessel(id = 'altamira_freighter',
 ship.add_model_variant(intro_date=0,
                        end_date=global_constants.max_game_date,
                        spritesheet_suffix=0)
+
+ship.add_model_variant(intro_date=0,
+                       end_date=global_constants.max_game_date,
+                       spritesheet_suffix=1)

@@ -3,7 +3,7 @@ from ship import PacketBoat
 
 ship = PacketBoat(id = 'enoshima_catamaran_ferry',
             numeric_id = 90,
-            title = 'Enoshima [Fast Ferry]',
+            title = 'Enoshima [Catamaran]',
             capacity_pax = 260,
             capacity_cargo_holds = 175,
             capacity_mail = 220,

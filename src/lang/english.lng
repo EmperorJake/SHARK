@@ -17,6 +17,7 @@ STR_PARAM_ROSTER_DESC                                           :Choose which se
 STR_PARAM_ROSTER_OPTION_0                                       :There is only one roster
 STR_PARAM_ROSTER_OPTION_1                                       :The Blue Danube
 
+STR_NAME_SUFFIX_BLANK											:
 STR_NAME_SUFFIX_BARGE_TUG                                       :Barge Tug
 STR_NAME_SUFFIX_CATAMARAN                                       :Catamaran
 STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Container Feeder

@@ -1,6 +1,8 @@
 from roster import Roster
 
 from ships import altamira_freighter
+from ships import malin_freighter
+from ships import finisterre_freighter
 from ships import barletta_paddle_steamer
 from ships import cadiz_freighter
 from ships import cape_spear_trawler
@@ -42,31 +44,24 @@ from ships import tiree_vehicle_ferry
 from ships import whitgift_freight_barge
 from ships import yokohama_tanker
 from ships import constance_freight_barge
-from ships import danube_better_reefer
-from ships import danube_large_ferry
-from ships import danube_livestock_barge
+from ships import hammerhead_ferry
 from ships import johann_strauss_paddle_steamer
-from ships import danube_reefer
-from ships import danube_small_ferry
-from ships import danube_small_freight_barge
-from ships import danube_small_diesel_barge
-from ships import danube_trawler
-from ships import danube_utility_vessel
-from ships import danube_very_large_barge
-from ships import danube_very_large_tanker
+from ships import lantau_ferry
 from ships import dieze_container_barge
 from ships import endeavour_utility_catamaran
 from ships import geneva_freight_barge
 from ships import saint_marie_freight_barge
-from ships import volgoneft_six_thirty_tanker_barge
 from ships import volgoneft_two_seventy_tanker_barge
+from ships import volgoneft_three_twenty_tanker_barge
+from ships import volgoneft_five_forty_tanker_barge
+from ships import volgoneft_six_thirty_tanker_barge
 from ships import huanghai_lng_tanker
 
 roster = Roster(id = 'brit',
                 numeric_id = 1,
                 ships = [
 
-                         danube_utility_vessel,
+                         lantau_ferry,
                          sunk_rock_ferry,
                          johann_strauss_paddle_steamer,
                          fastnet_paddle_steamer,
@@ -79,7 +74,7 @@ roster = Roster(id = 'brit',
                          patos_island_vehicle_ferry,
                          stornoway_vehicle_ferry,
                          maddalena_vehicle_ferry,
-                         danube_large_ferry,
+                         hammerhead_ferry,
                          san_juan_vehicle_ferry,
                          nanaimo_70_hovercraft,
                          pegwell_super_4_hovercraft,
@@ -98,18 +93,21 @@ roster = Roster(id = 'brit',
 
                          whitgift_freight_barge,
                          saint_marie_freight_barge,
-
-                         meteor_freighter,
-                         little_cumbrae_freighter,
-                         marstein_freighter,
-                         altamira_freighter,
-                         cadiz_freighter,
-                         oran_freighter,
-                         quessant_freighter,
+                         
+                         malin_freighter,
+                         finisterre_freighter,
                          frisco_bay_freighter,
+                         little_cumbrae_freighter,
+                         altamira_freighter,
+                         quessant_freighter,
+                         meteor_freighter,
+                         marstein_freighter,
+                         oran_freighter,
                          shannon_freighter,
+                         cadiz_freighter,
                          santorini_freighter,
                          maspalomas_freighter,
+                         
                          eddystone_tanker,
                          hopetown_tanker,
                          yokohama_tanker,
@@ -122,13 +120,11 @@ roster = Roster(id = 'brit',
                          pine_island_log_tug,
 
 
-
-                         saint_marie_freight_barge,
-
                          constance_freight_barge,
                          geneva_freight_barge,
 
                          volgoneft_two_seventy_tanker_barge,
+                         volgoneft_three_twenty_tanker_barge,
+                         volgoneft_five_forty_tanker_barge,
                          volgoneft_six_thirty_tanker_barge,
-
                          dieze_container_barge])

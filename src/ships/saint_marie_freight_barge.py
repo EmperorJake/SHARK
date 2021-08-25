@@ -3,7 +3,7 @@ from ship import GeneralCargoVessel
 
 ship = GeneralCargoVessel(id = 'saint_marie_freight_barge',
             numeric_id = 2110,
-            title = 'Saint Marie [Freight Barge]',
+            title = 'Saint Marie [Barge Tug]',
             capacity_cargo_holds = 200,
             replacement_id = '-none',
             buy_cost = 4,
@@ -19,6 +19,7 @@ ship = GeneralCargoVessel(id = 'saint_marie_freight_barge',
             intro_date = 1860,
             buy_menu_bb_xy = [652, 28],
             str_type_info = 'CARGO_VESSEL_INLAND',
+            effects = ['EFFECT_SPRITE_STEAM, -7, 0, 16'],
             vehicle_life = 55,
             gross_tonnage = 45)
 

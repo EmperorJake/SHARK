@@ -21,7 +21,7 @@ ship = GeneralCargoVessel(id = 'shannon_freighter',
             str_type_info = 'LARGE_COASTER',
             effects = ['EFFECT_SPRITE_STEAM, 2, 0, 29'],
             vehicle_life = 35,
-            gross_tonnage = 960)
+            gross_tonnage = 1120)
 
 ship.add_model_variant(intro_date=0,
                        end_date=global_constants.max_game_date,

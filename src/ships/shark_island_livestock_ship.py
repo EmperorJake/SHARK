@@ -4,7 +4,7 @@ from ship import LivestockCarrier
 ship = LivestockCarrier(id = 'shark_island_livestock_ship',
             numeric_id = 1230,
             title = 'Shark Island [Livestock Ship]',
-            capacities_refittable = [200, 400, 600],
+            capacities_refittable = [200, 400, 800],
             replacement_id = '-none',
             buy_cost = 58,
             fixed_run_cost_factor = 10.0,

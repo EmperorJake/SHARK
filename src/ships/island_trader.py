@@ -3,7 +3,7 @@ from ship import PacketBoat
 
 ship = PacketBoat(id = 'island_trader',
             numeric_id = 1031,
-            title = 'Island Trader [Utility Vessel]',
+            title = 'Island Trader [Blank]',
             capacity_pax = 360,
             capacity_cargo_holds = 240,
             capacity_mail = 720,
@@ -21,7 +21,7 @@ ship = PacketBoat(id = 'island_trader',
             intro_date = 1930,
             buy_menu_bb_xy = [645, 28],
             str_type_info = 'FAST_PACKET_STEAMER',
-            effects = ['EFFECT_SPRITE_DIESEL, 10, 0, 21'],
+            effects = ['EFFECT_SPRITE_DIESEL, 5, 0, 27'],
             vehicle_life = 25,
             gross_tonnage = 460)
 
