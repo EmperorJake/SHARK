@@ -74,6 +74,7 @@ STR_RIG_SUPPLY_FAST_CATAMARAN                                   :Fast catamaran 
 STR_REEFER                                                      :Refrigerated ship (improved payment rate for perishable cargos)
 STR_SMALL_FREIGHTER                                             :Small Freighter
 STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Small general purpose vessel
+STR_SMALL_TANKER_INLAND                     		            :Small tanker for inland waterways
 STR_SMALL_TANKER_COASTAL_INLAND                                 :Small tanker for coastal and inland waterways
 STR_TRAWLER                                                     :Trawler (dedicated hold for fish)
 STR_VEHICLE_FERRY                                               :Vehicle ferry
@@ -82,6 +83,7 @@ STR_VEHICLE_FERRY                                               :Vehicle ferry
 STR_GENERIC_REFIT_SUBTYPE                                       : ({COMMA}{STRING})
 STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}Refittable capacities: {GOLD}{COMMA}, {COMMA} or {COMMA}{STRING}
 STR_QUANTITY_WOOD                                               : tonnes of wood
+STR_QUANTITY_FOOD                                               : tonnes of refrigerated cargo
 STR_QUANTITY_LIVESTOCK                                          : items of livestock
 STR_UNIT_TONNES                                                 : tonnes
 STR_UNIT_ITEMS                                                  : items

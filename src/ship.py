@@ -398,7 +398,7 @@ class EdiblesTanker(Ship):
         self.default_cargo_capacity = self.capacity_freight
 
 
-class Reefer(Ship):
+class Reefer(MixinRefittableCapacity, Ship):
     """
     Refits to limited range of refrigerated cargos, with 'improved' cargo decay rate.
     """
@@ -408,9 +408,12 @@ class Reefer(Ship):
         self.class_refit_groups = ['refrigerated_freight']
         self.label_refits_allowed = [] # no specific labels needed, refits all cargos that have refrigerated class
         self.label_refits_disallowed = []
-        self.capacity_freight = kwargs.get('capacity_cargo_holds', None)
+        self.capacities_refittable = kwargs.get('capacities_refittable', None)
+        self.capacity_freight = self.capacities_refittable[0]
         self.default_cargo = 'GOOD'
-        self.default_cargo_capacity = self.capacity_freight
+        self.default_cargo_capacity = self.capacities_refittable[0]
+        self.cargo_units_buy_menu = 'STR_QUANTITY_FOOD'
+        self.cargo_units_refit_menu = 'STR_UNIT_TONNES'
         self.cargo_age_period = 2 * global_constants.CARGO_AGE_PERIOD # improved decay rate
          # kludge to adjust canal speed of the one reefer ship.
         self.canal_speed = (0.6, 1)[self.inland_capable]

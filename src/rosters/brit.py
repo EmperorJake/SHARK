@@ -9,14 +9,16 @@ from ships import cape_spear_trawler
 from ships import maddalena_vehicle_ferry
 from ships import tramp_steamer
 from ships import island_trader
-from ships import sam_cargo_ship
+from ships import connor_freight_ferry
 from ships import eddystone_tanker
 from ships import enoshima_catamaran_ferry
 from ships import fastnet_paddle_steamer
 from ships import feodosiya_hydrofoil
 from ships import fish_island_trawler
+from ships import freshney_tanker_barge
 from ships import frisco_bay_freighter
 from ships import grindavik_reefer
+from ships import helsinki_reefer
 from ships import harbour_point_utility_vessel
 from ships import hopetown_tanker
 from ships import little_cumbrae_freighter
@@ -35,7 +37,8 @@ from ships import provence_edibles_tanker
 from ships import quessant_freighter
 from ships import santorini_freighter
 from ships import san_juan_vehicle_ferry
-from ships import shark_island_livestock_ship
+from ships import mcclure_livestock_ship
+from ships import hitsuji_livestock_ship
 from ships import shannon_freighter
 from ships import sunk_rock_ferry
 from ships import stornoway_vehicle_ferry
@@ -68,7 +71,7 @@ roster = Roster(id = 'brit',
 
                          tramp_steamer,
                          island_trader,
-                         sam_cargo_ship,
+                         connor_freight_ferry,
 
                          tiree_vehicle_ferry,
                          patos_island_vehicle_ferry,
@@ -88,11 +91,11 @@ roster = Roster(id = 'brit',
                          thunder_bay_hovercraft,
                          fish_island_trawler,
                          cape_spear_trawler,
+                         pine_island_log_tug,
                          harbour_point_utility_vessel,
                          endeavour_utility_catamaran,
 
-                         whitgift_freight_barge,
-                         saint_marie_freight_barge,
+
                          
                          malin_freighter,
                          finisterre_freighter,
@@ -108,23 +111,39 @@ roster = Roster(id = 'brit',
                          santorini_freighter,
                          maspalomas_freighter,
                          
+                         mcclure_livestock_ship,
+                         hitsuji_livestock_ship,
+                         
+                         grindavik_reefer,
+                         helsinki_reefer,
+                         
+                         nieuwpoort_container_feeder,
+                         
+                         constance_freight_barge,
+                         geneva_freight_barge,
+                         whitgift_freight_barge,
+                         saint_marie_freight_barge,
+                         
+                         dieze_container_barge,
+                         
                          eddystone_tanker,
                          hopetown_tanker,
                          yokohama_tanker,
                          huanghai_lng_tanker,
-                        
-                         shark_island_livestock_ship,
                          provence_edibles_tanker,
-                         grindavik_reefer,
-                         nieuwpoort_container_feeder,
-                         pine_island_log_tug,
+                        
 
 
-                         constance_freight_barge,
-                         geneva_freight_barge,
 
+
+
+
+
+
+
+                         freshney_tanker_barge,
                          volgoneft_two_seventy_tanker_barge,
                          volgoneft_three_twenty_tanker_barge,
                          volgoneft_five_forty_tanker_barge,
-                         volgoneft_six_thirty_tanker_barge,
-                         dieze_container_barge])
+                         volgoneft_six_thirty_tanker_barge
+])
