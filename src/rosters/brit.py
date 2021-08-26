@@ -45,11 +45,13 @@ from ships import tiree_vehicle_ferry
 from ships import whitgift_freight_barge
 from ships import yokohama_tanker
 from ships import constance_freight_barge
+from ships import gorky_freight_barge
+from ships import lutschine_freight_barge
+from ships import schipbeek_freight_barge
 from ships import hammerhead_ferry
 from ships import johann_strauss_paddle_steamer
 from ships import lantau_ferry
 from ships import dieze_container_barge
-from ships import geneva_freight_barge
 from ships import saint_marie_freight_barge
 from ships import volgoneft_two_seventy_tanker_barge
 from ships import volgoneft_three_twenty_tanker_barge
@@ -121,10 +123,11 @@ roster = Roster(id = 'brit',
                          helsinki_reefer,
                          
                          nieuwpoort_container_feeder,
-                         
+                         whitgift_freight_barge,                         
                          constance_freight_barge,
-                         geneva_freight_barge,
-                         whitgift_freight_barge,
+                         gorky_freight_barge,
+                         lutschine_freight_barge,
+                         schipbeek_freight_barge,
                          saint_marie_freight_barge,
                          
                          dieze_container_barge,

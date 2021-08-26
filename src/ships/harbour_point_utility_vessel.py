@@ -21,8 +21,8 @@ ship = UtilityVessel(id = 'harbour_point_utility_vessel',
             intro_date = 1860,
             buy_menu_bb_xy = [673, 23],
             str_type_info = 'SMALL_GENERAL_PURPOSE_VESSEL',
-            effect_spawn_model = 'EFFECT_SPAWN_MODEL_DIESEL',
-            effects = ['EFFECT_SPRITE_DIESEL, 0, 0, 8'],
+            effect_spawn_model = 'EFFECT_SPAWN_MODEL_STEAM',
+            effects = ['EFFECT_SPRITE_STEAM, 0, 0, 8'],
             vehicle_life = 40,
             gross_tonnage = 30)
 
