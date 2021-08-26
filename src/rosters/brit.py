@@ -5,7 +5,6 @@ from ships import malin_freighter
 from ships import finisterre_freighter
 from ships import barletta_paddle_steamer
 from ships import cadiz_freighter
-from ships import cape_spear_trawler
 from ships import maddalena_vehicle_ferry
 from ships import tramp_steamer
 from ships import island_trader
@@ -14,12 +13,12 @@ from ships import eddystone_tanker
 from ships import enoshima_catamaran_ferry
 from ships import fastnet_paddle_steamer
 from ships import feodosiya_hydrofoil
-from ships import fish_island_trawler
 from ships import freshney_tanker_barge
 from ships import frisco_bay_freighter
 from ships import grindavik_reefer
 from ships import helsinki_reefer
 from ships import harbour_point_utility_vessel
+from ships import labrador_utility_vessel
 from ships import hopetown_tanker
 from ships import little_cumbrae_freighter
 from ships import marstein_freighter
@@ -32,7 +31,6 @@ from ships import nieuwpoort_container_feeder
 from ships import oran_freighter
 from ships import patos_island_vehicle_ferry
 from ships import pegwell_super_4_hovercraft
-from ships import pine_island_log_tug
 from ships import provence_edibles_tanker
 from ships import quessant_freighter
 from ships import santorini_freighter
@@ -51,7 +49,6 @@ from ships import hammerhead_ferry
 from ships import johann_strauss_paddle_steamer
 from ships import lantau_ferry
 from ships import dieze_container_barge
-from ships import endeavour_utility_catamaran
 from ships import geneva_freight_barge
 from ships import saint_marie_freight_barge
 from ships import volgoneft_two_seventy_tanker_barge
@@ -59,6 +56,11 @@ from ships import volgoneft_three_twenty_tanker_barge
 from ships import volgoneft_five_forty_tanker_barge
 from ships import volgoneft_six_thirty_tanker_barge
 from ships import huanghai_lng_tanker
+from ships import wellfleet_trawler
+from ships import josephine_trawler
+from ships import kwangtung_trawler
+from ships import ohshima_freight_hovercraft
+from ships import olympic_log_tug
 
 roster = Roster(id = 'brit',
                 numeric_id = 1,
@@ -88,13 +90,14 @@ roster = Roster(id = 'brit',
                          mount_blaze_catamaran_ferry,
 
 
-                         thunder_bay_hovercraft,
-                         fish_island_trawler,
-                         cape_spear_trawler,
-                         pine_island_log_tug,
-                         harbour_point_utility_vessel,
-                         endeavour_utility_catamaran,
 
+                         wellfleet_trawler,
+                         josephine_trawler,
+                         kwangtung_trawler,
+                         olympic_log_tug,
+                         harbour_point_utility_vessel,
+                         labrador_utility_vessel,
+                         ohshima_freight_hovercraft,
 
                          
                          malin_freighter,
