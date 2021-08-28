@@ -21,7 +21,8 @@ ship = Tanker(id = 'volgoneft_three_twenty_tanker_barge',
             loading_speed = 40,
             intro_date = 1948,
             buy_menu_bb_xy = [620, 21],
-            str_type_info = 'SMALL_TANKER_COASTAL_INLAND',
+            str_type_info = 'SMALL_TANKER_INLAND',
+            effects = ['EFFECT_SPRITE_DIESEL, 6, 0, 13'],
             vehicle_life = 45,
             gross_tonnage = 330)
 

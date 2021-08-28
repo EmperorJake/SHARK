@@ -1,10 +1,11 @@
 // define the newgrf
 grf {
 	grfid: "\41\4E\02\01";
+//	grfid: "\4A\44\BB\B1";
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESCRIPTION);
 	version: ${repo_vars.repo_version};
-	min_compatible_version: 1455;
+	min_compatible_version: 1702;
 	param 0 {
         param_reset_construction_costs {
             type:    bool;
