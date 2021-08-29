@@ -63,6 +63,7 @@ from ships import josephine_trawler
 from ships import kwangtung_trawler
 from ships import ohshima_freight_hovercraft
 from ships import olympic_log_tug
+from ships import winterhold_container_reefer
 
 roster = Roster(id = 'brit',
                 numeric_id = 1,
@@ -121,6 +122,7 @@ roster = Roster(id = 'brit',
                          
                          grindavik_reefer,
                          helsinki_reefer,
+                         winterhold_container_reefer,
                          
                          nieuwpoort_container_feeder,
                          whitgift_freight_barge,                         

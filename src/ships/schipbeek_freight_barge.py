@@ -16,12 +16,24 @@ ship = GeneralCargoVessel(id = 'schipbeek_freight_barge',
             offsets = [[-14, -42], [-61, -28], [-55, -29], [-10, -28], [-14, -54], [-61, -28], [-55, -29], [-9, -28]],
             buy_menu_width = 109,
             loading_speed = 20,
-            intro_date = 1950,
+            intro_date = 1915,
             buy_menu_bb_xy = [624, 21],
             str_type_info = 'CARGO_VESSEL_INLAND',
             vehicle_life = 60,
             gross_tonnage = 560)
 
 ship.add_model_variant(intro_date=0,
-                       end_date=global_constants.max_game_date,
+                       end_date=1960,
                        spritesheet_suffix=0)
+
+ship.add_model_variant(intro_date=1950,
+                       end_date=global_constants.max_game_date,
+                       spritesheet_suffix=1)
+                       
+ship.add_model_variant(intro_date=1950,
+                       end_date=global_constants.max_game_date,
+                       spritesheet_suffix=2)
+                       
+ship.add_model_variant(intro_date=1960,
+                       end_date=global_constants.max_game_date,
+                       spritesheet_suffix=3)

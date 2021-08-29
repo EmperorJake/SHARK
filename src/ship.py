@@ -417,6 +417,17 @@ class Reefer(MixinRefittableCapacity, Ship):
         self.cargo_age_period = 2 * global_constants.CARGO_AGE_PERIOD # improved decay rate
          # kludge to adjust canal speed of the one reefer ship.
         self.canal_speed = (0.6, 1)[self.inland_capable]
+        
+class ContainerReefer(Reefer):
+    """
+    Reefer but with containers
+    """
+    def __init__(self, id, **kwargs):
+        # beware - subclasses reefer (more subclassing here than is ideal)
+        super(ContainerReefer, self).__init__(id, **kwargs)
+        self.template = 'container_carrier.pynml'
+        
+
 
 class ContainerCarrier(Ship):
     """
