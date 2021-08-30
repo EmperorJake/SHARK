@@ -22,6 +22,7 @@ STR_NAME_SUFFIX_BARGE_TUG                                       :Barge Tug
 STR_NAME_SUFFIX_CATAMARAN                                       :Catamaran
 STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Container Feeder
 STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Container Barge
+STR_NAME_SUFFIX_CONTAINER_REEFER                                :Container Reefer
 STR_NAME_SUFFIX_FERRY                                           :Ferry
 STR_NAME_SUFFIX_FAST_FERRY                                      :Fast Ferry
 STR_NAME_SUFFIX_FREIGHTER                                       :Freighter

@@ -9,7 +9,6 @@ from ships import maddalena_vehicle_ferry
 from ships import tramp_steamer
 from ships import island_trader
 from ships import connor_freight_ferry
-from ships import eddystone_tanker
 from ships import enoshima_catamaran_ferry
 from ships import fastnet_paddle_steamer
 from ships import feodosiya_hydrofoil
@@ -19,7 +18,6 @@ from ships import grindavik_reefer
 from ships import helsinki_reefer
 from ships import harbour_point_utility_vessel
 from ships import labrador_utility_vessel
-from ships import hopetown_tanker
 from ships import little_cumbrae_freighter
 from ships import marstein_freighter
 from ships import meteor_freighter
@@ -64,6 +62,12 @@ from ships import kwangtung_trawler
 from ships import ohshima_freight_hovercraft
 from ships import olympic_log_tug
 from ships import winterhold_container_reefer
+from ships import roland_tanker
+from ships import bundaberg_tanker
+from ships import eddystone_tanker
+from ships import castlepoint_tanker
+from ships import kagoshima_tanker
+from ships import nagasaki_tanker
 
 roster = Roster(id = 'brit',
                 numeric_id = 1,
@@ -134,24 +138,20 @@ roster = Roster(id = 'brit',
                          
                          dieze_container_barge,
                          
+                         roland_tanker,
+                         bundaberg_tanker,
                          eddystone_tanker,
-                         hopetown_tanker,
+                         castlepoint_tanker,
+                         kagoshima_tanker,
+                         nagasaki_tanker,
                          yokohama_tanker,
                          huanghai_lng_tanker,
                          provence_edibles_tanker,
                         
 
-
-
-
-
-
-
-
-
                          freshney_tanker_barge,
                          volgoneft_two_seventy_tanker_barge,
-                         volgoneft_three_twenty_tanker_barge,
                          volgoneft_five_forty_tanker_barge,
+                         volgoneft_three_twenty_tanker_barge,
                          volgoneft_six_thirty_tanker_barge
 ])

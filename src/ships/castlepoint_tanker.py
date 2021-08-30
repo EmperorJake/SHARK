@@ -3,7 +3,7 @@ from ship import Tanker
 
 ship = Tanker(id = 'castlepoint_tanker',
             numeric_id = 1250,
-            title = 'Hopetoun [Tanker]',
+            title = 'Castlepoint [Tanker]',
             capacity_cargo_holds = 0,
             capacity_tanks = 330,
             replacement_id = '-none',

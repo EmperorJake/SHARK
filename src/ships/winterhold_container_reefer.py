@@ -3,7 +3,7 @@ from ship import ContainerReefer
 
 ship = ContainerReefer(id = 'winterhold_container_reefer',
             numeric_id = 1222,
-            title = 'Winterhold Container [Reefer]',
+            title = 'Winterhold [Container Reefer]',
             capacities_refittable = [400, 800, 1600],
             replacement_id = '-none',
             buy_cost = 99,

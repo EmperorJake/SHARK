@@ -17,9 +17,10 @@ ship = Tanker(id = 'volgoneft_five_forty_tanker_barge',
             offsets = [[-14, -42], [-61, -28], [-55, -29], [-10, -28], [-14, -54], [-61, -28], [-55, -29], [-9, -28]],
             buy_menu_width = 114,
             loading_speed = 40,
-            intro_date = 1920,
+            intro_date = 1885,
             buy_menu_bb_xy = [620, 21],
             str_type_info = 'LARGE_TANKER_COASTAL_INLAND',
+            effects = ['EFFECT_SPRITE_STEAM, 8, 0, 22'],
             vehicle_life = 45,
             gross_tonnage = 540)
 

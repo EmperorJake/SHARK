@@ -4,7 +4,7 @@ from ship import ContainerCarrier
 ship = ContainerCarrier(id = 'nieuwpoort_container_feeder',
             numeric_id = 1240,
             title = 'Nieuwpoort [Container Feeder]',
-            capacity_cargo_holds = 1000, 
+            capacity_cargo_holds = 1200, 
             replacement_id = '-none',
             buy_cost = 62,
             fixed_run_cost_factor = 10.0,

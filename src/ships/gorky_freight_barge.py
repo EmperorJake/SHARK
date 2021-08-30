@@ -16,9 +16,10 @@ ship = GeneralCargoVessel(id = 'gorky_freight_barge',
             offsets = [[-14, -42], [-61, -28], [-55, -29], [-10, -28], [-14, -54], [-61, -28], [-55, -29], [-9, -28]],
             buy_menu_width = 109,
             loading_speed = 20,
-            intro_date = 1899,
-            buy_menu_bb_xy = [624, 21],
+            intro_date = 1870,
+            buy_menu_bb_xy = [620, 21],
             str_type_info = 'CARGO_VESSEL_INLAND',
+            effects = ['EFFECT_SPRITE_STEAM, 8, 0, 22'],
             vehicle_life = 60,
             gross_tonnage = 500)
 
