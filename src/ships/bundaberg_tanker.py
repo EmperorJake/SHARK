@@ -2,7 +2,7 @@ import global_constants
 from ship import Tanker
 
 ship = Tanker(id = 'bundaberg_tanker',
-            numeric_id = 1265,
+            numeric_id = 1258,
             title = 'Bundaberg [Tanker]',
             capacity_cargo_holds = 0,
             capacity_tanks = 1060,

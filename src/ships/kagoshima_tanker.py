@@ -2,7 +2,7 @@ import global_constants
 from ship import Tanker
 
 ship = Tanker(id = 'kagoshima_tanker',
-            numeric_id = 1270,
+            numeric_id = 1260,
             title = 'Kagoshima [Tanker]',
             capacity_cargo_holds = 0,
             capacity_tanks = 750,

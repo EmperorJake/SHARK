@@ -68,6 +68,10 @@ from ships import eddystone_tanker
 from ships import castlepoint_tanker
 from ships import kagoshima_tanker
 from ships import nagasaki_tanker
+from ships import munkegrund_freighter
+from ships import taurus_freighter
+from ships import lorraine_edibles_tanker
+from ships import la_orchilla_tanker
 
 roster = Roster(id = 'brit',
                 numeric_id = 1,
@@ -113,12 +117,17 @@ roster = Roster(id = 'brit',
                          little_cumbrae_freighter,
                          altamira_freighter,
                          quessant_freighter,
+                         taurus_freighter,
+                         shannon_freighter,
+                         
+                         
                          meteor_freighter,
                          marstein_freighter,
                          oran_freighter,
-                         shannon_freighter,
-                         cadiz_freighter,
                          santorini_freighter,
+                         
+                         cadiz_freighter,
+                         munkegrund_freighter,
                          maspalomas_freighter,
                          
                          mcclure_livestock_ship,
@@ -144,9 +153,11 @@ roster = Roster(id = 'brit',
                          castlepoint_tanker,
                          kagoshima_tanker,
                          nagasaki_tanker,
+                         la_orchilla_tanker,
                          yokohama_tanker,
                          huanghai_lng_tanker,
                          provence_edibles_tanker,
+                         lorraine_edibles_tanker,
                         
 
                          freshney_tanker_barge,
