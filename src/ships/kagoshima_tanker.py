@@ -19,7 +19,7 @@ ship = Tanker(id = 'kagoshima_tanker',
             loading_speed = 20,
             intro_date = 1948,
             buy_menu_bb_xy = [620, 28],
-            str_type_info = 'COASTER',
+            str_type_info = 'COASTAL_TANKER',
             effects = ['EFFECT_SPRITE_DIESEL, 10, 0, 21'],
             vehicle_life = 40,
             gross_tonnage = 720)

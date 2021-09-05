@@ -1,17 +1,31 @@
 from roster import Roster
 
+from ships import lantau_ferry
+from ships import provincetown_ferry
+from ships import bernard_paddle_steamer
+from ships import friedrich_paddle_steamer
+from ships import lampwick_steamer
+from ships import island_trader
+from ships import connor_freight_ferry
+from ships import tyree_vehicle_ferry
+from ships import rosario_vehicle_ferry
+from ships import stornoway_vehicle_ferry
+from ships import maddalena_vehicle_ferry
+from ships import hammerhead_vehicle_ferry
+from ships import great_white_vehicle_ferry
+from ships import tigershark_hydrofoil
+from ships import matsushima_hydrofoil
+from ships import nanaimo_70_hovercraft
+from ships import duckitt_400_hovercraft
+from ships import port_jackson_ferry
+from ships import enoshima_catamaran_ferry
+from ships import mako_catamaran_ferry
+
 from ships import altamira_freighter
 from ships import malin_freighter
 from ships import finisterre_freighter
-from ships import barletta_paddle_steamer
 from ships import cadiz_freighter
-from ships import maddalena_vehicle_ferry
-from ships import tramp_steamer
-from ships import island_trader
-from ships import connor_freight_ferry
-from ships import enoshima_catamaran_ferry
-from ships import fastnet_paddle_steamer
-from ships import feodosiya_hydrofoil
+
 from ships import freshney_tanker_barge
 from ships import frisco_bay_freighter
 from ships import grindavik_reefer
@@ -22,33 +36,23 @@ from ships import little_cumbrae_freighter
 from ships import marstein_freighter
 from ships import meteor_freighter
 from ships import maspalomas_freighter
-from ships import matsushima_hydrofoil
-from ships import mount_blaze_catamaran_ferry
-from ships import nanaimo_70_hovercraft
-from ships import nieuwpoort_container_feeder
+from ships import newport_container_feeder
+
 from ships import oran_freighter
-from ships import patos_island_vehicle_ferry
-from ships import pegwell_super_4_hovercraft
 from ships import provence_edibles_tanker
 from ships import quessant_freighter
 from ships import santorini_freighter
-from ships import san_juan_vehicle_ferry
 from ships import mcclure_livestock_ship
 from ships import hitsuji_livestock_ship
 from ships import shannon_freighter
-from ships import sunk_rock_ferry
 from ships import stornoway_vehicle_ferry
-from ships import thunder_bay_hovercraft
-from ships import tiree_vehicle_ferry
 from ships import whitgift_freight_barge
 from ships import yokohama_tanker
 from ships import constance_freight_barge
 from ships import gorky_freight_barge
 from ships import lutschine_freight_barge
 from ships import schipbeek_freight_barge
-from ships import hammerhead_ferry
-from ships import johann_strauss_paddle_steamer
-from ships import lantau_ferry
+
 from ships import dieze_container_barge
 from ships import saint_marie_freight_barge
 from ships import volgoneft_two_seventy_tanker_barge
@@ -65,7 +69,7 @@ from ships import winterhold_container_reefer
 from ships import roland_tanker
 from ships import bundaberg_tanker
 from ships import eddystone_tanker
-from ships import castlepoint_tanker
+from ships import whetstone_tanker
 from ships import kagoshima_tanker
 from ships import nagasaki_tanker
 from ships import munkegrund_freighter
@@ -78,27 +82,27 @@ roster = Roster(id = 'brit',
                 ships = [
 
                          lantau_ferry,
-                         sunk_rock_ferry,
-                         johann_strauss_paddle_steamer,
-                         fastnet_paddle_steamer,
+                         provincetown_ferry,
+                         bernard_paddle_steamer,
+                         friedrich_paddle_steamer,
 
-                         tramp_steamer,
+                         lampwick_steamer,
                          island_trader,
                          connor_freight_ferry,
 
-                         tiree_vehicle_ferry,
-                         patos_island_vehicle_ferry,
+                         tyree_vehicle_ferry,
+                         rosario_vehicle_ferry,
                          stornoway_vehicle_ferry,
                          maddalena_vehicle_ferry,
-                         hammerhead_ferry,
-                         san_juan_vehicle_ferry,
+                         hammerhead_vehicle_ferry,
+                         great_white_vehicle_ferry,
                          nanaimo_70_hovercraft,
-                         pegwell_super_4_hovercraft,
-                         feodosiya_hydrofoil,
+                         duckitt_400_hovercraft,
+                         tigershark_hydrofoil,
                          matsushima_hydrofoil,
-
+                         port_jackson_ferry,
                          enoshima_catamaran_ferry,
-                         mount_blaze_catamaran_ferry,
+                         mako_catamaran_ferry,
 
 
 
@@ -137,7 +141,7 @@ roster = Roster(id = 'brit',
                          helsinki_reefer,
                          winterhold_container_reefer,
                          
-                         nieuwpoort_container_feeder,
+                         newport_container_feeder,
                          whitgift_freight_barge,                         
                          constance_freight_barge,
                          gorky_freight_barge,
@@ -150,7 +154,7 @@ roster = Roster(id = 'brit',
                          roland_tanker,
                          bundaberg_tanker,
                          eddystone_tanker,
-                         castlepoint_tanker,
+                         whetstone_tanker,
                          kagoshima_tanker,
                          nagasaki_tanker,
                          la_orchilla_tanker,
