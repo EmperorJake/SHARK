@@ -1,6 +1,6 @@
 ##grflangid 0x01
 ##plural 0
-STR_GRF_DESCRIPTION                                             :SHARK ate SQUID ate FISH. Forked by Emperor Jake, graphics and code by andythenorth and the rest of the FISH Team. License: {SILVER}GPL v2{}{BLACK}
+STR_GRF_DESCRIPTION                                             :{GOLD}SHARK ate SQUID ate FISH{BLACK} {}70 ships! A fork of Squid Ate FISH by andythenorth. Designed by Emperor Jake, Graphics by andythenorth, andrew350, Coxx, DanMack, Emperor Jake and others. License: {SILVER}GPL v2{}{BLACK}
 
 
 STR_EMPTY                                                       :

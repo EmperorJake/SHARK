@@ -2,7 +2,7 @@
 # Definitions needed for tar releases
 # This part is automatically generated
 ################################################################
-REPO_REVISION := 1710
+REPO_REVISION := 1720
 REPO_BRANCH := 
 REPO_MODIFIED := 
 REPO_TAGS    := 
