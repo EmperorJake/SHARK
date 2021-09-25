@@ -88,7 +88,7 @@ STR_QUANTITY_FOOD                                               : tonnes of refr
 STR_QUANTITY_LIVESTOCK                                          : items of livestock
 STR_UNIT_TONNES                                                 : tonnes
 STR_UNIT_ITEMS                                                  : items
-STR_GRF_NAME                                                    :SHARK r1720
+STR_GRF_NAME                                                    :SHARK 1.0
 
 
 
@@ -154,6 +154,8 @@ STR_NAME_volgoneft_five_forty_tanker_barge                                      
 
 STR_NAME_mako_catamaran_ferry                                          :Mako {STRING} 
 
+STR_NAME_la_orchilla_tanker                                          :La Orchilla {STRING} 
+
 STR_NAME_duckitt_400_hovercraft                                          :Duckitt 400 {STRING} 
 
 STR_NAME_nagasaki_tanker                                          :Nagasaki {STRING} 
@@ -176,9 +178,11 @@ STR_NAME_newport_container_feeder                                          :Newp
 
 STR_NAME_yokohama_tanker                                          :Yokohama {STRING} 
 
-STR_NAME_volgoneft_six_thirty_tanker_barge                                          :Volgoneft 630 {STRING} 
+STR_NAME_lorraine_edibles_tanker                                          :Lorraine Edibles {STRING} 
 
-STR_NAME_la_orchilla_tanker                                          :La Orchilla {STRING} 
+STR_NAME_bundaberg_tanker                                          :Bundaberg {STRING} 
+
+STR_NAME_volgoneft_six_thirty_tanker_barge                                          :Volgoneft 630 {STRING} 
 
 STR_NAME_malin_freighter                                          :Malin {STRING} 
 
@@ -198,11 +202,7 @@ STR_NAME_matsushima_hydrofoil                                          :Matsushi
 
 STR_NAME_bernard_paddle_steamer                                          :Bernard {STRING} 
 
-STR_NAME_lorraine_edibles_tanker                                          :Lorraine Edibles {STRING} 
-
 STR_NAME_taurus_freighter                                          :Taurus {STRING} 
-
-STR_NAME_bundaberg_tanker                                          :Bundaberg {STRING} 
 
 STR_NAME_frisco_bay_freighter                                          :Frisco Bay {STRING} 
 
