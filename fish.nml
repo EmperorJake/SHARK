@@ -62,7 +62,7 @@ if (param_reset_construction_costs) {
 }
 
 // sort order
-sort(FEAT_SHIPS, [2001, 1010, 2020, 1040, 1030, 1031, 1032, 49, 50, 79, 80, 2030, 2031, 1050, 1060, 2040, 70, 89, 90, 100, 1200, 1210, 2050, 250, 1000, 1001, 150, 1100, 1110, 1120, 1101, 1111, 1125, 1132, 1135, 1180, 1170, 1126, 1440, 1130, 1145, 1150, 1230, 1231, 1220, 1221, 1222, 1240, 1160, 2120, 2125, 2135, 2140, 2110, 2280, 1255, 1258, 1245, 1250, 1260, 1265, 1270, 1271, 1275, 1280, 1282, 2248, 2250, 2255, 2251, 2260]);
+sort(FEAT_SHIPS, [2001, 1010, 2020, 1040, 1030, 1031, 1032, 49, 50, 79, 80, 2030, 2031, 1050, 1060, 2040, 70, 89, 90, 100, 1200, 1210, 2050, 250, 1000, 1001, 150, 1100, 1110, 1120, 1101, 1111, 1125, 1132, 1135, 1180, 1170, 1126, 1440, 1130, 1145, 1150, 1230, 1231, 1220, 1221, 1222, 1240, 1160, 2120, 2125, 2135, 2140, 2110, 1255, 1258, 1245, 1250, 1260, 1265, 1270, 1271, 1275, 1280, 1282, 2248, 2250, 2255, 2251, 2260]);
 /*
  * ********************************************
  * Define cargo translation table and refits
@@ -171,6 +171,210 @@ cargotable {
     
 }
 disable_item(FEAT_SHIPS, 00, 10);
+// -- begin Bundaberg [Tanker] -- 
+
+
+// graphics
+template spriteset_template_bundaberg_tanker(y) {
+    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+    [20,        y,          28,         89,          -14, -41, ANIM]
+    [60,        y,          113,        66,          -74, -22, ANIM]
+    [186,       y,          138,        48,          -65, -29, ANIM]
+    [328,       y,          113,        66,          -21, -22, ANIM]
+    [454,       y,          28,         89,          -14, -50, ANIM]
+    [494,       y,          113,        66,          -75, -22, ANIM]
+    [620,       y,          138,        48,          -65, -29, ANIM]
+    [762,       y,          113,        66,          -20, -22, ANIM]
+}
+
+spriteset(bundaberg_tanker_ss_not_loaded_not_moving, "src/graphics/bundaberg_tanker_0.png") {
+  spriteset_template_bundaberg_tanker(10)
+}
+spriteset(bundaberg_tanker_ss_not_loaded_moving, "src/graphics/bundaberg_tanker_0.png") {
+  spriteset_template_bundaberg_tanker(110)
+}
+spriteset(bundaberg_tanker_ss_loaded_not_moving, "src/graphics/bundaberg_tanker_0.png") {
+  spriteset_template_bundaberg_tanker(210)
+}
+spriteset(bundaberg_tanker_ss_loaded_moving, "src/graphics/bundaberg_tanker_0.png") {
+  spriteset_template_bundaberg_tanker(310)
+}
+
+spritegroup bundaberg_tanker_sg_moving {
+    loaded:  [
+        bundaberg_tanker_ss_not_loaded_moving,
+        bundaberg_tanker_ss_loaded_moving,
+    ];
+    loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
+        bundaberg_tanker_ss_loaded_moving,
+    ];
+}
+
+spritegroup bundaberg_tanker_sg_not_moving {
+    loaded:  [
+        bundaberg_tanker_ss_not_loaded_not_moving,
+        bundaberg_tanker_ss_loaded_not_moving,
+    ];
+    loading: [
+        bundaberg_tanker_ss_not_loaded_not_moving,
+        bundaberg_tanker_ss_loaded_not_moving,
+    ];
+}
+
+switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_graphics, current_speed) {
+    0: return bundaberg_tanker_sg_not_moving;
+    return bundaberg_tanker_sg_moving;
+}
+
+
+// buy menu graphics
+
+template spriteset_template_purchase_bundaberg_tanker() {
+    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+    [620, 28, 138, 22, -69, -10]
+}
+
+spriteset(bundaberg_tanker_ss_purchase, "src/graphics/bundaberg_tanker_0.png") {
+  spriteset_template_purchase_bundaberg_tanker()
+}
+
+spritegroup bundaberg_tanker_sg_purchase {
+    loaded:  [
+        bundaberg_tanker_ss_purchase,
+    ];
+    loading: [
+        bundaberg_tanker_ss_purchase,
+    ];
+}
+
+// -- set speed a little higher than rated speed when unladen -- //
+// -- also apply the param_adjust_ship_speed parameter -- //
+
+    switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
+        0 : 48;
+        1..25 : 47;
+        26..50 : 46;
+        51..75 : 44;
+        76..100 : 43;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+    switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
+        0 : 71;
+        1..25 : 69;
+        26..50 : 68;
+        51..75 : 66;
+        76..100 : 65;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+    switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
+        0 : 94;
+        1..25 : 92;
+        26..50 : 90;
+        51..75 : 88;
+        76..100 : 86;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
+    0: bundaberg_tanker_switch_speed_varies_with_load_amount_0;
+    1: bundaberg_tanker_switch_speed_varies_with_load_amount_1;
+    2: bundaberg_tanker_switch_speed_varies_with_load_amount_2;
+}
+switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_purchase_speed, param_adjust_ship_speed) {
+    0: 43;
+    1: 65;
+    2: 86;
+}
+
+
+// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
+switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_cargo_capacity_classes, cargo_classes) {
+    bitmask(CC_PASSENGERS): return 0;
+    bitmask(CC_MAIL): return 0;
+    return 1060;
+}
+switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_cargo_capacity, cargo_type_in_veh) {
+    
+    bundaberg_tanker_switch_cargo_capacity_classes;
+}
+
+// -- handle subtype strings, used to aid players understand auto-refitting -- //
+switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_cargo_subtype_text, cargo_subtype) {
+    return CB_RESULT_NO_TEXT;
+}
+
+
+// -- some switches are common to all vehicles so included with properties -- //
+
+// -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
+switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_purchase_cargo_capacity, cargo_type_in_veh) {
+    
+    
+    return 1060;
+}
+
+// -- smoke -- //
+switch (FEAT_SHIPS, SELF, bundaberg_tanker_create_visual_effect, [STORE_TEMP(create_effect(EFFECT_SPRITE_STEAM, 16, 0, 26), 0x100)]) {
+    return 1;
+}
+
+
+// -- props -- //
+item(FEAT_SHIPS, bundaberg_tanker, 1258) {
+    property {
+        name:                           string(STR_NAME_bundaberg_tanker, string(STR_NAME_SUFFIX_TANKER));
+        climates_available:             NO_CLIMATE; // nml constant
+        sound_effect:                   SOUND_SHIP_HORN;
+        effect_spawn_model:             EFFECT_SPAWN_MODEL_STEAM;
+        introduction_date:              date(1914,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 1060;
+        sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
+        speed:                          20.0mph;
+        ocean_speed_fraction:           1;
+        canal_speed_fraction:           0.7;
+        cost_factor:                    78;
+        running_cost_factor:            174;
+        refit_cost:                     0; // leave at 0 for refitting without defining cb
+        is_refittable:                  1;
+        refittable_cargo_classes:       bitmask(CC_LIQUID);
+        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
+        cargo_allow_refit:              [];
+        cargo_disallow_refit:           [MILK,WATR,BEER,FOOD];
+        default_cargo_type:             OIL_;
+        loading_speed:                  20;
+        cargo_age_period:               740;
+        misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   31; // magic from Eddi
+        reliability_decay:              20; // default value
+        vehicle_life:                   35;
+    }
+    graphics {
+        speed:                          bundaberg_tanker_switch_speed_varies_with_load_amount;
+        purchase_speed:                 bundaberg_tanker_switch_purchase_speed;
+        cargo_capacity:                 bundaberg_tanker_switch_cargo_capacity;
+        purchase_cargo_capacity:        bundaberg_tanker_switch_purchase_cargo_capacity;
+        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_COASTAL_TANKER), string(STR_EMPTY));
+        cargo_subtype_text:             bundaberg_tanker_switch_cargo_subtype_text;
+        default:                        bundaberg_tanker_switch_graphics;
+        purchase:                       bundaberg_tanker_sg_purchase;
+        create_effect:                  bundaberg_tanker_create_visual_effect;
+    }
+}
+
+if (param[2]==0) {
+    item(FEAT_SHIPS, bundaberg_tanker, 1258) {
+        property {
+            climates_available:             ALL_CLIMATES;
+        }
+    }
+}
+
+// -- end Bundaberg [Tanker] -- 
+
+
 // -- begin Saint Marie [Barge Tug] -- 
 
 
@@ -371,7 +575,7 @@ item(FEAT_SHIPS, saint_marie_freight_barge, 2110) {
         running_cost_factor:            40;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -406,6 +610,210 @@ if (param[2]==0) {
 }
 
 // -- end Saint Marie [Barge Tug] -- 
+
+
+// -- begin Lorraine Edibles [Tanker] -- 
+
+
+// graphics
+template spriteset_template_lorraine_edibles_tanker(y) {
+    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+    [20,        y,          28,         89,          -14, -41, ANIM]
+    [60,        y,          113,        66,          -74, -22, ANIM]
+    [186,       y,          138,        48,          -65, -29, ANIM]
+    [328,       y,          113,        66,          -21, -22, ANIM]
+    [454,       y,          28,         89,          -14, -50, ANIM]
+    [494,       y,          113,        66,          -75, -22, ANIM]
+    [620,       y,          138,        48,          -65, -29, ANIM]
+    [762,       y,          113,        66,          -20, -22, ANIM]
+}
+
+spriteset(lorraine_edibles_tanker_ss_not_loaded_not_moving, "src/graphics/lorraine_edibles_tanker_0.png") {
+  spriteset_template_lorraine_edibles_tanker(10)
+}
+spriteset(lorraine_edibles_tanker_ss_not_loaded_moving, "src/graphics/lorraine_edibles_tanker_0.png") {
+  spriteset_template_lorraine_edibles_tanker(110)
+}
+spriteset(lorraine_edibles_tanker_ss_loaded_not_moving, "src/graphics/lorraine_edibles_tanker_0.png") {
+  spriteset_template_lorraine_edibles_tanker(210)
+}
+spriteset(lorraine_edibles_tanker_ss_loaded_moving, "src/graphics/lorraine_edibles_tanker_0.png") {
+  spriteset_template_lorraine_edibles_tanker(310)
+}
+
+spritegroup lorraine_edibles_tanker_sg_moving {
+    loaded:  [
+        lorraine_edibles_tanker_ss_not_loaded_moving,
+        lorraine_edibles_tanker_ss_loaded_moving,
+    ];
+    loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
+        lorraine_edibles_tanker_ss_loaded_moving,
+    ];
+}
+
+spritegroup lorraine_edibles_tanker_sg_not_moving {
+    loaded:  [
+        lorraine_edibles_tanker_ss_not_loaded_not_moving,
+        lorraine_edibles_tanker_ss_loaded_not_moving,
+    ];
+    loading: [
+        lorraine_edibles_tanker_ss_not_loaded_not_moving,
+        lorraine_edibles_tanker_ss_loaded_not_moving,
+    ];
+}
+
+switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_graphics, current_speed) {
+    0: return lorraine_edibles_tanker_sg_not_moving;
+    return lorraine_edibles_tanker_sg_moving;
+}
+
+
+// buy menu graphics
+
+template spriteset_template_purchase_lorraine_edibles_tanker() {
+    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+    [620, 28, 130, 22, -65, -10]
+}
+
+spriteset(lorraine_edibles_tanker_ss_purchase, "src/graphics/lorraine_edibles_tanker_0.png") {
+  spriteset_template_purchase_lorraine_edibles_tanker()
+}
+
+spritegroup lorraine_edibles_tanker_sg_purchase {
+    loaded:  [
+        lorraine_edibles_tanker_ss_purchase,
+    ];
+    loading: [
+        lorraine_edibles_tanker_ss_purchase,
+    ];
+}
+
+// -- set speed a little higher than rated speed when unladen -- //
+// -- also apply the param_adjust_ship_speed parameter -- //
+
+    switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
+        0 : 71;
+        1..25 : 70;
+        26..50 : 68;
+        51..75 : 66;
+        76..100 : 65;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+    switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
+        0 : 106;
+        1..25 : 104;
+        26..50 : 101;
+        51..75 : 99;
+        76..100 : 97;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+    switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
+        0 : 141;
+        1..25 : 138;
+        26..50 : 135;
+        51..75 : 131;
+        76..100 : 128;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
+    0: lorraine_edibles_tanker_switch_speed_varies_with_load_amount_0;
+    1: lorraine_edibles_tanker_switch_speed_varies_with_load_amount_1;
+    2: lorraine_edibles_tanker_switch_speed_varies_with_load_amount_2;
+}
+switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_purchase_speed, param_adjust_ship_speed) {
+    0: 65;
+    1: 97;
+    2: 128;
+}
+
+
+// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
+switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_cargo_capacity_classes, cargo_classes) {
+    bitmask(CC_PASSENGERS): return 0;
+    bitmask(CC_MAIL): return 0;
+    return 860;
+}
+switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_cargo_capacity, cargo_type_in_veh) {
+    
+    lorraine_edibles_tanker_switch_cargo_capacity_classes;
+}
+
+// -- handle subtype strings, used to aid players understand auto-refitting -- //
+switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_cargo_subtype_text, cargo_subtype) {
+    return CB_RESULT_NO_TEXT;
+}
+
+
+// -- some switches are common to all vehicles so included with properties -- //
+
+// -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
+switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_purchase_cargo_capacity, cargo_type_in_veh) {
+    
+    
+    return 860;
+}
+
+// -- smoke -- //
+switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_create_visual_effect, [STORE_TEMP(create_effect(EFFECT_SPRITE_AIRCRAFT_BREAKDOWN_SMOKE, 16, 0, 26), 0x100)]) {
+    return 1;
+}
+
+
+// -- props -- //
+item(FEAT_SHIPS, lorraine_edibles_tanker, 1282) {
+    property {
+        name:                           string(STR_NAME_lorraine_edibles_tanker, string(STR_NAME_SUFFIX_TANKER));
+        climates_available:             NO_CLIMATE; // nml constant
+        sound_effect:                   SOUND_SHIP_HORN;
+        effect_spawn_model:             EFFECT_SPAWN_MODEL_STEAM;
+        introduction_date:              date(1976,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 860;
+        sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
+        speed:                          30.0mph;
+        ocean_speed_fraction:           1;
+        canal_speed_fraction:           1;
+        cost_factor:                    83;
+        running_cost_factor:            166;
+        refit_cost:                     0; // leave at 0 for refitting without defining cb
+        is_refittable:                  1;
+        refittable_cargo_classes:       bitmask(CC_LIQUID);
+        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
+        cargo_allow_refit:              [];
+        cargo_disallow_refit:           [RFPR,OIL_,FMSP,PETR];
+        default_cargo_type:             WATR;
+        loading_speed:                  40;
+        cargo_age_period:               740;
+        misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   31; // magic from Eddi
+        reliability_decay:              20; // default value
+        vehicle_life:                   35;
+    }
+    graphics {
+        speed:                          lorraine_edibles_tanker_switch_speed_varies_with_load_amount;
+        purchase_speed:                 lorraine_edibles_tanker_switch_purchase_speed;
+        cargo_capacity:                 lorraine_edibles_tanker_switch_cargo_capacity;
+        purchase_cargo_capacity:        lorraine_edibles_tanker_switch_purchase_cargo_capacity;
+        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_LARGE_COASTAL_TANKER), string(STR_EMPTY));
+        cargo_subtype_text:             lorraine_edibles_tanker_switch_cargo_subtype_text;
+        default:                        lorraine_edibles_tanker_switch_graphics;
+        purchase:                       lorraine_edibles_tanker_sg_purchase;
+        create_effect:                  lorraine_edibles_tanker_create_visual_effect;
+    }
+}
+
+if (param[2]==0) {
+    item(FEAT_SHIPS, lorraine_edibles_tanker, 1282) {
+        property {
+            climates_available:             ALL_CLIMATES;
+        }
+    }
+}
+
+// -- end Lorraine Edibles [Tanker] -- 
 
 
 
@@ -598,7 +1006,7 @@ item(FEAT_SHIPS, port_jackson_ferry, 89) {
         running_cost_factor:            81;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -825,7 +1233,7 @@ item(FEAT_SHIPS, labrador_utility_vessel, 1001) {
         running_cost_factor:            15;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_MAIL,CC_COVERED,CC_LIQUID,CC_PASSENGERS,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_PASSENGERS,CC_EXPRESS,CC_ARMOURED,CC_MAIL,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [];
@@ -1062,7 +1470,7 @@ item(FEAT_SHIPS, finisterre_freighter, 1110) {
         running_cost_factor:            46;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -1097,6 +1505,233 @@ if (param[2]==0) {
 }
 
 // -- end Finisterre [Freighter] -- 
+
+
+
+
+// -- begin Lantau [Ferry] -- 
+
+
+// graphics
+
+    template spriteset_template_lantau_ferry(y) {
+        //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+        [20,        y,          28,   89,          -14, -40, ANIM]
+        [60,        y,          113,        66,          -78, -21, ANIM]
+        [186,       y,          138,        48,          -68, -21, ANIM]
+        [328,       y,          113,        66,          -30, -21, ANIM]
+        [454,       y,          28,   89,          -14, -40, ANIM]
+        [494,       y,          113,        66,          -78, -24, ANIM]
+        [620,       y,          138,        48,          -68, -21, ANIM]
+        [762,       y,          113,        66,          -32, -21, ANIM]
+    }
+
+
+
+    spriteset(lantau_ferry_ss_not_loaded_not_moving_0, "src/graphics/lantau_ferry_0.png") {
+      spriteset_template_lantau_ferry(10)
+    }
+    spriteset(lantau_ferry_ss_not_loaded_moving_0, "src/graphics/lantau_ferry_0.png") {
+      spriteset_template_lantau_ferry(110)
+    }
+    spriteset(lantau_ferry_ss_loaded_not_moving_0, "src/graphics/lantau_ferry_0.png") {
+      spriteset_template_lantau_ferry(510)
+    }
+    spriteset(lantau_ferry_ss_loaded_moving_0, "src/graphics/lantau_ferry_0.png") {
+      spriteset_template_lantau_ferry(610)
+    }
+
+    spritegroup lantau_ferry_sg_moving_0 {
+        loaded:  [
+            lantau_ferry_ss_not_loaded_moving_0,
+            lantau_ferry_ss_loaded_moving_0,
+        ];
+        loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
+            lantau_ferry_ss_not_loaded_moving_0,
+            lantau_ferry_ss_loaded_moving_0,
+        ];
+    }
+
+    spritegroup lantau_ferry_sg_not_moving_0 {
+        loaded:  [
+            lantau_ferry_ss_not_loaded_not_moving_0,
+            lantau_ferry_ss_loaded_not_moving_0,
+        ];
+        loading: [
+            lantau_ferry_ss_not_loaded_not_moving_0,
+            lantau_ferry_ss_loaded_not_moving_0,
+        ];
+    }
+
+    switch (FEAT_SHIPS, SELF, lantau_ferry_switch_graphics_0, current_speed) {
+        0: return lantau_ferry_sg_not_moving_0;
+        return lantau_ferry_sg_moving_0;
+    }
+
+
+
+    random_switch (FEAT_SHIPS, SELF, lantau_ferry_switch_graphics_random_0) {
+        
+            1: return lantau_ferry_switch_graphics_0;
+        
+    }
+
+
+
+switch (FEAT_SHIPS, SELF, lantau_ferry_switch_graphics, build_year) {
+    
+        0..5000000:lantau_ferry_switch_graphics_random_0;
+    
+    return lantau_ferry_switch_graphics_random_0;
+}
+
+
+// buy menu graphics
+
+template spriteset_template_purchase_lantau_ferry() {
+    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+    [673, 23, 29, 22, -14, -10, ANIM]
+}
+
+spriteset(lantau_ferry_ss_purchase, "src/graphics/lantau_ferry_0.png") {
+  spriteset_template_purchase_lantau_ferry()
+}
+
+spritegroup lantau_ferry_sg_purchase {
+    loaded:  [
+        lantau_ferry_ss_purchase,
+    ];
+    loading: [
+        lantau_ferry_ss_purchase,
+    ];
+}
+
+// -- set speed a little higher than rated speed when unladen -- //
+// -- also apply the param_adjust_ship_speed parameter -- //
+
+    switch (FEAT_SHIPS, SELF, lantau_ferry_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
+        0 : 50;
+        1..25 : 48;
+        26..50 : 47;
+        51..75 : 45;
+        76..100 : 43;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+    switch (FEAT_SHIPS, SELF, lantau_ferry_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
+        0 : 74;
+        1..25 : 72;
+        26..50 : 69;
+        51..75 : 67;
+        76..100 : 65;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+    switch (FEAT_SHIPS, SELF, lantau_ferry_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
+        0 : 98;
+        1..25 : 95;
+        26..50 : 92;
+        51..75 : 89;
+        76..100 : 86;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+switch (FEAT_SHIPS, SELF, lantau_ferry_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
+    0: lantau_ferry_switch_speed_varies_with_load_amount_0;
+    1: lantau_ferry_switch_speed_varies_with_load_amount_1;
+    2: lantau_ferry_switch_speed_varies_with_load_amount_2;
+}
+switch (FEAT_SHIPS, SELF, lantau_ferry_switch_purchase_speed, param_adjust_ship_speed) {
+    0: 43;
+    1: 65;
+    2: 86;
+}
+
+
+// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
+switch (FEAT_SHIPS, SELF, lantau_ferry_switch_cargo_capacity_classes, cargo_classes) {
+    bitmask(CC_PASSENGERS): return 54;
+    bitmask(CC_MAIL): return 54;
+    return 27;
+}
+switch (FEAT_SHIPS, SELF, lantau_ferry_switch_cargo_capacity, cargo_type_in_veh) {
+    
+    lantau_ferry_switch_cargo_capacity_classes;
+}
+
+// -- handle subtype strings, used to aid players understand auto-refitting -- //
+switch (FEAT_SHIPS, SELF, lantau_ferry_switch_cargo_subtype_text, cargo_subtype) {
+    return CB_RESULT_NO_TEXT;
+}
+
+
+// -- some switches are common to all vehicles so included with properties -- //
+
+// -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
+switch (FEAT_SHIPS, SELF, lantau_ferry_switch_purchase_cargo_capacity, cargo_type_in_veh) {
+    
+    
+    return 54;
+}
+
+// -- smoke -- //
+switch (FEAT_SHIPS, SELF, lantau_ferry_create_visual_effect, 0) {
+    return 0;
+}
+
+
+// -- props -- //
+item(FEAT_SHIPS, lantau_ferry, 2001) {
+    property {
+        name:                           string(STR_NAME_lantau_ferry, string(STR_NAME_SUFFIX_FERRY));
+        climates_available:             NO_CLIMATE; // nml constant
+        sound_effect:                   SOUND_FERRY_HORN;
+        effect_spawn_model:             EFFECT_SPAWN_MODEL_STEAM;
+        introduction_date:              date(1860,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 54;
+        sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
+        speed:                          20.0mph;
+        ocean_speed_fraction:           1;
+        canal_speed_fraction:           1;
+        cost_factor:                    2;
+        running_cost_factor:            10;
+        refit_cost:                     0; // leave at 0 for refitting without defining cb
+        is_refittable:                  1;
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
+        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
+        cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
+        cargo_disallow_refit:           [FISH];
+        default_cargo_type:             PASS;
+        loading_speed:                  15;
+        cargo_age_period:               740;
+        misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   36; // magic from Eddi
+        reliability_decay:              20; // default value
+        vehicle_life:                   40;
+    }
+    graphics {
+        speed:                          lantau_ferry_switch_speed_varies_with_load_amount;
+        purchase_speed:                 lantau_ferry_switch_purchase_speed;
+        cargo_capacity:                 lantau_ferry_switch_cargo_capacity;
+        purchase_cargo_capacity:        lantau_ferry_switch_purchase_cargo_capacity;
+        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_SMALL_FERRY), string(STR_BUY_MENU_REFIT_CAPACITIES_PACKET,54,27));
+        cargo_subtype_text:             lantau_ferry_switch_cargo_subtype_text;
+        default:                        lantau_ferry_switch_graphics;
+        purchase:                       lantau_ferry_sg_purchase;
+        create_effect:                  lantau_ferry_create_visual_effect;
+    }
+}
+
+if (param[2]==0) {
+    item(FEAT_SHIPS, lantau_ferry, 2001) {
+        property {
+            climates_available:             ALL_CLIMATES;
+        }
+    }
+}
+
+// -- end Lantau [Ferry] -- 
 
 
 
@@ -1731,7 +2366,7 @@ item(FEAT_SHIPS, marstein_freighter, 1170) {
         running_cost_factor:            50;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -2162,7 +2797,7 @@ item(FEAT_SHIPS, great_white_vehicle_ferry, 2031) {
         running_cost_factor:            108;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -2389,7 +3024,7 @@ item(FEAT_SHIPS, stornoway_vehicle_ferry, 79) {
         running_cost_factor:            173;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -2626,7 +3261,7 @@ item(FEAT_SHIPS, oran_freighter, 1126) {
         running_cost_factor:            171;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -2856,7 +3491,7 @@ item(FEAT_SHIPS, kwangtung_trawler, 2050) {
         running_cost_factor:            22;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FISH,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [];
@@ -3041,7 +3676,7 @@ item(FEAT_SHIPS, tigershark_hydrofoil, 2040) {
         running_cost_factor:            45;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -3268,7 +3903,7 @@ item(FEAT_SHIPS, hammerhead_vehicle_ferry, 2030) {
         running_cost_factor:            92;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -3531,233 +4166,6 @@ if (param[2]==0) {
 }
 
 // -- end Hitsuji [Livestock Ship] -- 
-
-
-
-
-// -- begin Provincetown [Ferry] -- 
-
-
-// graphics
-
-    template spriteset_template_provincetown_ferry(y) {
-        //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-        [20,        y,          28,   89,          -14, -40, ANIM]
-        [60,        y,          113,        66,          -78, -21, ANIM]
-        [186,       y,          138,        48,          -68, -21, ANIM]
-        [328,       y,          113,        66,          -30, -21, ANIM]
-        [454,       y,          28,   89,          -14, -40, ANIM]
-        [494,       y,          113,        66,          -78, -24, ANIM]
-        [620,       y,          138,        48,          -68, -21, ANIM]
-        [762,       y,          113,        66,          -32, -21, ANIM]
-    }
-
-
-
-    spriteset(provincetown_ferry_ss_not_loaded_not_moving_0, "src/graphics/provincetown_ferry_0.png") {
-      spriteset_template_provincetown_ferry(10)
-    }
-    spriteset(provincetown_ferry_ss_not_loaded_moving_0, "src/graphics/provincetown_ferry_0.png") {
-      spriteset_template_provincetown_ferry(110)
-    }
-    spriteset(provincetown_ferry_ss_loaded_not_moving_0, "src/graphics/provincetown_ferry_0.png") {
-      spriteset_template_provincetown_ferry(510)
-    }
-    spriteset(provincetown_ferry_ss_loaded_moving_0, "src/graphics/provincetown_ferry_0.png") {
-      spriteset_template_provincetown_ferry(610)
-    }
-
-    spritegroup provincetown_ferry_sg_moving_0 {
-        loaded:  [
-            provincetown_ferry_ss_not_loaded_moving_0,
-            provincetown_ferry_ss_loaded_moving_0,
-        ];
-        loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
-            provincetown_ferry_ss_not_loaded_moving_0,
-            provincetown_ferry_ss_loaded_moving_0,
-        ];
-    }
-
-    spritegroup provincetown_ferry_sg_not_moving_0 {
-        loaded:  [
-            provincetown_ferry_ss_not_loaded_not_moving_0,
-            provincetown_ferry_ss_loaded_not_moving_0,
-        ];
-        loading: [
-            provincetown_ferry_ss_not_loaded_not_moving_0,
-            provincetown_ferry_ss_loaded_not_moving_0,
-        ];
-    }
-
-    switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_graphics_0, current_speed) {
-        0: return provincetown_ferry_sg_not_moving_0;
-        return provincetown_ferry_sg_moving_0;
-    }
-
-
-
-    random_switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_graphics_random_0) {
-        
-            1: return provincetown_ferry_switch_graphics_0;
-        
-    }
-
-
-
-switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_graphics, build_year) {
-    
-        0..5000000:provincetown_ferry_switch_graphics_random_0;
-    
-    return provincetown_ferry_switch_graphics_random_0;
-}
-
-
-// buy menu graphics
-
-template spriteset_template_purchase_provincetown_ferry() {
-    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-    [669, 21, 40, 22, -20, -10, ANIM]
-}
-
-spriteset(provincetown_ferry_ss_purchase, "src/graphics/provincetown_ferry_0.png") {
-  spriteset_template_purchase_provincetown_ferry()
-}
-
-spritegroup provincetown_ferry_sg_purchase {
-    loaded:  [
-        provincetown_ferry_ss_purchase,
-    ];
-    loading: [
-        provincetown_ferry_ss_purchase,
-    ];
-}
-
-// -- set speed a little higher than rated speed when unladen -- //
-// -- also apply the param_adjust_ship_speed parameter -- //
-
-    switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
-        0 : 43;
-        1..25 : 43;
-        26..50 : 43;
-        51..75 : 43;
-        76..100 : 43;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-    switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
-        0 : 65;
-        1..25 : 65;
-        26..50 : 65;
-        51..75 : 65;
-        76..100 : 65;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-    switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
-        0 : 86;
-        1..25 : 86;
-        26..50 : 86;
-        51..75 : 86;
-        76..100 : 86;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
-    0: provincetown_ferry_switch_speed_varies_with_load_amount_0;
-    1: provincetown_ferry_switch_speed_varies_with_load_amount_1;
-    2: provincetown_ferry_switch_speed_varies_with_load_amount_2;
-}
-switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_purchase_speed, param_adjust_ship_speed) {
-    0: 43;
-    1: 65;
-    2: 86;
-}
-
-
-// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
-switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_cargo_capacity_classes, cargo_classes) {
-    bitmask(CC_PASSENGERS): return 100;
-    bitmask(CC_MAIL): return 80;
-    return 25;
-}
-switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_cargo_capacity, cargo_type_in_veh) {
-    
-    provincetown_ferry_switch_cargo_capacity_classes;
-}
-
-// -- handle subtype strings, used to aid players understand auto-refitting -- //
-switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_cargo_subtype_text, cargo_subtype) {
-    return CB_RESULT_NO_TEXT;
-}
-
-
-// -- some switches are common to all vehicles so included with properties -- //
-
-// -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
-switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_purchase_cargo_capacity, cargo_type_in_veh) {
-    
-    
-    return 100;
-}
-
-// -- smoke -- //
-switch (FEAT_SHIPS, SELF, provincetown_ferry_create_visual_effect, [STORE_TEMP(create_effect(EFFECT_SPRITE_DIESEL, 2, 0, 16), 0x100)]) {
-    return 1;
-}
-
-
-// -- props -- //
-item(FEAT_SHIPS, provincetown_ferry, 1010) {
-    property {
-        name:                           string(STR_NAME_provincetown_ferry, string(STR_NAME_SUFFIX_FERRY));
-        climates_available:             NO_CLIMATE; // nml constant
-        sound_effect:                   SOUND_FERRY_HORN;
-        effect_spawn_model:             EFFECT_SPAWN_MODEL_STEAM;
-        introduction_date:              date(1890,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
-        cargo_capacity:                 100;
-        sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
-        speed:                          20.0mph;
-        ocean_speed_fraction:           1;
-        canal_speed_fraction:           1;
-        cost_factor:                    14;
-        running_cost_factor:            34;
-        refit_cost:                     0; // leave at 0 for refitting without defining cb
-        is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
-        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
-        cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
-        cargo_disallow_refit:           [FISH];
-        default_cargo_type:             PASS;
-        loading_speed:                  30;
-        cargo_age_period:               740;
-        misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        retire_early:                   36; // magic from Eddi
-        reliability_decay:              20; // default value
-        vehicle_life:                   40;
-    }
-    graphics {
-        speed:                          provincetown_ferry_switch_speed_varies_with_load_amount;
-        purchase_speed:                 provincetown_ferry_switch_purchase_speed;
-        cargo_capacity:                 provincetown_ferry_switch_cargo_capacity;
-        purchase_cargo_capacity:        provincetown_ferry_switch_purchase_cargo_capacity;
-        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_SMALL_FERRY), string(STR_BUY_MENU_REFIT_CAPACITIES_PACKET,80,25));
-        cargo_subtype_text:             provincetown_ferry_switch_cargo_subtype_text;
-        default:                        provincetown_ferry_switch_graphics;
-        purchase:                       provincetown_ferry_sg_purchase;
-        create_effect:                  provincetown_ferry_create_visual_effect;
-    }
-}
-
-if (param[2]==0) {
-    item(FEAT_SHIPS, provincetown_ferry, 1010) {
-        property {
-            climates_available:             ALL_CLIMATES;
-        }
-    }
-}
-
-// -- end Provincetown [Ferry] -- 
 
 
 // -- begin Whetstone [Tanker] -- 
@@ -4368,7 +4776,7 @@ item(FEAT_SHIPS, santorini_freighter, 1440) {
         running_cost_factor:            245;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -4731,7 +5139,7 @@ item(FEAT_SHIPS, lutschine_freight_barge, 2135) {
         running_cost_factor:            61;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -5023,7 +5431,7 @@ item(FEAT_SHIPS, altamira_freighter, 1111) {
         running_cost_factor:            54;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -5260,7 +5668,7 @@ item(FEAT_SHIPS, constance_freight_barge, 2120) {
         running_cost_factor:            43;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -5487,7 +5895,7 @@ item(FEAT_SHIPS, maddalena_vehicle_ferry, 80) {
         running_cost_factor:            193;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -5522,6 +5930,233 @@ if (param[2]==0) {
 }
 
 // -- end Maddalena [Ferry] -- 
+
+
+
+
+// -- begin Provincetown [Ferry] -- 
+
+
+// graphics
+
+    template spriteset_template_provincetown_ferry(y) {
+        //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+        [20,        y,          28,   89,          -14, -40, ANIM]
+        [60,        y,          113,        66,          -78, -21, ANIM]
+        [186,       y,          138,        48,          -68, -21, ANIM]
+        [328,       y,          113,        66,          -30, -21, ANIM]
+        [454,       y,          28,   89,          -14, -40, ANIM]
+        [494,       y,          113,        66,          -78, -24, ANIM]
+        [620,       y,          138,        48,          -68, -21, ANIM]
+        [762,       y,          113,        66,          -32, -21, ANIM]
+    }
+
+
+
+    spriteset(provincetown_ferry_ss_not_loaded_not_moving_0, "src/graphics/provincetown_ferry_0.png") {
+      spriteset_template_provincetown_ferry(10)
+    }
+    spriteset(provincetown_ferry_ss_not_loaded_moving_0, "src/graphics/provincetown_ferry_0.png") {
+      spriteset_template_provincetown_ferry(110)
+    }
+    spriteset(provincetown_ferry_ss_loaded_not_moving_0, "src/graphics/provincetown_ferry_0.png") {
+      spriteset_template_provincetown_ferry(510)
+    }
+    spriteset(provincetown_ferry_ss_loaded_moving_0, "src/graphics/provincetown_ferry_0.png") {
+      spriteset_template_provincetown_ferry(610)
+    }
+
+    spritegroup provincetown_ferry_sg_moving_0 {
+        loaded:  [
+            provincetown_ferry_ss_not_loaded_moving_0,
+            provincetown_ferry_ss_loaded_moving_0,
+        ];
+        loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
+            provincetown_ferry_ss_not_loaded_moving_0,
+            provincetown_ferry_ss_loaded_moving_0,
+        ];
+    }
+
+    spritegroup provincetown_ferry_sg_not_moving_0 {
+        loaded:  [
+            provincetown_ferry_ss_not_loaded_not_moving_0,
+            provincetown_ferry_ss_loaded_not_moving_0,
+        ];
+        loading: [
+            provincetown_ferry_ss_not_loaded_not_moving_0,
+            provincetown_ferry_ss_loaded_not_moving_0,
+        ];
+    }
+
+    switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_graphics_0, current_speed) {
+        0: return provincetown_ferry_sg_not_moving_0;
+        return provincetown_ferry_sg_moving_0;
+    }
+
+
+
+    random_switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_graphics_random_0) {
+        
+            1: return provincetown_ferry_switch_graphics_0;
+        
+    }
+
+
+
+switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_graphics, build_year) {
+    
+        0..5000000:provincetown_ferry_switch_graphics_random_0;
+    
+    return provincetown_ferry_switch_graphics_random_0;
+}
+
+
+// buy menu graphics
+
+template spriteset_template_purchase_provincetown_ferry() {
+    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+    [669, 21, 40, 22, -20, -10, ANIM]
+}
+
+spriteset(provincetown_ferry_ss_purchase, "src/graphics/provincetown_ferry_0.png") {
+  spriteset_template_purchase_provincetown_ferry()
+}
+
+spritegroup provincetown_ferry_sg_purchase {
+    loaded:  [
+        provincetown_ferry_ss_purchase,
+    ];
+    loading: [
+        provincetown_ferry_ss_purchase,
+    ];
+}
+
+// -- set speed a little higher than rated speed when unladen -- //
+// -- also apply the param_adjust_ship_speed parameter -- //
+
+    switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
+        0 : 43;
+        1..25 : 43;
+        26..50 : 43;
+        51..75 : 43;
+        76..100 : 43;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+    switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
+        0 : 65;
+        1..25 : 65;
+        26..50 : 65;
+        51..75 : 65;
+        76..100 : 65;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+    switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
+        0 : 86;
+        1..25 : 86;
+        26..50 : 86;
+        51..75 : 86;
+        76..100 : 86;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
+    0: provincetown_ferry_switch_speed_varies_with_load_amount_0;
+    1: provincetown_ferry_switch_speed_varies_with_load_amount_1;
+    2: provincetown_ferry_switch_speed_varies_with_load_amount_2;
+}
+switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_purchase_speed, param_adjust_ship_speed) {
+    0: 43;
+    1: 65;
+    2: 86;
+}
+
+
+// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
+switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_cargo_capacity_classes, cargo_classes) {
+    bitmask(CC_PASSENGERS): return 100;
+    bitmask(CC_MAIL): return 80;
+    return 25;
+}
+switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_cargo_capacity, cargo_type_in_veh) {
+    
+    provincetown_ferry_switch_cargo_capacity_classes;
+}
+
+// -- handle subtype strings, used to aid players understand auto-refitting -- //
+switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_cargo_subtype_text, cargo_subtype) {
+    return CB_RESULT_NO_TEXT;
+}
+
+
+// -- some switches are common to all vehicles so included with properties -- //
+
+// -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
+switch (FEAT_SHIPS, SELF, provincetown_ferry_switch_purchase_cargo_capacity, cargo_type_in_veh) {
+    
+    
+    return 100;
+}
+
+// -- smoke -- //
+switch (FEAT_SHIPS, SELF, provincetown_ferry_create_visual_effect, [STORE_TEMP(create_effect(EFFECT_SPRITE_DIESEL, 2, 0, 16), 0x100)]) {
+    return 1;
+}
+
+
+// -- props -- //
+item(FEAT_SHIPS, provincetown_ferry, 1010) {
+    property {
+        name:                           string(STR_NAME_provincetown_ferry, string(STR_NAME_SUFFIX_FERRY));
+        climates_available:             NO_CLIMATE; // nml constant
+        sound_effect:                   SOUND_FERRY_HORN;
+        effect_spawn_model:             EFFECT_SPAWN_MODEL_STEAM;
+        introduction_date:              date(1890,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 100;
+        sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
+        speed:                          20.0mph;
+        ocean_speed_fraction:           1;
+        canal_speed_fraction:           1;
+        cost_factor:                    14;
+        running_cost_factor:            34;
+        refit_cost:                     0; // leave at 0 for refitting without defining cb
+        is_refittable:                  1;
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
+        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
+        cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
+        cargo_disallow_refit:           [FISH];
+        default_cargo_type:             PASS;
+        loading_speed:                  30;
+        cargo_age_period:               740;
+        misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   36; // magic from Eddi
+        reliability_decay:              20; // default value
+        vehicle_life:                   40;
+    }
+    graphics {
+        speed:                          provincetown_ferry_switch_speed_varies_with_load_amount;
+        purchase_speed:                 provincetown_ferry_switch_purchase_speed;
+        cargo_capacity:                 provincetown_ferry_switch_cargo_capacity;
+        purchase_cargo_capacity:        provincetown_ferry_switch_purchase_cargo_capacity;
+        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_SMALL_FERRY), string(STR_BUY_MENU_REFIT_CAPACITIES_PACKET,80,25));
+        cargo_subtype_text:             provincetown_ferry_switch_cargo_subtype_text;
+        default:                        provincetown_ferry_switch_graphics;
+        purchase:                       provincetown_ferry_sg_purchase;
+        create_effect:                  provincetown_ferry_create_visual_effect;
+    }
+}
+
+if (param[2]==0) {
+    item(FEAT_SHIPS, provincetown_ferry, 1010) {
+        property {
+            climates_available:             ALL_CLIMATES;
+        }
+    }
+}
+
+// -- end Provincetown [Ferry] -- 
 
 
 
@@ -5714,7 +6349,7 @@ item(FEAT_SHIPS, connor_freight_ferry, 1032) {
         running_cost_factor:            193;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -5947,7 +6582,7 @@ item(FEAT_SHIPS, ohshima_freight_hovercraft, 150) {
         running_cost_factor:            39;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_EXPRESS,CC_LIQUID,CC_ARMOURED,CC_PIECE_GOODS);
+        refittable_cargo_classes:       bitmask(CC_PIECE_GOODS,CC_LIQUID,CC_ARMOURED,CC_EXPRESS);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [MAIL,FRUT,WATR];
         cargo_disallow_refit:           [FISH,LVST,OIL_,TOUR,WOOD];
@@ -6184,7 +6819,7 @@ item(FEAT_SHIPS, shannon_freighter, 1135) {
         running_cost_factor:            196;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -6421,7 +7056,7 @@ item(FEAT_SHIPS, meteor_freighter, 1180) {
         running_cost_factor:            34;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -6658,7 +7293,7 @@ item(FEAT_SHIPS, whitgift_freight_barge, 1160) {
         running_cost_factor:            22;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -7293,7 +7928,7 @@ item(FEAT_SHIPS, mako_catamaran_ferry, 100) {
         running_cost_factor:            250;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -7520,7 +8155,7 @@ item(FEAT_SHIPS, duckitt_400_hovercraft, 1060) {
         running_cost_factor:            242;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -8314,7 +8949,7 @@ item(FEAT_SHIPS, tyree_vehicle_ferry, 49) {
         running_cost_factor:            76;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -8606,7 +9241,7 @@ item(FEAT_SHIPS, little_cumbrae_freighter, 1101) {
         running_cost_factor:            43;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -8843,7 +9478,7 @@ item(FEAT_SHIPS, cadiz_freighter, 1130) {
         running_cost_factor:            156;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -9080,7 +9715,7 @@ item(FEAT_SHIPS, quessant_freighter, 1125) {
         running_cost_factor:            164;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -9500,7 +10135,7 @@ item(FEAT_SHIPS, schipbeek_freight_barge, 2140) {
         running_cost_factor:            77;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -9769,7 +10404,7 @@ item(FEAT_SHIPS, harbour_point_utility_vessel, 1000) {
         running_cost_factor:            15;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_MAIL,CC_COVERED,CC_LIQUID,CC_PASSENGERS,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_PASSENGERS,CC_EXPRESS,CC_ARMOURED,CC_MAIL,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [];
@@ -10002,7 +10637,7 @@ item(FEAT_SHIPS, newport_container_feeder, 1240) {
         running_cost_factor:            173;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_EXPRESS,CC_LIQUID,CC_ARMOURED,CC_PIECE_GOODS);
+        refittable_cargo_classes:       bitmask(CC_PIECE_GOODS,CC_LIQUID,CC_ARMOURED,CC_EXPRESS);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [MAIL,FRUT,WATR];
         cargo_disallow_refit:           [FISH,LVST,OIL_,TOUR,WOOD];
@@ -10243,210 +10878,6 @@ if (param[2]==0) {
 // -- end Yokohama [Tanker] -- 
 
 
-// -- begin Freshney [Tanker Barge] -- 
-
-
-// graphics
-template spriteset_template_freshney_tanker_barge(y) {
-    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-    [20,        y,          28,         89,          -14, -40, ANIM]
-    [60,        y,          113,        66,          -78, -21, ANIM]
-    [186,       y,          138,        48,          -68, -21, ANIM]
-    [328,       y,          113,        66,          -30, -21, ANIM]
-    [454,       y,          28,         89,          -14, -40, ANIM]
-    [494,       y,          113,        66,          -78, -24, ANIM]
-    [620,       y,          138,        48,          -68, -21, ANIM]
-    [762,       y,          113,        66,          -32, -21, ANIM]
-}
-
-spriteset(freshney_tanker_barge_ss_not_loaded_not_moving, "src/graphics/freshney_tanker_barge_0.png") {
-  spriteset_template_freshney_tanker_barge(10)
-}
-spriteset(freshney_tanker_barge_ss_not_loaded_moving, "src/graphics/freshney_tanker_barge_0.png") {
-  spriteset_template_freshney_tanker_barge(110)
-}
-spriteset(freshney_tanker_barge_ss_loaded_not_moving, "src/graphics/freshney_tanker_barge_0.png") {
-  spriteset_template_freshney_tanker_barge(210)
-}
-spriteset(freshney_tanker_barge_ss_loaded_moving, "src/graphics/freshney_tanker_barge_0.png") {
-  spriteset_template_freshney_tanker_barge(310)
-}
-
-spritegroup freshney_tanker_barge_sg_moving {
-    loaded:  [
-        freshney_tanker_barge_ss_not_loaded_moving,
-        freshney_tanker_barge_ss_loaded_moving,
-    ];
-    loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
-        freshney_tanker_barge_ss_loaded_moving,
-    ];
-}
-
-spritegroup freshney_tanker_barge_sg_not_moving {
-    loaded:  [
-        freshney_tanker_barge_ss_not_loaded_not_moving,
-        freshney_tanker_barge_ss_loaded_not_moving,
-    ];
-    loading: [
-        freshney_tanker_barge_ss_not_loaded_not_moving,
-        freshney_tanker_barge_ss_loaded_not_moving,
-    ];
-}
-
-switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_graphics, current_speed) {
-    0: return freshney_tanker_barge_sg_not_moving;
-    return freshney_tanker_barge_sg_moving;
-}
-
-
-// buy menu graphics
-
-template spriteset_template_purchase_freshney_tanker_barge() {
-    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-    [667, 21, 44, 22, -22, -10]
-}
-
-spriteset(freshney_tanker_barge_ss_purchase, "src/graphics/freshney_tanker_barge_0.png") {
-  spriteset_template_purchase_freshney_tanker_barge()
-}
-
-spritegroup freshney_tanker_barge_sg_purchase {
-    loaded:  [
-        freshney_tanker_barge_ss_purchase,
-    ];
-    loading: [
-        freshney_tanker_barge_ss_purchase,
-    ];
-}
-
-// -- set speed a little higher than rated speed when unladen -- //
-// -- also apply the param_adjust_ship_speed parameter -- //
-
-    switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
-        0 : 43;
-        1..25 : 42;
-        26..50 : 41;
-        51..75 : 40;
-        76..100 : 39;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-    switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
-        0 : 64;
-        1..25 : 62;
-        26..50 : 61;
-        51..75 : 60;
-        76..100 : 58;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-    switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
-        0 : 85;
-        1..25 : 83;
-        26..50 : 81;
-        51..75 : 79;
-        76..100 : 77;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
-    0: freshney_tanker_barge_switch_speed_varies_with_load_amount_0;
-    1: freshney_tanker_barge_switch_speed_varies_with_load_amount_1;
-    2: freshney_tanker_barge_switch_speed_varies_with_load_amount_2;
-}
-switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_purchase_speed, param_adjust_ship_speed) {
-    0: 39;
-    1: 58;
-    2: 77;
-}
-
-
-// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
-switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_cargo_capacity_classes, cargo_classes) {
-    bitmask(CC_PASSENGERS): return 0;
-    bitmask(CC_MAIL): return 0;
-    return 90;
-}
-switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_cargo_capacity, cargo_type_in_veh) {
-    
-    freshney_tanker_barge_switch_cargo_capacity_classes;
-}
-
-// -- handle subtype strings, used to aid players understand auto-refitting -- //
-switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_cargo_subtype_text, cargo_subtype) {
-    return CB_RESULT_NO_TEXT;
-}
-
-
-// -- some switches are common to all vehicles so included with properties -- //
-
-// -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
-switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_purchase_cargo_capacity, cargo_type_in_veh) {
-    
-    
-    return 90;
-}
-
-// -- smoke -- //
-switch (FEAT_SHIPS, SELF, freshney_tanker_barge_create_visual_effect, [STORE_TEMP(create_effect(EFFECT_SPRITE_DIESEL, 6, 0, 8), 0x100)]) {
-    return 1;
-}
-
-
-// -- props -- //
-item(FEAT_SHIPS, freshney_tanker_barge, 2248) {
-    property {
-        name:                           string(STR_NAME_freshney_tanker_barge, string(STR_NAME_SUFFIX_TANKER_BARGE));
-        climates_available:             NO_CLIMATE; // nml constant
-        sound_effect:                   SOUND_SHIP_HORN;
-        effect_spawn_model:             EFFECT_SPAWN_MODEL_DIESEL;
-        introduction_date:              date(1870,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
-        cargo_capacity:                 90;
-        sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
-        speed:                          18.0mph;
-        ocean_speed_fraction:           1;
-        canal_speed_fraction:           1;
-        cost_factor:                    4;
-        running_cost_factor:            22;
-        refit_cost:                     0; // leave at 0 for refitting without defining cb
-        is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_LIQUID);
-        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
-        cargo_allow_refit:              [];
-        cargo_disallow_refit:           [MILK,WATR,BEER,FOOD];
-        default_cargo_type:             OIL_;
-        loading_speed:                  20;
-        cargo_age_period:               740;
-        misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        retire_early:                   56; // magic from Eddi
-        reliability_decay:              20; // default value
-        vehicle_life:                   60;
-    }
-    graphics {
-        speed:                          freshney_tanker_barge_switch_speed_varies_with_load_amount;
-        purchase_speed:                 freshney_tanker_barge_switch_purchase_speed;
-        cargo_capacity:                 freshney_tanker_barge_switch_cargo_capacity;
-        purchase_cargo_capacity:        freshney_tanker_barge_switch_purchase_cargo_capacity;
-        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_SMALL_TANKER_INLAND), string(STR_EMPTY));
-        cargo_subtype_text:             freshney_tanker_barge_switch_cargo_subtype_text;
-        default:                        freshney_tanker_barge_switch_graphics;
-        purchase:                       freshney_tanker_barge_sg_purchase;
-        create_effect:                  freshney_tanker_barge_create_visual_effect;
-    }
-}
-
-if (param[2]==0) {
-    item(FEAT_SHIPS, freshney_tanker_barge, 2248) {
-        property {
-            climates_available:             ALL_CLIMATES;
-        }
-    }
-}
-
-// -- end Freshney [Tanker Barge] -- 
-
-
 // -- begin Volgoneft 630 [Tanker Barge] -- 
 
 
@@ -10651,6 +11082,233 @@ if (param[2]==0) {
 // -- end Volgoneft 630 [Tanker Barge] -- 
 
 
+
+
+// -- begin Friedrich [Paddle Steamer] -- 
+
+
+// graphics
+
+    template spriteset_template_friedrich_paddle_steamer(y) {
+        //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+        [20,        y,          28,   89,          -14, -38, ANIM]
+        [60,        y,          113,        66,          -75, -20, ANIM]
+        [186,       y,          138,        48,          -67, -28, ANIM]
+        [328,       y,          113,        66,          -22, -21, ANIM]
+        [454,       y,          28,   89,          -14, -42, ANIM]
+        [494,       y,          113,        66,          -75, -21, ANIM]
+        [620,       y,          138,        48,          -67, -28, ANIM]
+        [762,       y,          113,        66,          -20, -21, ANIM]
+    }
+
+
+
+    spriteset(friedrich_paddle_steamer_ss_not_loaded_not_moving_0, "src/graphics/friedrich_paddle_steamer_0.png") {
+      spriteset_template_friedrich_paddle_steamer(10)
+    }
+    spriteset(friedrich_paddle_steamer_ss_not_loaded_moving_0, "src/graphics/friedrich_paddle_steamer_0.png") {
+      spriteset_template_friedrich_paddle_steamer(110)
+    }
+    spriteset(friedrich_paddle_steamer_ss_loaded_not_moving_0, "src/graphics/friedrich_paddle_steamer_0.png") {
+      spriteset_template_friedrich_paddle_steamer(510)
+    }
+    spriteset(friedrich_paddle_steamer_ss_loaded_moving_0, "src/graphics/friedrich_paddle_steamer_0.png") {
+      spriteset_template_friedrich_paddle_steamer(610)
+    }
+
+    spritegroup friedrich_paddle_steamer_sg_moving_0 {
+        loaded:  [
+            friedrich_paddle_steamer_ss_not_loaded_moving_0,
+            friedrich_paddle_steamer_ss_loaded_moving_0,
+        ];
+        loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
+            friedrich_paddle_steamer_ss_not_loaded_moving_0,
+            friedrich_paddle_steamer_ss_loaded_moving_0,
+        ];
+    }
+
+    spritegroup friedrich_paddle_steamer_sg_not_moving_0 {
+        loaded:  [
+            friedrich_paddle_steamer_ss_not_loaded_not_moving_0,
+            friedrich_paddle_steamer_ss_loaded_not_moving_0,
+        ];
+        loading: [
+            friedrich_paddle_steamer_ss_not_loaded_not_moving_0,
+            friedrich_paddle_steamer_ss_loaded_not_moving_0,
+        ];
+    }
+
+    switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_graphics_0, current_speed) {
+        0: return friedrich_paddle_steamer_sg_not_moving_0;
+        return friedrich_paddle_steamer_sg_moving_0;
+    }
+
+
+
+    random_switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_graphics_random_0) {
+        
+            1: return friedrich_paddle_steamer_switch_graphics_0;
+        
+    }
+
+
+
+switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_graphics, build_year) {
+    
+        0..5000000:friedrich_paddle_steamer_switch_graphics_random_0;
+    
+    return friedrich_paddle_steamer_switch_graphics_random_0;
+}
+
+
+// buy menu graphics
+
+template spriteset_template_purchase_friedrich_paddle_steamer() {
+    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+    [620, 26, 138, 22, -69, -10, ANIM]
+}
+
+spriteset(friedrich_paddle_steamer_ss_purchase, "src/graphics/friedrich_paddle_steamer_0.png") {
+  spriteset_template_purchase_friedrich_paddle_steamer()
+}
+
+spritegroup friedrich_paddle_steamer_sg_purchase {
+    loaded:  [
+        friedrich_paddle_steamer_ss_purchase,
+    ];
+    loading: [
+        friedrich_paddle_steamer_ss_purchase,
+    ];
+}
+
+// -- set speed a little higher than rated speed when unladen -- //
+// -- also apply the param_adjust_ship_speed parameter -- //
+
+    switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
+        0 : 61;
+        1..25 : 61;
+        26..50 : 61;
+        51..75 : 61;
+        76..100 : 61;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+    switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
+        0 : 90;
+        1..25 : 90;
+        26..50 : 90;
+        51..75 : 90;
+        76..100 : 90;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+    switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
+        0 : 120;
+        1..25 : 120;
+        26..50 : 120;
+        51..75 : 120;
+        76..100 : 120;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
+    0: friedrich_paddle_steamer_switch_speed_varies_with_load_amount_0;
+    1: friedrich_paddle_steamer_switch_speed_varies_with_load_amount_1;
+    2: friedrich_paddle_steamer_switch_speed_varies_with_load_amount_2;
+}
+switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_purchase_speed, param_adjust_ship_speed) {
+    0: 61;
+    1: 90;
+    2: 120;
+}
+
+
+// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
+switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_cargo_capacity_classes, cargo_classes) {
+    bitmask(CC_PASSENGERS): return 720;
+    bitmask(CC_MAIL): return 320;
+    return 250;
+}
+switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_cargo_capacity, cargo_type_in_veh) {
+    
+    friedrich_paddle_steamer_switch_cargo_capacity_classes;
+}
+
+// -- handle subtype strings, used to aid players understand auto-refitting -- //
+switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_cargo_subtype_text, cargo_subtype) {
+    return CB_RESULT_NO_TEXT;
+}
+
+
+// -- some switches are common to all vehicles so included with properties -- //
+
+// -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
+switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_purchase_cargo_capacity, cargo_type_in_veh) {
+    
+    
+    return 720;
+}
+
+// -- smoke -- //
+switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_create_visual_effect, [STORE_TEMP(create_effect(EFFECT_SPRITE_STEAM, 0, 0, 28), 0x100),STORE_TEMP(create_effect(EFFECT_SPRITE_STEAM, 4, 0, 28), 0x101)]) {
+    return 2;
+}
+
+
+// -- props -- //
+item(FEAT_SHIPS, friedrich_paddle_steamer, 1040) {
+    property {
+        name:                           string(STR_NAME_friedrich_paddle_steamer, string(STR_NAME_SUFFIX_PADDLE_STEAMER));
+        climates_available:             NO_CLIMATE; // nml constant
+        sound_effect:                   SOUND_FERRY_HORN;
+        effect_spawn_model:             EFFECT_SPAWN_MODEL_STEAM;
+        introduction_date:              date(1892,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 720;
+        sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
+        speed:                          28.0mph;
+        ocean_speed_fraction:           1;
+        canal_speed_fraction:           0.7;
+        cost_factor:                    79;
+        running_cost_factor:            178;
+        refit_cost:                     0; // leave at 0 for refitting without defining cb
+        is_refittable:                  1;
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
+        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
+        cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
+        cargo_disallow_refit:           [FISH];
+        default_cargo_type:             PASS;
+        loading_speed:                  12;
+        cargo_age_period:               740;
+        misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   36; // magic from Eddi
+        reliability_decay:              20; // default value
+        vehicle_life:                   40;
+    }
+    graphics {
+        speed:                          friedrich_paddle_steamer_switch_speed_varies_with_load_amount;
+        purchase_speed:                 friedrich_paddle_steamer_switch_purchase_speed;
+        cargo_capacity:                 friedrich_paddle_steamer_switch_cargo_capacity;
+        purchase_cargo_capacity:        friedrich_paddle_steamer_switch_purchase_cargo_capacity;
+        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_PADDLE_STEAMER), string(STR_BUY_MENU_REFIT_CAPACITIES_PACKET,320,250));
+        cargo_subtype_text:             friedrich_paddle_steamer_switch_cargo_subtype_text;
+        default:                        friedrich_paddle_steamer_switch_graphics;
+        purchase:                       friedrich_paddle_steamer_sg_purchase;
+        create_effect:                  friedrich_paddle_steamer_create_visual_effect;
+    }
+}
+
+if (param[2]==0) {
+    item(FEAT_SHIPS, friedrich_paddle_steamer, 1040) {
+        property {
+            climates_available:             ALL_CLIMATES;
+        }
+    }
+}
+
+// -- end Friedrich [Paddle Steamer] -- 
+
+
 // -- begin Malin [Freighter] -- 
 
 
@@ -10851,7 +11509,7 @@ item(FEAT_SHIPS, malin_freighter, 1100) {
         running_cost_factor:            37;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -10886,6 +11544,233 @@ if (param[2]==0) {
 }
 
 // -- end Malin [Freighter] -- 
+
+
+
+
+// -- begin Bernard [Paddle Steamer] -- 
+
+
+// graphics
+
+    template spriteset_template_bernard_paddle_steamer(y) {
+        //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+        [20,        y,          28,   89,          -14, -54, ANIM]
+        [60,        y,          113,        66,          -63, -24, ANIM]
+        [186,       y,          138,        48,          -50, -29, ANIM]
+        [328,       y,          113,        66,          -10, -28, ANIM]
+        [454,       y,          28,   89,          -14, -55, ANIM]
+        [494,       y,          113,        66,          -58, -27, ANIM]
+        [620,       y,          138,        48,          -50, -29, ANIM]
+        [762,       y,          113,        66,          -8, -24, ANIM]
+    }
+
+
+
+    spriteset(bernard_paddle_steamer_ss_not_loaded_not_moving_0, "src/graphics/bernard_paddle_steamer_0.png") {
+      spriteset_template_bernard_paddle_steamer(10)
+    }
+    spriteset(bernard_paddle_steamer_ss_not_loaded_moving_0, "src/graphics/bernard_paddle_steamer_0.png") {
+      spriteset_template_bernard_paddle_steamer(110)
+    }
+    spriteset(bernard_paddle_steamer_ss_loaded_not_moving_0, "src/graphics/bernard_paddle_steamer_0.png") {
+      spriteset_template_bernard_paddle_steamer(510)
+    }
+    spriteset(bernard_paddle_steamer_ss_loaded_moving_0, "src/graphics/bernard_paddle_steamer_0.png") {
+      spriteset_template_bernard_paddle_steamer(610)
+    }
+
+    spritegroup bernard_paddle_steamer_sg_moving_0 {
+        loaded:  [
+            bernard_paddle_steamer_ss_not_loaded_moving_0,
+            bernard_paddle_steamer_ss_loaded_moving_0,
+        ];
+        loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
+            bernard_paddle_steamer_ss_not_loaded_moving_0,
+            bernard_paddle_steamer_ss_loaded_moving_0,
+        ];
+    }
+
+    spritegroup bernard_paddle_steamer_sg_not_moving_0 {
+        loaded:  [
+            bernard_paddle_steamer_ss_not_loaded_not_moving_0,
+            bernard_paddle_steamer_ss_loaded_not_moving_0,
+        ];
+        loading: [
+            bernard_paddle_steamer_ss_not_loaded_not_moving_0,
+            bernard_paddle_steamer_ss_loaded_not_moving_0,
+        ];
+    }
+
+    switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_graphics_0, current_speed) {
+        0: return bernard_paddle_steamer_sg_not_moving_0;
+        return bernard_paddle_steamer_sg_moving_0;
+    }
+
+
+
+    random_switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_graphics_random_0) {
+        
+            1: return bernard_paddle_steamer_switch_graphics_0;
+        
+    }
+
+
+
+switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_graphics, build_year) {
+    
+        0..5000000:bernard_paddle_steamer_switch_graphics_random_0;
+    
+    return bernard_paddle_steamer_switch_graphics_random_0;
+}
+
+
+// buy menu graphics
+
+template spriteset_template_purchase_bernard_paddle_steamer() {
+    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
+    [626, 26, 89, 22, -44, -10, ANIM]
+}
+
+spriteset(bernard_paddle_steamer_ss_purchase, "src/graphics/bernard_paddle_steamer_0.png") {
+  spriteset_template_purchase_bernard_paddle_steamer()
+}
+
+spritegroup bernard_paddle_steamer_sg_purchase {
+    loaded:  [
+        bernard_paddle_steamer_ss_purchase,
+    ];
+    loading: [
+        bernard_paddle_steamer_ss_purchase,
+    ];
+}
+
+// -- set speed a little higher than rated speed when unladen -- //
+// -- also apply the param_adjust_ship_speed parameter -- //
+
+    switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
+        0 : 46;
+        1..25 : 46;
+        26..50 : 46;
+        51..75 : 46;
+        76..100 : 46;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+    switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
+        0 : 68;
+        1..25 : 68;
+        26..50 : 68;
+        51..75 : 68;
+        76..100 : 68;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+    switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
+        0 : 90;
+        1..25 : 90;
+        26..50 : 90;
+        51..75 : 90;
+        76..100 : 90;
+        return 0; // should never reach this result, make it show up as a problem
+    }
+
+switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
+    0: bernard_paddle_steamer_switch_speed_varies_with_load_amount_0;
+    1: bernard_paddle_steamer_switch_speed_varies_with_load_amount_1;
+    2: bernard_paddle_steamer_switch_speed_varies_with_load_amount_2;
+}
+switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_purchase_speed, param_adjust_ship_speed) {
+    0: 46;
+    1: 68;
+    2: 90;
+}
+
+
+// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
+switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_cargo_capacity_classes, cargo_classes) {
+    bitmask(CC_PASSENGERS): return 300;
+    bitmask(CC_MAIL): return 300;
+    return 125;
+}
+switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_cargo_capacity, cargo_type_in_veh) {
+    
+    bernard_paddle_steamer_switch_cargo_capacity_classes;
+}
+
+// -- handle subtype strings, used to aid players understand auto-refitting -- //
+switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_cargo_subtype_text, cargo_subtype) {
+    return CB_RESULT_NO_TEXT;
+}
+
+
+// -- some switches are common to all vehicles so included with properties -- //
+
+// -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
+switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_purchase_cargo_capacity, cargo_type_in_veh) {
+    
+    
+    return 300;
+}
+
+// -- smoke -- //
+switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_create_visual_effect, [STORE_TEMP(create_effect(EFFECT_SPRITE_STEAM, 0, 0, 24), 0x100),STORE_TEMP(create_effect(EFFECT_SPRITE_STEAM, 4, 0, 24), 0x101)]) {
+    return 2;
+}
+
+
+// -- props -- //
+item(FEAT_SHIPS, bernard_paddle_steamer, 2020) {
+    property {
+        name:                           string(STR_NAME_bernard_paddle_steamer, string(STR_NAME_SUFFIX_PADDLE_STEAMER));
+        climates_available:             NO_CLIMATE; // nml constant
+        sound_effect:                   SOUND_FERRY_HORN;
+        effect_spawn_model:             EFFECT_SPAWN_MODEL_STEAM;
+        introduction_date:              date(1855,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 300;
+        sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
+        speed:                          21.0mph;
+        ocean_speed_fraction:           1;
+        canal_speed_fraction:           1;
+        cost_factor:                    32;
+        running_cost_factor:            74;
+        refit_cost:                     0; // leave at 0 for refitting without defining cb
+        is_refittable:                  1;
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
+        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
+        cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
+        cargo_disallow_refit:           [FISH];
+        default_cargo_type:             PASS;
+        loading_speed:                  12;
+        cargo_age_period:               740;
+        misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
+        model_life:                     VEHICLE_NEVER_EXPIRES;
+        retire_early:                   36; // magic from Eddi
+        reliability_decay:              20; // default value
+        vehicle_life:                   40;
+    }
+    graphics {
+        speed:                          bernard_paddle_steamer_switch_speed_varies_with_load_amount;
+        purchase_speed:                 bernard_paddle_steamer_switch_purchase_speed;
+        cargo_capacity:                 bernard_paddle_steamer_switch_cargo_capacity;
+        purchase_cargo_capacity:        bernard_paddle_steamer_switch_purchase_cargo_capacity;
+        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_PADDLE_STEAMER), string(STR_BUY_MENU_REFIT_CAPACITIES_PACKET,300,125));
+        cargo_subtype_text:             bernard_paddle_steamer_switch_cargo_subtype_text;
+        default:                        bernard_paddle_steamer_switch_graphics;
+        purchase:                       bernard_paddle_steamer_sg_purchase;
+        create_effect:                  bernard_paddle_steamer_create_visual_effect;
+    }
+}
+
+if (param[2]==0) {
+    item(FEAT_SHIPS, bernard_paddle_steamer, 2020) {
+        property {
+            climates_available:             ALL_CLIMATES;
+        }
+    }
+}
+
+// -- end Bernard [Paddle Steamer] -- 
 
 
 // -- begin Munkegrund [Freighter] -- 
@@ -11088,7 +11973,7 @@ item(FEAT_SHIPS, munkegrund_freighter, 1145) {
         running_cost_factor:            177;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -11597,460 +12482,6 @@ if (param[2]==0) {
 // -- end Winterhold [Container Reefer] -- 
 
 
-
-
-// -- begin Friedrich [Paddle Steamer] -- 
-
-
-// graphics
-
-    template spriteset_template_friedrich_paddle_steamer(y) {
-        //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-        [20,        y,          28,   89,          -14, -38, ANIM]
-        [60,        y,          113,        66,          -75, -20, ANIM]
-        [186,       y,          138,        48,          -67, -28, ANIM]
-        [328,       y,          113,        66,          -22, -21, ANIM]
-        [454,       y,          28,   89,          -14, -42, ANIM]
-        [494,       y,          113,        66,          -75, -21, ANIM]
-        [620,       y,          138,        48,          -67, -28, ANIM]
-        [762,       y,          113,        66,          -20, -21, ANIM]
-    }
-
-
-
-    spriteset(friedrich_paddle_steamer_ss_not_loaded_not_moving_0, "src/graphics/friedrich_paddle_steamer_0.png") {
-      spriteset_template_friedrich_paddle_steamer(10)
-    }
-    spriteset(friedrich_paddle_steamer_ss_not_loaded_moving_0, "src/graphics/friedrich_paddle_steamer_0.png") {
-      spriteset_template_friedrich_paddle_steamer(110)
-    }
-    spriteset(friedrich_paddle_steamer_ss_loaded_not_moving_0, "src/graphics/friedrich_paddle_steamer_0.png") {
-      spriteset_template_friedrich_paddle_steamer(510)
-    }
-    spriteset(friedrich_paddle_steamer_ss_loaded_moving_0, "src/graphics/friedrich_paddle_steamer_0.png") {
-      spriteset_template_friedrich_paddle_steamer(610)
-    }
-
-    spritegroup friedrich_paddle_steamer_sg_moving_0 {
-        loaded:  [
-            friedrich_paddle_steamer_ss_not_loaded_moving_0,
-            friedrich_paddle_steamer_ss_loaded_moving_0,
-        ];
-        loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
-            friedrich_paddle_steamer_ss_not_loaded_moving_0,
-            friedrich_paddle_steamer_ss_loaded_moving_0,
-        ];
-    }
-
-    spritegroup friedrich_paddle_steamer_sg_not_moving_0 {
-        loaded:  [
-            friedrich_paddle_steamer_ss_not_loaded_not_moving_0,
-            friedrich_paddle_steamer_ss_loaded_not_moving_0,
-        ];
-        loading: [
-            friedrich_paddle_steamer_ss_not_loaded_not_moving_0,
-            friedrich_paddle_steamer_ss_loaded_not_moving_0,
-        ];
-    }
-
-    switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_graphics_0, current_speed) {
-        0: return friedrich_paddle_steamer_sg_not_moving_0;
-        return friedrich_paddle_steamer_sg_moving_0;
-    }
-
-
-
-    random_switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_graphics_random_0) {
-        
-            1: return friedrich_paddle_steamer_switch_graphics_0;
-        
-    }
-
-
-
-switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_graphics, build_year) {
-    
-        0..5000000:friedrich_paddle_steamer_switch_graphics_random_0;
-    
-    return friedrich_paddle_steamer_switch_graphics_random_0;
-}
-
-
-// buy menu graphics
-
-template spriteset_template_purchase_friedrich_paddle_steamer() {
-    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-    [620, 26, 138, 22, -69, -10, ANIM]
-}
-
-spriteset(friedrich_paddle_steamer_ss_purchase, "src/graphics/friedrich_paddle_steamer_0.png") {
-  spriteset_template_purchase_friedrich_paddle_steamer()
-}
-
-spritegroup friedrich_paddle_steamer_sg_purchase {
-    loaded:  [
-        friedrich_paddle_steamer_ss_purchase,
-    ];
-    loading: [
-        friedrich_paddle_steamer_ss_purchase,
-    ];
-}
-
-// -- set speed a little higher than rated speed when unladen -- //
-// -- also apply the param_adjust_ship_speed parameter -- //
-
-    switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
-        0 : 61;
-        1..25 : 61;
-        26..50 : 61;
-        51..75 : 61;
-        76..100 : 61;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-    switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
-        0 : 90;
-        1..25 : 90;
-        26..50 : 90;
-        51..75 : 90;
-        76..100 : 90;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-    switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
-        0 : 120;
-        1..25 : 120;
-        26..50 : 120;
-        51..75 : 120;
-        76..100 : 120;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
-    0: friedrich_paddle_steamer_switch_speed_varies_with_load_amount_0;
-    1: friedrich_paddle_steamer_switch_speed_varies_with_load_amount_1;
-    2: friedrich_paddle_steamer_switch_speed_varies_with_load_amount_2;
-}
-switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_purchase_speed, param_adjust_ship_speed) {
-    0: 61;
-    1: 90;
-    2: 120;
-}
-
-
-// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
-switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_cargo_capacity_classes, cargo_classes) {
-    bitmask(CC_PASSENGERS): return 720;
-    bitmask(CC_MAIL): return 320;
-    return 250;
-}
-switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_cargo_capacity, cargo_type_in_veh) {
-    
-    friedrich_paddle_steamer_switch_cargo_capacity_classes;
-}
-
-// -- handle subtype strings, used to aid players understand auto-refitting -- //
-switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_cargo_subtype_text, cargo_subtype) {
-    return CB_RESULT_NO_TEXT;
-}
-
-
-// -- some switches are common to all vehicles so included with properties -- //
-
-// -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
-switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_switch_purchase_cargo_capacity, cargo_type_in_veh) {
-    
-    
-    return 720;
-}
-
-// -- smoke -- //
-switch (FEAT_SHIPS, SELF, friedrich_paddle_steamer_create_visual_effect, [STORE_TEMP(create_effect(EFFECT_SPRITE_STEAM, 0, 0, 28), 0x100),STORE_TEMP(create_effect(EFFECT_SPRITE_STEAM, 4, 0, 28), 0x101)]) {
-    return 2;
-}
-
-
-// -- props -- //
-item(FEAT_SHIPS, friedrich_paddle_steamer, 1040) {
-    property {
-        name:                           string(STR_NAME_friedrich_paddle_steamer, string(STR_NAME_SUFFIX_PADDLE_STEAMER));
-        climates_available:             NO_CLIMATE; // nml constant
-        sound_effect:                   SOUND_FERRY_HORN;
-        effect_spawn_model:             EFFECT_SPAWN_MODEL_STEAM;
-        introduction_date:              date(1892,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
-        cargo_capacity:                 720;
-        sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
-        speed:                          28.0mph;
-        ocean_speed_fraction:           1;
-        canal_speed_fraction:           0.7;
-        cost_factor:                    79;
-        running_cost_factor:            178;
-        refit_cost:                     0; // leave at 0 for refitting without defining cb
-        is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
-        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
-        cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
-        cargo_disallow_refit:           [FISH];
-        default_cargo_type:             PASS;
-        loading_speed:                  12;
-        cargo_age_period:               740;
-        misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        retire_early:                   36; // magic from Eddi
-        reliability_decay:              20; // default value
-        vehicle_life:                   40;
-    }
-    graphics {
-        speed:                          friedrich_paddle_steamer_switch_speed_varies_with_load_amount;
-        purchase_speed:                 friedrich_paddle_steamer_switch_purchase_speed;
-        cargo_capacity:                 friedrich_paddle_steamer_switch_cargo_capacity;
-        purchase_cargo_capacity:        friedrich_paddle_steamer_switch_purchase_cargo_capacity;
-        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_PADDLE_STEAMER), string(STR_BUY_MENU_REFIT_CAPACITIES_PACKET,320,250));
-        cargo_subtype_text:             friedrich_paddle_steamer_switch_cargo_subtype_text;
-        default:                        friedrich_paddle_steamer_switch_graphics;
-        purchase:                       friedrich_paddle_steamer_sg_purchase;
-        create_effect:                  friedrich_paddle_steamer_create_visual_effect;
-    }
-}
-
-if (param[2]==0) {
-    item(FEAT_SHIPS, friedrich_paddle_steamer, 1040) {
-        property {
-            climates_available:             ALL_CLIMATES;
-        }
-    }
-}
-
-// -- end Friedrich [Paddle Steamer] -- 
-
-
-
-
-// -- begin Lantau [Ferry] -- 
-
-
-// graphics
-
-    template spriteset_template_lantau_ferry(y) {
-        //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-        [20,        y,          28,   89,          -14, -40, ANIM]
-        [60,        y,          113,        66,          -78, -21, ANIM]
-        [186,       y,          138,        48,          -68, -21, ANIM]
-        [328,       y,          113,        66,          -30, -21, ANIM]
-        [454,       y,          28,   89,          -14, -40, ANIM]
-        [494,       y,          113,        66,          -78, -24, ANIM]
-        [620,       y,          138,        48,          -68, -21, ANIM]
-        [762,       y,          113,        66,          -32, -21, ANIM]
-    }
-
-
-
-    spriteset(lantau_ferry_ss_not_loaded_not_moving_0, "src/graphics/lantau_ferry_0.png") {
-      spriteset_template_lantau_ferry(10)
-    }
-    spriteset(lantau_ferry_ss_not_loaded_moving_0, "src/graphics/lantau_ferry_0.png") {
-      spriteset_template_lantau_ferry(110)
-    }
-    spriteset(lantau_ferry_ss_loaded_not_moving_0, "src/graphics/lantau_ferry_0.png") {
-      spriteset_template_lantau_ferry(510)
-    }
-    spriteset(lantau_ferry_ss_loaded_moving_0, "src/graphics/lantau_ferry_0.png") {
-      spriteset_template_lantau_ferry(610)
-    }
-
-    spritegroup lantau_ferry_sg_moving_0 {
-        loaded:  [
-            lantau_ferry_ss_not_loaded_moving_0,
-            lantau_ferry_ss_loaded_moving_0,
-        ];
-        loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
-            lantau_ferry_ss_not_loaded_moving_0,
-            lantau_ferry_ss_loaded_moving_0,
-        ];
-    }
-
-    spritegroup lantau_ferry_sg_not_moving_0 {
-        loaded:  [
-            lantau_ferry_ss_not_loaded_not_moving_0,
-            lantau_ferry_ss_loaded_not_moving_0,
-        ];
-        loading: [
-            lantau_ferry_ss_not_loaded_not_moving_0,
-            lantau_ferry_ss_loaded_not_moving_0,
-        ];
-    }
-
-    switch (FEAT_SHIPS, SELF, lantau_ferry_switch_graphics_0, current_speed) {
-        0: return lantau_ferry_sg_not_moving_0;
-        return lantau_ferry_sg_moving_0;
-    }
-
-
-
-    random_switch (FEAT_SHIPS, SELF, lantau_ferry_switch_graphics_random_0) {
-        
-            1: return lantau_ferry_switch_graphics_0;
-        
-    }
-
-
-
-switch (FEAT_SHIPS, SELF, lantau_ferry_switch_graphics, build_year) {
-    
-        0..5000000:lantau_ferry_switch_graphics_random_0;
-    
-    return lantau_ferry_switch_graphics_random_0;
-}
-
-
-// buy menu graphics
-
-template spriteset_template_purchase_lantau_ferry() {
-    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-    [673, 23, 29, 22, -14, -10, ANIM]
-}
-
-spriteset(lantau_ferry_ss_purchase, "src/graphics/lantau_ferry_0.png") {
-  spriteset_template_purchase_lantau_ferry()
-}
-
-spritegroup lantau_ferry_sg_purchase {
-    loaded:  [
-        lantau_ferry_ss_purchase,
-    ];
-    loading: [
-        lantau_ferry_ss_purchase,
-    ];
-}
-
-// -- set speed a little higher than rated speed when unladen -- //
-// -- also apply the param_adjust_ship_speed parameter -- //
-
-    switch (FEAT_SHIPS, SELF, lantau_ferry_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
-        0 : 50;
-        1..25 : 48;
-        26..50 : 47;
-        51..75 : 45;
-        76..100 : 43;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-    switch (FEAT_SHIPS, SELF, lantau_ferry_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
-        0 : 74;
-        1..25 : 72;
-        26..50 : 69;
-        51..75 : 67;
-        76..100 : 65;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-    switch (FEAT_SHIPS, SELF, lantau_ferry_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
-        0 : 98;
-        1..25 : 95;
-        26..50 : 92;
-        51..75 : 89;
-        76..100 : 86;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-switch (FEAT_SHIPS, SELF, lantau_ferry_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
-    0: lantau_ferry_switch_speed_varies_with_load_amount_0;
-    1: lantau_ferry_switch_speed_varies_with_load_amount_1;
-    2: lantau_ferry_switch_speed_varies_with_load_amount_2;
-}
-switch (FEAT_SHIPS, SELF, lantau_ferry_switch_purchase_speed, param_adjust_ship_speed) {
-    0: 43;
-    1: 65;
-    2: 86;
-}
-
-
-// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
-switch (FEAT_SHIPS, SELF, lantau_ferry_switch_cargo_capacity_classes, cargo_classes) {
-    bitmask(CC_PASSENGERS): return 54;
-    bitmask(CC_MAIL): return 54;
-    return 27;
-}
-switch (FEAT_SHIPS, SELF, lantau_ferry_switch_cargo_capacity, cargo_type_in_veh) {
-    
-    lantau_ferry_switch_cargo_capacity_classes;
-}
-
-// -- handle subtype strings, used to aid players understand auto-refitting -- //
-switch (FEAT_SHIPS, SELF, lantau_ferry_switch_cargo_subtype_text, cargo_subtype) {
-    return CB_RESULT_NO_TEXT;
-}
-
-
-// -- some switches are common to all vehicles so included with properties -- //
-
-// -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
-switch (FEAT_SHIPS, SELF, lantau_ferry_switch_purchase_cargo_capacity, cargo_type_in_veh) {
-    
-    
-    return 54;
-}
-
-// -- smoke -- //
-switch (FEAT_SHIPS, SELF, lantau_ferry_create_visual_effect, 0) {
-    return 0;
-}
-
-
-// -- props -- //
-item(FEAT_SHIPS, lantau_ferry, 2001) {
-    property {
-        name:                           string(STR_NAME_lantau_ferry, string(STR_NAME_SUFFIX_FERRY));
-        climates_available:             NO_CLIMATE; // nml constant
-        sound_effect:                   SOUND_FERRY_HORN;
-        effect_spawn_model:             EFFECT_SPAWN_MODEL_STEAM;
-        introduction_date:              date(1860,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
-        cargo_capacity:                 54;
-        sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
-        speed:                          20.0mph;
-        ocean_speed_fraction:           1;
-        canal_speed_fraction:           1;
-        cost_factor:                    2;
-        running_cost_factor:            10;
-        refit_cost:                     0; // leave at 0 for refitting without defining cb
-        is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
-        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
-        cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
-        cargo_disallow_refit:           [FISH];
-        default_cargo_type:             PASS;
-        loading_speed:                  15;
-        cargo_age_period:               740;
-        misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        retire_early:                   36; // magic from Eddi
-        reliability_decay:              20; // default value
-        vehicle_life:                   40;
-    }
-    graphics {
-        speed:                          lantau_ferry_switch_speed_varies_with_load_amount;
-        purchase_speed:                 lantau_ferry_switch_purchase_speed;
-        cargo_capacity:                 lantau_ferry_switch_cargo_capacity;
-        purchase_cargo_capacity:        lantau_ferry_switch_purchase_cargo_capacity;
-        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_SMALL_FERRY), string(STR_BUY_MENU_REFIT_CAPACITIES_PACKET,54,27));
-        cargo_subtype_text:             lantau_ferry_switch_cargo_subtype_text;
-        default:                        lantau_ferry_switch_graphics;
-        purchase:                       lantau_ferry_sg_purchase;
-        create_effect:                  lantau_ferry_create_visual_effect;
-    }
-}
-
-if (param[2]==0) {
-    item(FEAT_SHIPS, lantau_ferry, 2001) {
-        property {
-            climates_available:             ALL_CLIMATES;
-        }
-    }
-}
-
-// -- end Lantau [Ferry] -- 
-
-
 // -- begin Huanghai LNG [Tanker] -- 
 
 
@@ -12403,7 +12834,7 @@ item(FEAT_SHIPS, matsushima_hydrofoil, 70) {
         running_cost_factor:            73;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -12438,437 +12869,6 @@ if (param[2]==0) {
 }
 
 // -- end Matsushima [Hydrofoil] -- 
-
-
-
-
-// -- begin Bernard [Paddle Steamer] -- 
-
-
-// graphics
-
-    template spriteset_template_bernard_paddle_steamer(y) {
-        //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-        [20,        y,          28,   89,          -14, -54, ANIM]
-        [60,        y,          113,        66,          -63, -24, ANIM]
-        [186,       y,          138,        48,          -50, -29, ANIM]
-        [328,       y,          113,        66,          -10, -28, ANIM]
-        [454,       y,          28,   89,          -14, -55, ANIM]
-        [494,       y,          113,        66,          -58, -27, ANIM]
-        [620,       y,          138,        48,          -50, -29, ANIM]
-        [762,       y,          113,        66,          -8, -24, ANIM]
-    }
-
-
-
-    spriteset(bernard_paddle_steamer_ss_not_loaded_not_moving_0, "src/graphics/bernard_paddle_steamer_0.png") {
-      spriteset_template_bernard_paddle_steamer(10)
-    }
-    spriteset(bernard_paddle_steamer_ss_not_loaded_moving_0, "src/graphics/bernard_paddle_steamer_0.png") {
-      spriteset_template_bernard_paddle_steamer(110)
-    }
-    spriteset(bernard_paddle_steamer_ss_loaded_not_moving_0, "src/graphics/bernard_paddle_steamer_0.png") {
-      spriteset_template_bernard_paddle_steamer(510)
-    }
-    spriteset(bernard_paddle_steamer_ss_loaded_moving_0, "src/graphics/bernard_paddle_steamer_0.png") {
-      spriteset_template_bernard_paddle_steamer(610)
-    }
-
-    spritegroup bernard_paddle_steamer_sg_moving_0 {
-        loaded:  [
-            bernard_paddle_steamer_ss_not_loaded_moving_0,
-            bernard_paddle_steamer_ss_loaded_moving_0,
-        ];
-        loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
-            bernard_paddle_steamer_ss_not_loaded_moving_0,
-            bernard_paddle_steamer_ss_loaded_moving_0,
-        ];
-    }
-
-    spritegroup bernard_paddle_steamer_sg_not_moving_0 {
-        loaded:  [
-            bernard_paddle_steamer_ss_not_loaded_not_moving_0,
-            bernard_paddle_steamer_ss_loaded_not_moving_0,
-        ];
-        loading: [
-            bernard_paddle_steamer_ss_not_loaded_not_moving_0,
-            bernard_paddle_steamer_ss_loaded_not_moving_0,
-        ];
-    }
-
-    switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_graphics_0, current_speed) {
-        0: return bernard_paddle_steamer_sg_not_moving_0;
-        return bernard_paddle_steamer_sg_moving_0;
-    }
-
-
-
-    random_switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_graphics_random_0) {
-        
-            1: return bernard_paddle_steamer_switch_graphics_0;
-        
-    }
-
-
-
-switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_graphics, build_year) {
-    
-        0..5000000:bernard_paddle_steamer_switch_graphics_random_0;
-    
-    return bernard_paddle_steamer_switch_graphics_random_0;
-}
-
-
-// buy menu graphics
-
-template spriteset_template_purchase_bernard_paddle_steamer() {
-    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-    [626, 26, 89, 22, -44, -10, ANIM]
-}
-
-spriteset(bernard_paddle_steamer_ss_purchase, "src/graphics/bernard_paddle_steamer_0.png") {
-  spriteset_template_purchase_bernard_paddle_steamer()
-}
-
-spritegroup bernard_paddle_steamer_sg_purchase {
-    loaded:  [
-        bernard_paddle_steamer_ss_purchase,
-    ];
-    loading: [
-        bernard_paddle_steamer_ss_purchase,
-    ];
-}
-
-// -- set speed a little higher than rated speed when unladen -- //
-// -- also apply the param_adjust_ship_speed parameter -- //
-
-    switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
-        0 : 46;
-        1..25 : 46;
-        26..50 : 46;
-        51..75 : 46;
-        76..100 : 46;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-    switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
-        0 : 68;
-        1..25 : 68;
-        26..50 : 68;
-        51..75 : 68;
-        76..100 : 68;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-    switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
-        0 : 90;
-        1..25 : 90;
-        26..50 : 90;
-        51..75 : 90;
-        76..100 : 90;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
-    0: bernard_paddle_steamer_switch_speed_varies_with_load_amount_0;
-    1: bernard_paddle_steamer_switch_speed_varies_with_load_amount_1;
-    2: bernard_paddle_steamer_switch_speed_varies_with_load_amount_2;
-}
-switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_purchase_speed, param_adjust_ship_speed) {
-    0: 46;
-    1: 68;
-    2: 90;
-}
-
-
-// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
-switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_cargo_capacity_classes, cargo_classes) {
-    bitmask(CC_PASSENGERS): return 300;
-    bitmask(CC_MAIL): return 300;
-    return 125;
-}
-switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_cargo_capacity, cargo_type_in_veh) {
-    
-    bernard_paddle_steamer_switch_cargo_capacity_classes;
-}
-
-// -- handle subtype strings, used to aid players understand auto-refitting -- //
-switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_cargo_subtype_text, cargo_subtype) {
-    return CB_RESULT_NO_TEXT;
-}
-
-
-// -- some switches are common to all vehicles so included with properties -- //
-
-// -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
-switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_switch_purchase_cargo_capacity, cargo_type_in_veh) {
-    
-    
-    return 300;
-}
-
-// -- smoke -- //
-switch (FEAT_SHIPS, SELF, bernard_paddle_steamer_create_visual_effect, [STORE_TEMP(create_effect(EFFECT_SPRITE_STEAM, 0, 0, 24), 0x100),STORE_TEMP(create_effect(EFFECT_SPRITE_STEAM, 4, 0, 24), 0x101)]) {
-    return 2;
-}
-
-
-// -- props -- //
-item(FEAT_SHIPS, bernard_paddle_steamer, 2020) {
-    property {
-        name:                           string(STR_NAME_bernard_paddle_steamer, string(STR_NAME_SUFFIX_PADDLE_STEAMER));
-        climates_available:             NO_CLIMATE; // nml constant
-        sound_effect:                   SOUND_FERRY_HORN;
-        effect_spawn_model:             EFFECT_SPAWN_MODEL_STEAM;
-        introduction_date:              date(1855,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
-        cargo_capacity:                 300;
-        sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
-        speed:                          21.0mph;
-        ocean_speed_fraction:           1;
-        canal_speed_fraction:           1;
-        cost_factor:                    32;
-        running_cost_factor:            74;
-        refit_cost:                     0; // leave at 0 for refitting without defining cb
-        is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
-        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
-        cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
-        cargo_disallow_refit:           [FISH];
-        default_cargo_type:             PASS;
-        loading_speed:                  12;
-        cargo_age_period:               740;
-        misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        retire_early:                   36; // magic from Eddi
-        reliability_decay:              20; // default value
-        vehicle_life:                   40;
-    }
-    graphics {
-        speed:                          bernard_paddle_steamer_switch_speed_varies_with_load_amount;
-        purchase_speed:                 bernard_paddle_steamer_switch_purchase_speed;
-        cargo_capacity:                 bernard_paddle_steamer_switch_cargo_capacity;
-        purchase_cargo_capacity:        bernard_paddle_steamer_switch_purchase_cargo_capacity;
-        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_PADDLE_STEAMER), string(STR_BUY_MENU_REFIT_CAPACITIES_PACKET,300,125));
-        cargo_subtype_text:             bernard_paddle_steamer_switch_cargo_subtype_text;
-        default:                        bernard_paddle_steamer_switch_graphics;
-        purchase:                       bernard_paddle_steamer_sg_purchase;
-        create_effect:                  bernard_paddle_steamer_create_visual_effect;
-    }
-}
-
-if (param[2]==0) {
-    item(FEAT_SHIPS, bernard_paddle_steamer, 2020) {
-        property {
-            climates_available:             ALL_CLIMATES;
-        }
-    }
-}
-
-// -- end Bernard [Paddle Steamer] -- 
-
-
-// -- begin La Orchilla [Tanker] -- 
-
-
-// graphics
-template spriteset_template_la_orchilla_tanker(y) {
-    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-    [20,        y,          28,         89,          -14, -41, ANIM]
-    [60,        y,          113,        66,          -74, -22, ANIM]
-    [186,       y,          138,        48,          -65, -29, ANIM]
-    [328,       y,          113,        66,          -21, -22, ANIM]
-    [454,       y,          28,         89,          -14, -50, ANIM]
-    [494,       y,          113,        66,          -75, -22, ANIM]
-    [620,       y,          138,        48,          -65, -29, ANIM]
-    [762,       y,          113,        66,          -20, -22, ANIM]
-}
-
-spriteset(la_orchilla_tanker_ss_not_loaded_not_moving, "src/graphics/la_orchilla_tanker_0.png") {
-  spriteset_template_la_orchilla_tanker(10)
-}
-spriteset(la_orchilla_tanker_ss_not_loaded_moving, "src/graphics/la_orchilla_tanker_0.png") {
-  spriteset_template_la_orchilla_tanker(110)
-}
-spriteset(la_orchilla_tanker_ss_loaded_not_moving, "src/graphics/la_orchilla_tanker_0.png") {
-  spriteset_template_la_orchilla_tanker(210)
-}
-spriteset(la_orchilla_tanker_ss_loaded_moving, "src/graphics/la_orchilla_tanker_0.png") {
-  spriteset_template_la_orchilla_tanker(310)
-}
-
-spritegroup la_orchilla_tanker_sg_moving {
-    loaded:  [
-        la_orchilla_tanker_ss_not_loaded_moving,
-        la_orchilla_tanker_ss_loaded_moving,
-    ];
-    loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
-        la_orchilla_tanker_ss_loaded_moving,
-    ];
-}
-
-spritegroup la_orchilla_tanker_sg_not_moving {
-    loaded:  [
-        la_orchilla_tanker_ss_not_loaded_not_moving,
-        la_orchilla_tanker_ss_loaded_not_moving,
-    ];
-    loading: [
-        la_orchilla_tanker_ss_not_loaded_not_moving,
-        la_orchilla_tanker_ss_loaded_not_moving,
-    ];
-}
-
-switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_graphics, current_speed) {
-    0: return la_orchilla_tanker_sg_not_moving;
-    return la_orchilla_tanker_sg_moving;
-}
-
-
-// buy menu graphics
-
-template spriteset_template_purchase_la_orchilla_tanker() {
-    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-    [620, 28, 138, 22, -69, -10]
-}
-
-spriteset(la_orchilla_tanker_ss_purchase, "src/graphics/la_orchilla_tanker_0.png") {
-  spriteset_template_purchase_la_orchilla_tanker()
-}
-
-spritegroup la_orchilla_tanker_sg_purchase {
-    loaded:  [
-        la_orchilla_tanker_ss_purchase,
-    ];
-    loading: [
-        la_orchilla_tanker_ss_purchase,
-    ];
-}
-
-// -- set speed a little higher than rated speed when unladen -- //
-// -- also apply the param_adjust_ship_speed parameter -- //
-
-    switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
-        0 : 62;
-        1..25 : 60;
-        26..50 : 59;
-        51..75 : 58;
-        76..100 : 56;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-    switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
-        0 : 92;
-        1..25 : 90;
-        26..50 : 88;
-        51..75 : 86;
-        76..100 : 84;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-    switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
-        0 : 122;
-        1..25 : 119;
-        26..50 : 117;
-        51..75 : 114;
-        76..100 : 111;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
-    0: la_orchilla_tanker_switch_speed_varies_with_load_amount_0;
-    1: la_orchilla_tanker_switch_speed_varies_with_load_amount_1;
-    2: la_orchilla_tanker_switch_speed_varies_with_load_amount_2;
-}
-switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_purchase_speed, param_adjust_ship_speed) {
-    0: 56;
-    1: 84;
-    2: 111;
-}
-
-
-// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
-switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_cargo_capacity_classes, cargo_classes) {
-    bitmask(CC_PASSENGERS): return 0;
-    bitmask(CC_MAIL): return 0;
-    return 920;
-}
-switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_cargo_capacity, cargo_type_in_veh) {
-    
-    la_orchilla_tanker_switch_cargo_capacity_classes;
-}
-
-// -- handle subtype strings, used to aid players understand auto-refitting -- //
-switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_cargo_subtype_text, cargo_subtype) {
-    return CB_RESULT_NO_TEXT;
-}
-
-
-// -- some switches are common to all vehicles so included with properties -- //
-
-// -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
-switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_purchase_cargo_capacity, cargo_type_in_veh) {
-    
-    
-    return 920;
-}
-
-// -- smoke -- //
-switch (FEAT_SHIPS, SELF, la_orchilla_tanker_create_visual_effect, [STORE_TEMP(create_effect(EFFECT_SPRITE_AIRCRAFT_BREAKDOWN_SMOKE, 16, 0, 26), 0x100)]) {
-    return 1;
-}
-
-
-// -- props -- //
-item(FEAT_SHIPS, la_orchilla_tanker, 1270) {
-    property {
-        name:                           string(STR_NAME_la_orchilla_tanker, string(STR_NAME_SUFFIX_TANKER));
-        climates_available:             NO_CLIMATE; // nml constant
-        sound_effect:                   SOUND_SHIP_HORN;
-        effect_spawn_model:             EFFECT_SPAWN_MODEL_STEAM;
-        introduction_date:              date(1968,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
-        cargo_capacity:                 920;
-        sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
-        speed:                          26.0mph;
-        ocean_speed_fraction:           1;
-        canal_speed_fraction:           0.7;
-        cost_factor:                    75;
-        running_cost_factor:            178;
-        refit_cost:                     0; // leave at 0 for refitting without defining cb
-        is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_LIQUID);
-        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
-        cargo_allow_refit:              [];
-        cargo_disallow_refit:           [MILK,WATR,BEER,FOOD];
-        default_cargo_type:             OIL_;
-        loading_speed:                  20;
-        cargo_age_period:               740;
-        misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        retire_early:                   31; // magic from Eddi
-        reliability_decay:              20; // default value
-        vehicle_life:                   35;
-    }
-    graphics {
-        speed:                          la_orchilla_tanker_switch_speed_varies_with_load_amount;
-        purchase_speed:                 la_orchilla_tanker_switch_purchase_speed;
-        cargo_capacity:                 la_orchilla_tanker_switch_cargo_capacity;
-        purchase_cargo_capacity:        la_orchilla_tanker_switch_purchase_cargo_capacity;
-        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_LARGE_COASTER), string(STR_EMPTY));
-        cargo_subtype_text:             la_orchilla_tanker_switch_cargo_subtype_text;
-        default:                        la_orchilla_tanker_switch_graphics;
-        purchase:                       la_orchilla_tanker_sg_purchase;
-        create_effect:                  la_orchilla_tanker_create_visual_effect;
-    }
-}
-
-if (param[2]==0) {
-    item(FEAT_SHIPS, la_orchilla_tanker, 1270) {
-        property {
-            climates_available:             ALL_CLIMATES;
-        }
-    }
-}
-
-// -- end La Orchilla [Tanker] -- 
 
 
 // -- begin Taurus [Freighter] -- 
@@ -13071,7 +13071,7 @@ item(FEAT_SHIPS, taurus_freighter, 1132) {
         running_cost_factor:            60;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -13308,7 +13308,7 @@ item(FEAT_SHIPS, frisco_bay_freighter, 1120) {
         running_cost_factor:            134;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -13545,7 +13545,7 @@ item(FEAT_SHIPS, maspalomas_freighter, 1150) {
         running_cost_factor:            255;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -13976,7 +13976,7 @@ item(FEAT_SHIPS, rosario_vehicle_ferry, 50) {
         running_cost_factor:            76;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -14203,7 +14203,7 @@ item(FEAT_SHIPS, enoshima_catamaran_ferry, 90) {
         running_cost_factor:            117;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -14433,7 +14433,7 @@ item(FEAT_SHIPS, wellfleet_trawler, 1200) {
         running_cost_factor:            14;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FISH,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [];
@@ -14660,7 +14660,7 @@ item(FEAT_SHIPS, lampwick_steamer, 1030) {
         running_cost_factor:            72;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -14697,166 +14697,137 @@ if (param[2]==0) {
 // -- end Lampwick [Steamer] -- 
 
 
-// -- begin Dieze [Container Barge] -- 
+// -- begin La Orchilla [Tanker] -- 
 
 
 // graphics
-template spriteset_template_dieze_container_barge(y) {
-    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y,                       flags]
+template spriteset_template_la_orchilla_tanker(y) {
+    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
     [20,        y,          28,         89,          -14, -41, ANIM]
-    [60,        y,          113,        71,          -74, -22, ANIM]
+    [60,        y,          113,        66,          -74, -22, ANIM]
     [186,       y,          138,        48,          -65, -29, ANIM]
-    [328,       y,          113,        71,          -21, -25, ANIM]
-    [454,       y,          28,         89,          -14, -45, ANIM]
-    [494,       y,          113,        71,          -75, -25, ANIM]
+    [328,       y,          113,        66,          -21, -22, ANIM]
+    [454,       y,          28,         89,          -14, -50, ANIM]
+    [494,       y,          113,        66,          -75, -22, ANIM]
     [620,       y,          138,        48,          -65, -29, ANIM]
-    [762,       y,          113,        71,          -20, -22, ANIM]
+    [762,       y,          113,        66,          -20, -22, ANIM]
 }
 
-spriteset(dieze_container_barge_ss_empty_not_moving, "src/graphics/dieze_container_barge_0.png") {
-  spriteset_template_dieze_container_barge(10)
+spriteset(la_orchilla_tanker_ss_not_loaded_not_moving, "src/graphics/la_orchilla_tanker_0.png") {
+  spriteset_template_la_orchilla_tanker(10)
 }
-spriteset(dieze_container_barge_ss_empty_moving, "src/graphics/dieze_container_barge_0.png") {
-  spriteset_template_dieze_container_barge(110)
+spriteset(la_orchilla_tanker_ss_not_loaded_moving, "src/graphics/la_orchilla_tanker_0.png") {
+  spriteset_template_la_orchilla_tanker(110)
 }
-spriteset(dieze_container_barge_ss_loading_0_not_moving, "src/graphics/dieze_container_barge_0.png") {
-  spriteset_template_dieze_container_barge(210)
+spriteset(la_orchilla_tanker_ss_loaded_not_moving, "src/graphics/la_orchilla_tanker_0.png") {
+  spriteset_template_la_orchilla_tanker(210)
 }
-spriteset(dieze_container_barge_ss_loaded_1_not_moving, "src/graphics/dieze_container_barge_0.png") {
-  spriteset_template_dieze_container_barge(310)
-}
-spriteset(dieze_container_barge_ss_loaded_1_moving, "src/graphics/dieze_container_barge_0.png") {
-  spriteset_template_dieze_container_barge(410)
-}
-spriteset(dieze_container_barge_ss_loaded_2_not_moving, "src/graphics/dieze_container_barge_0.png") {
-  spriteset_template_dieze_container_barge(510)
-}
-spriteset(dieze_container_barge_ss_loaded_2_moving, "src/graphics/dieze_container_barge_0.png") {
-  spriteset_template_dieze_container_barge(610)
-}
-spriteset(dieze_container_barge_ss_loaded_3_not_moving, "src/graphics/dieze_container_barge_0.png") {
-  spriteset_template_dieze_container_barge(710)
-}
-spriteset(dieze_container_barge_ss_loaded_3_moving, "src/graphics/dieze_container_barge_0.png") {
-  spriteset_template_dieze_container_barge(810)
-}
-spriteset(dieze_container_barge_ss_loaded_4_not_moving, "src/graphics/dieze_container_barge_0.png") {
-  spriteset_template_dieze_container_barge(910)
-}
-spriteset(dieze_container_barge_ss_loaded_4_moving, "src/graphics/dieze_container_barge_0.png") {
-  spriteset_template_dieze_container_barge(1010)
+spriteset(la_orchilla_tanker_ss_loaded_moving, "src/graphics/la_orchilla_tanker_0.png") {
+  spriteset_template_la_orchilla_tanker(310)
 }
 
-spritegroup dieze_container_barge_sg_moving {
+spritegroup la_orchilla_tanker_sg_moving {
     loaded:  [
-        dieze_container_barge_ss_empty_moving,
-        dieze_container_barge_ss_loaded_1_moving,
-        dieze_container_barge_ss_loaded_2_moving,
-        dieze_container_barge_ss_loaded_3_moving,
-        dieze_container_barge_ss_loaded_4_moving,
+        la_orchilla_tanker_ss_not_loaded_moving,
+        la_orchilla_tanker_ss_loaded_moving,
     ];
     loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
-        dieze_container_barge_ss_empty_moving,
+        la_orchilla_tanker_ss_loaded_moving,
     ];
 }
 
-spritegroup dieze_container_barge_sg_not_moving {
+spritegroup la_orchilla_tanker_sg_not_moving {
     loaded:  [
-        dieze_container_barge_ss_empty_not_moving,
-        dieze_container_barge_ss_loaded_1_not_moving,
-        dieze_container_barge_ss_loaded_2_not_moving,
-        dieze_container_barge_ss_loaded_3_not_moving,
-        dieze_container_barge_ss_loaded_4_not_moving,
+        la_orchilla_tanker_ss_not_loaded_not_moving,
+        la_orchilla_tanker_ss_loaded_not_moving,
     ];
     loading: [
-        dieze_container_barge_ss_loading_0_not_moving,
-        dieze_container_barge_ss_loaded_1_not_moving,
-        dieze_container_barge_ss_loaded_2_not_moving,
-        dieze_container_barge_ss_loaded_3_not_moving,
-        dieze_container_barge_ss_loaded_4_not_moving,
+        la_orchilla_tanker_ss_not_loaded_not_moving,
+        la_orchilla_tanker_ss_loaded_not_moving,
     ];
 }
 
-switch (FEAT_SHIPS, SELF, dieze_container_barge_switch_graphics, current_speed) {
-    0: return dieze_container_barge_sg_not_moving;
-    return dieze_container_barge_sg_moving;
+switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_graphics, current_speed) {
+    0: return la_orchilla_tanker_sg_not_moving;
+    return la_orchilla_tanker_sg_moving;
 }
+
 
 // buy menu graphics
 
-template spriteset_template_purchase_dieze_container_barge() {
+template spriteset_template_purchase_la_orchilla_tanker() {
     //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
     [620, 28, 138, 22, -69, -10]
 }
 
-spriteset(dieze_container_barge_ss_purchase, "src/graphics/dieze_container_barge_0.png") {
-  spriteset_template_purchase_dieze_container_barge()
+spriteset(la_orchilla_tanker_ss_purchase, "src/graphics/la_orchilla_tanker_0.png") {
+  spriteset_template_purchase_la_orchilla_tanker()
 }
 
-spritegroup dieze_container_barge_sg_purchase {
+spritegroup la_orchilla_tanker_sg_purchase {
     loaded:  [
-        dieze_container_barge_ss_purchase,
+        la_orchilla_tanker_ss_purchase,
     ];
     loading: [
-        dieze_container_barge_ss_purchase,
+        la_orchilla_tanker_ss_purchase,
     ];
 }
 
 // -- set speed a little higher than rated speed when unladen -- //
 // -- also apply the param_adjust_ship_speed parameter -- //
 
-    switch (FEAT_SHIPS, SELF, dieze_container_barge_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
-        0 : 59;
-        1..25 : 58;
-        26..50 : 57;
-        51..75 : 55;
-        76..100 : 54;
+    switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
+        0 : 62;
+        1..25 : 60;
+        26..50 : 59;
+        51..75 : 58;
+        76..100 : 56;
         return 0; // should never reach this result, make it show up as a problem
     }
 
-    switch (FEAT_SHIPS, SELF, dieze_container_barge_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
-        0 : 89;
-        1..25 : 87;
-        26..50 : 85;
-        51..75 : 83;
-        76..100 : 81;
+    switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
+        0 : 92;
+        1..25 : 90;
+        26..50 : 88;
+        51..75 : 86;
+        76..100 : 84;
         return 0; // should never reach this result, make it show up as a problem
     }
 
-    switch (FEAT_SHIPS, SELF, dieze_container_barge_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
-        0 : 118;
-        1..25 : 115;
-        26..50 : 112;
-        51..75 : 110;
-        76..100 : 107;
+    switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
+        0 : 122;
+        1..25 : 119;
+        26..50 : 117;
+        51..75 : 114;
+        76..100 : 111;
         return 0; // should never reach this result, make it show up as a problem
     }
 
-switch (FEAT_SHIPS, SELF, dieze_container_barge_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
-    0: dieze_container_barge_switch_speed_varies_with_load_amount_0;
-    1: dieze_container_barge_switch_speed_varies_with_load_amount_1;
-    2: dieze_container_barge_switch_speed_varies_with_load_amount_2;
+switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
+    0: la_orchilla_tanker_switch_speed_varies_with_load_amount_0;
+    1: la_orchilla_tanker_switch_speed_varies_with_load_amount_1;
+    2: la_orchilla_tanker_switch_speed_varies_with_load_amount_2;
 }
-switch (FEAT_SHIPS, SELF, dieze_container_barge_switch_purchase_speed, param_adjust_ship_speed) {
-    0: 54;
-    1: 81;
-    2: 107;
+switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_purchase_speed, param_adjust_ship_speed) {
+    0: 56;
+    1: 84;
+    2: 111;
 }
 
 
 // -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
-switch (FEAT_SHIPS, SELF, dieze_container_barge_switch_cargo_capacity_classes, cargo_classes) {
+switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_cargo_capacity_classes, cargo_classes) {
     bitmask(CC_PASSENGERS): return 0;
     bitmask(CC_MAIL): return 0;
-    return 350;
+    return 920;
 }
-switch (FEAT_SHIPS, SELF, dieze_container_barge_switch_cargo_capacity, cargo_type_in_veh) {
+switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_cargo_capacity, cargo_type_in_veh) {
     
-    dieze_container_barge_switch_cargo_capacity_classes;
+    la_orchilla_tanker_switch_cargo_capacity_classes;
 }
 
 // -- handle subtype strings, used to aid players understand auto-refitting -- //
-switch (FEAT_SHIPS, SELF, dieze_container_barge_switch_cargo_subtype_text, cargo_subtype) {
+switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_cargo_subtype_text, cargo_subtype) {
     return CB_RESULT_NO_TEXT;
 }
 
@@ -14864,70 +14835,70 @@ switch (FEAT_SHIPS, SELF, dieze_container_barge_switch_cargo_subtype_text, cargo
 // -- some switches are common to all vehicles so included with properties -- //
 
 // -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
-switch (FEAT_SHIPS, SELF, dieze_container_barge_switch_purchase_cargo_capacity, cargo_type_in_veh) {
+switch (FEAT_SHIPS, SELF, la_orchilla_tanker_switch_purchase_cargo_capacity, cargo_type_in_veh) {
     
     
-    return 350;
+    return 920;
 }
 
 // -- smoke -- //
-switch (FEAT_SHIPS, SELF, dieze_container_barge_create_visual_effect, 0) {
-    return 0;
+switch (FEAT_SHIPS, SELF, la_orchilla_tanker_create_visual_effect, [STORE_TEMP(create_effect(EFFECT_SPRITE_AIRCRAFT_BREAKDOWN_SMOKE, 16, 0, 26), 0x100)]) {
+    return 1;
 }
 
 
 // -- props -- //
-item(FEAT_SHIPS, dieze_container_barge, 2280) {
+item(FEAT_SHIPS, la_orchilla_tanker, 1270) {
     property {
-        name:                           string(STR_NAME_dieze_container_barge, string(STR_NAME_SUFFIX_CONTAINER_BARGE));
+        name:                           string(STR_NAME_la_orchilla_tanker, string(STR_NAME_SUFFIX_TANKER));
         climates_available:             NO_CLIMATE; // nml constant
         sound_effect:                   SOUND_SHIP_HORN;
         effect_spawn_model:             EFFECT_SPAWN_MODEL_STEAM;
-        introduction_date:              date(1990,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
-        cargo_capacity:                 350;
+        introduction_date:              date(1968,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 920;
         sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
-        speed:                          25.0mph;
+        speed:                          26.0mph;
         ocean_speed_fraction:           1;
-        canal_speed_fraction:           1;
-        cost_factor:                    58;
-        running_cost_factor:            132;
+        canal_speed_fraction:           0.7;
+        cost_factor:                    75;
+        running_cost_factor:            178;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_EXPRESS,CC_LIQUID,CC_ARMOURED,CC_PIECE_GOODS);
+        refittable_cargo_classes:       bitmask(CC_LIQUID);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
-        cargo_allow_refit:              [MAIL,FRUT,WATR];
-        cargo_disallow_refit:           [FISH,LVST,OIL_,TOUR,WOOD];
-        default_cargo_type:             GOOD;
-        loading_speed:                  35;
+        cargo_allow_refit:              [];
+        cargo_disallow_refit:           [MILK,WATR,BEER,FOOD];
+        default_cargo_type:             OIL_;
+        loading_speed:                  20;
         cargo_age_period:               740;
         misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
         model_life:                     VEHICLE_NEVER_EXPIRES;
-        retire_early:                   26; // magic from Eddi
+        retire_early:                   31; // magic from Eddi
         reliability_decay:              20; // default value
-        vehicle_life:                   30;
+        vehicle_life:                   35;
     }
     graphics {
-        speed:                          dieze_container_barge_switch_speed_varies_with_load_amount;
-        purchase_speed:                 dieze_container_barge_switch_purchase_speed;
-        cargo_capacity:                 dieze_container_barge_switch_cargo_capacity;
-        purchase_cargo_capacity:        dieze_container_barge_switch_purchase_cargo_capacity;
-        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_CONTAINER_FEEDER), string(STR_EMPTY));
-        cargo_subtype_text:             dieze_container_barge_switch_cargo_subtype_text;
-        default:                        dieze_container_barge_switch_graphics;
-        purchase:                       dieze_container_barge_sg_purchase;
-        create_effect:                  dieze_container_barge_create_visual_effect;
+        speed:                          la_orchilla_tanker_switch_speed_varies_with_load_amount;
+        purchase_speed:                 la_orchilla_tanker_switch_purchase_speed;
+        cargo_capacity:                 la_orchilla_tanker_switch_cargo_capacity;
+        purchase_cargo_capacity:        la_orchilla_tanker_switch_purchase_cargo_capacity;
+        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_LARGE_COASTER), string(STR_EMPTY));
+        cargo_subtype_text:             la_orchilla_tanker_switch_cargo_subtype_text;
+        default:                        la_orchilla_tanker_switch_graphics;
+        purchase:                       la_orchilla_tanker_sg_purchase;
+        create_effect:                  la_orchilla_tanker_create_visual_effect;
     }
 }
 
 if (param[2]==0) {
-    item(FEAT_SHIPS, dieze_container_barge, 2280) {
+    item(FEAT_SHIPS, la_orchilla_tanker, 1270) {
         property {
             climates_available:             ALL_CLIMATES;
         }
     }
 }
 
-// -- end Dieze [Container Barge] -- 
+// -- end La Orchilla [Tanker] -- 
 
 
 // -- begin Provence Edibles [Tanker] -- 
@@ -15324,7 +15295,7 @@ item(FEAT_SHIPS, island_trader, 1031) {
         running_cost_factor:            108;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -15361,137 +15332,137 @@ if (param[2]==0) {
 // -- end Island Trader [Blank] -- 
 
 
-// -- begin Lorraine Edibles [Tanker] -- 
+// -- begin Freshney [Tanker Barge] -- 
 
 
 // graphics
-template spriteset_template_lorraine_edibles_tanker(y) {
+template spriteset_template_freshney_tanker_barge(y) {
     //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-    [20,        y,          28,         89,          -14, -41, ANIM]
-    [60,        y,          113,        66,          -74, -22, ANIM]
-    [186,       y,          138,        48,          -65, -29, ANIM]
-    [328,       y,          113,        66,          -21, -22, ANIM]
-    [454,       y,          28,         89,          -14, -50, ANIM]
-    [494,       y,          113,        66,          -75, -22, ANIM]
-    [620,       y,          138,        48,          -65, -29, ANIM]
-    [762,       y,          113,        66,          -20, -22, ANIM]
+    [20,        y,          28,         89,          -14, -40, ANIM]
+    [60,        y,          113,        66,          -78, -21, ANIM]
+    [186,       y,          138,        48,          -68, -21, ANIM]
+    [328,       y,          113,        66,          -30, -21, ANIM]
+    [454,       y,          28,         89,          -14, -40, ANIM]
+    [494,       y,          113,        66,          -78, -24, ANIM]
+    [620,       y,          138,        48,          -68, -21, ANIM]
+    [762,       y,          113,        66,          -32, -21, ANIM]
 }
 
-spriteset(lorraine_edibles_tanker_ss_not_loaded_not_moving, "src/graphics/lorraine_edibles_tanker_0.png") {
-  spriteset_template_lorraine_edibles_tanker(10)
+spriteset(freshney_tanker_barge_ss_not_loaded_not_moving, "src/graphics/freshney_tanker_barge_0.png") {
+  spriteset_template_freshney_tanker_barge(10)
 }
-spriteset(lorraine_edibles_tanker_ss_not_loaded_moving, "src/graphics/lorraine_edibles_tanker_0.png") {
-  spriteset_template_lorraine_edibles_tanker(110)
+spriteset(freshney_tanker_barge_ss_not_loaded_moving, "src/graphics/freshney_tanker_barge_0.png") {
+  spriteset_template_freshney_tanker_barge(110)
 }
-spriteset(lorraine_edibles_tanker_ss_loaded_not_moving, "src/graphics/lorraine_edibles_tanker_0.png") {
-  spriteset_template_lorraine_edibles_tanker(210)
+spriteset(freshney_tanker_barge_ss_loaded_not_moving, "src/graphics/freshney_tanker_barge_0.png") {
+  spriteset_template_freshney_tanker_barge(210)
 }
-spriteset(lorraine_edibles_tanker_ss_loaded_moving, "src/graphics/lorraine_edibles_tanker_0.png") {
-  spriteset_template_lorraine_edibles_tanker(310)
+spriteset(freshney_tanker_barge_ss_loaded_moving, "src/graphics/freshney_tanker_barge_0.png") {
+  spriteset_template_freshney_tanker_barge(310)
 }
 
-spritegroup lorraine_edibles_tanker_sg_moving {
+spritegroup freshney_tanker_barge_sg_moving {
     loaded:  [
-        lorraine_edibles_tanker_ss_not_loaded_moving,
-        lorraine_edibles_tanker_ss_loaded_moving,
+        freshney_tanker_barge_ss_not_loaded_moving,
+        freshney_tanker_barge_ss_loaded_moving,
     ];
     loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
-        lorraine_edibles_tanker_ss_loaded_moving,
+        freshney_tanker_barge_ss_loaded_moving,
     ];
 }
 
-spritegroup lorraine_edibles_tanker_sg_not_moving {
+spritegroup freshney_tanker_barge_sg_not_moving {
     loaded:  [
-        lorraine_edibles_tanker_ss_not_loaded_not_moving,
-        lorraine_edibles_tanker_ss_loaded_not_moving,
+        freshney_tanker_barge_ss_not_loaded_not_moving,
+        freshney_tanker_barge_ss_loaded_not_moving,
     ];
     loading: [
-        lorraine_edibles_tanker_ss_not_loaded_not_moving,
-        lorraine_edibles_tanker_ss_loaded_not_moving,
+        freshney_tanker_barge_ss_not_loaded_not_moving,
+        freshney_tanker_barge_ss_loaded_not_moving,
     ];
 }
 
-switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_graphics, current_speed) {
-    0: return lorraine_edibles_tanker_sg_not_moving;
-    return lorraine_edibles_tanker_sg_moving;
+switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_graphics, current_speed) {
+    0: return freshney_tanker_barge_sg_not_moving;
+    return freshney_tanker_barge_sg_moving;
 }
 
 
 // buy menu graphics
 
-template spriteset_template_purchase_lorraine_edibles_tanker() {
+template spriteset_template_purchase_freshney_tanker_barge() {
     //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-    [620, 28, 130, 22, -65, -10]
+    [667, 21, 44, 22, -22, -10]
 }
 
-spriteset(lorraine_edibles_tanker_ss_purchase, "src/graphics/lorraine_edibles_tanker_0.png") {
-  spriteset_template_purchase_lorraine_edibles_tanker()
+spriteset(freshney_tanker_barge_ss_purchase, "src/graphics/freshney_tanker_barge_0.png") {
+  spriteset_template_purchase_freshney_tanker_barge()
 }
 
-spritegroup lorraine_edibles_tanker_sg_purchase {
+spritegroup freshney_tanker_barge_sg_purchase {
     loaded:  [
-        lorraine_edibles_tanker_ss_purchase,
+        freshney_tanker_barge_ss_purchase,
     ];
     loading: [
-        lorraine_edibles_tanker_ss_purchase,
+        freshney_tanker_barge_ss_purchase,
     ];
 }
 
 // -- set speed a little higher than rated speed when unladen -- //
 // -- also apply the param_adjust_ship_speed parameter -- //
 
-    switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
-        0 : 71;
-        1..25 : 70;
-        26..50 : 68;
-        51..75 : 66;
-        76..100 : 65;
+    switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
+        0 : 43;
+        1..25 : 42;
+        26..50 : 41;
+        51..75 : 40;
+        76..100 : 39;
         return 0; // should never reach this result, make it show up as a problem
     }
 
-    switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
-        0 : 106;
-        1..25 : 104;
-        26..50 : 101;
-        51..75 : 99;
-        76..100 : 97;
+    switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
+        0 : 64;
+        1..25 : 62;
+        26..50 : 61;
+        51..75 : 60;
+        76..100 : 58;
         return 0; // should never reach this result, make it show up as a problem
     }
 
-    switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
-        0 : 141;
-        1..25 : 138;
-        26..50 : 135;
-        51..75 : 131;
-        76..100 : 128;
+    switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
+        0 : 85;
+        1..25 : 83;
+        26..50 : 81;
+        51..75 : 79;
+        76..100 : 77;
         return 0; // should never reach this result, make it show up as a problem
     }
 
-switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
-    0: lorraine_edibles_tanker_switch_speed_varies_with_load_amount_0;
-    1: lorraine_edibles_tanker_switch_speed_varies_with_load_amount_1;
-    2: lorraine_edibles_tanker_switch_speed_varies_with_load_amount_2;
+switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
+    0: freshney_tanker_barge_switch_speed_varies_with_load_amount_0;
+    1: freshney_tanker_barge_switch_speed_varies_with_load_amount_1;
+    2: freshney_tanker_barge_switch_speed_varies_with_load_amount_2;
 }
-switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_purchase_speed, param_adjust_ship_speed) {
-    0: 65;
-    1: 97;
-    2: 128;
+switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_purchase_speed, param_adjust_ship_speed) {
+    0: 39;
+    1: 58;
+    2: 77;
 }
 
 
 // -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
-switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_cargo_capacity_classes, cargo_classes) {
+switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_cargo_capacity_classes, cargo_classes) {
     bitmask(CC_PASSENGERS): return 0;
     bitmask(CC_MAIL): return 0;
-    return 860;
+    return 90;
 }
-switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_cargo_capacity, cargo_type_in_veh) {
+switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_cargo_capacity, cargo_type_in_veh) {
     
-    lorraine_edibles_tanker_switch_cargo_capacity_classes;
+    freshney_tanker_barge_switch_cargo_capacity_classes;
 }
 
 // -- handle subtype strings, used to aid players understand auto-refitting -- //
-switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_cargo_subtype_text, cargo_subtype) {
+switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_cargo_subtype_text, cargo_subtype) {
     return CB_RESULT_NO_TEXT;
 }
 
@@ -15499,70 +15470,70 @@ switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_cargo_subtype_text, car
 // -- some switches are common to all vehicles so included with properties -- //
 
 // -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
-switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_switch_purchase_cargo_capacity, cargo_type_in_veh) {
+switch (FEAT_SHIPS, SELF, freshney_tanker_barge_switch_purchase_cargo_capacity, cargo_type_in_veh) {
     
     
-    return 860;
+    return 90;
 }
 
 // -- smoke -- //
-switch (FEAT_SHIPS, SELF, lorraine_edibles_tanker_create_visual_effect, [STORE_TEMP(create_effect(EFFECT_SPRITE_AIRCRAFT_BREAKDOWN_SMOKE, 16, 0, 26), 0x100)]) {
+switch (FEAT_SHIPS, SELF, freshney_tanker_barge_create_visual_effect, [STORE_TEMP(create_effect(EFFECT_SPRITE_DIESEL, 6, 0, 8), 0x100)]) {
     return 1;
 }
 
 
 // -- props -- //
-item(FEAT_SHIPS, lorraine_edibles_tanker, 1282) {
+item(FEAT_SHIPS, freshney_tanker_barge, 2248) {
     property {
-        name:                           string(STR_NAME_lorraine_edibles_tanker, string(STR_NAME_SUFFIX_TANKER));
+        name:                           string(STR_NAME_freshney_tanker_barge, string(STR_NAME_SUFFIX_TANKER_BARGE));
         climates_available:             NO_CLIMATE; // nml constant
         sound_effect:                   SOUND_SHIP_HORN;
-        effect_spawn_model:             EFFECT_SPAWN_MODEL_STEAM;
-        introduction_date:              date(1976,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
-        cargo_capacity:                 860;
+        effect_spawn_model:             EFFECT_SPAWN_MODEL_DIESEL;
+        introduction_date:              date(1870,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
+        cargo_capacity:                 90;
         sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
-        speed:                          30.0mph;
+        speed:                          18.0mph;
         ocean_speed_fraction:           1;
         canal_speed_fraction:           1;
-        cost_factor:                    83;
-        running_cost_factor:            166;
+        cost_factor:                    4;
+        running_cost_factor:            22;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
         refittable_cargo_classes:       bitmask(CC_LIQUID);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
-        cargo_disallow_refit:           [RFPR,OIL_,FMSP,PETR];
-        default_cargo_type:             WATR;
-        loading_speed:                  40;
+        cargo_disallow_refit:           [MILK,WATR,BEER,FOOD];
+        default_cargo_type:             OIL_;
+        loading_speed:                  20;
         cargo_age_period:               740;
         misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
         model_life:                     VEHICLE_NEVER_EXPIRES;
-        retire_early:                   31; // magic from Eddi
+        retire_early:                   56; // magic from Eddi
         reliability_decay:              20; // default value
-        vehicle_life:                   35;
+        vehicle_life:                   60;
     }
     graphics {
-        speed:                          lorraine_edibles_tanker_switch_speed_varies_with_load_amount;
-        purchase_speed:                 lorraine_edibles_tanker_switch_purchase_speed;
-        cargo_capacity:                 lorraine_edibles_tanker_switch_cargo_capacity;
-        purchase_cargo_capacity:        lorraine_edibles_tanker_switch_purchase_cargo_capacity;
-        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_LARGE_COASTAL_TANKER), string(STR_EMPTY));
-        cargo_subtype_text:             lorraine_edibles_tanker_switch_cargo_subtype_text;
-        default:                        lorraine_edibles_tanker_switch_graphics;
-        purchase:                       lorraine_edibles_tanker_sg_purchase;
-        create_effect:                  lorraine_edibles_tanker_create_visual_effect;
+        speed:                          freshney_tanker_barge_switch_speed_varies_with_load_amount;
+        purchase_speed:                 freshney_tanker_barge_switch_purchase_speed;
+        cargo_capacity:                 freshney_tanker_barge_switch_cargo_capacity;
+        purchase_cargo_capacity:        freshney_tanker_barge_switch_purchase_cargo_capacity;
+        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_SMALL_TANKER_INLAND), string(STR_EMPTY));
+        cargo_subtype_text:             freshney_tanker_barge_switch_cargo_subtype_text;
+        default:                        freshney_tanker_barge_switch_graphics;
+        purchase:                       freshney_tanker_barge_sg_purchase;
+        create_effect:                  freshney_tanker_barge_create_visual_effect;
     }
 }
 
 if (param[2]==0) {
-    item(FEAT_SHIPS, lorraine_edibles_tanker, 1282) {
+    item(FEAT_SHIPS, freshney_tanker_barge, 2248) {
         property {
             climates_available:             ALL_CLIMATES;
         }
     }
 }
 
-// -- end Lorraine Edibles [Tanker] -- 
+// -- end Freshney [Tanker Barge] -- 
 
 
 // -- begin Helsinki [Reefer] -- 
@@ -15803,210 +15774,6 @@ if (param[2]==0) {
 // -- end Helsinki [Reefer] -- 
 
 
-// -- begin Bundaberg [Tanker] -- 
-
-
-// graphics
-template spriteset_template_bundaberg_tanker(y) {
-    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-    [20,        y,          28,         89,          -14, -41, ANIM]
-    [60,        y,          113,        66,          -74, -22, ANIM]
-    [186,       y,          138,        48,          -65, -29, ANIM]
-    [328,       y,          113,        66,          -21, -22, ANIM]
-    [454,       y,          28,         89,          -14, -50, ANIM]
-    [494,       y,          113,        66,          -75, -22, ANIM]
-    [620,       y,          138,        48,          -65, -29, ANIM]
-    [762,       y,          113,        66,          -20, -22, ANIM]
-}
-
-spriteset(bundaberg_tanker_ss_not_loaded_not_moving, "src/graphics/bundaberg_tanker_0.png") {
-  spriteset_template_bundaberg_tanker(10)
-}
-spriteset(bundaberg_tanker_ss_not_loaded_moving, "src/graphics/bundaberg_tanker_0.png") {
-  spriteset_template_bundaberg_tanker(110)
-}
-spriteset(bundaberg_tanker_ss_loaded_not_moving, "src/graphics/bundaberg_tanker_0.png") {
-  spriteset_template_bundaberg_tanker(210)
-}
-spriteset(bundaberg_tanker_ss_loaded_moving, "src/graphics/bundaberg_tanker_0.png") {
-  spriteset_template_bundaberg_tanker(310)
-}
-
-spritegroup bundaberg_tanker_sg_moving {
-    loaded:  [
-        bundaberg_tanker_ss_not_loaded_moving,
-        bundaberg_tanker_ss_loaded_moving,
-    ];
-    loading: [ // can't be loading when moving, but we'll overlook that, it's required by nml ;)
-        bundaberg_tanker_ss_loaded_moving,
-    ];
-}
-
-spritegroup bundaberg_tanker_sg_not_moving {
-    loaded:  [
-        bundaberg_tanker_ss_not_loaded_not_moving,
-        bundaberg_tanker_ss_loaded_not_moving,
-    ];
-    loading: [
-        bundaberg_tanker_ss_not_loaded_not_moving,
-        bundaberg_tanker_ss_loaded_not_moving,
-    ];
-}
-
-switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_graphics, current_speed) {
-    0: return bundaberg_tanker_sg_not_moving;
-    return bundaberg_tanker_sg_moving;
-}
-
-
-// buy menu graphics
-
-template spriteset_template_purchase_bundaberg_tanker() {
-    //[left_x,  upper_y,    width,      height,     offset_x,      offset_y]
-    [620, 28, 138, 22, -69, -10]
-}
-
-spriteset(bundaberg_tanker_ss_purchase, "src/graphics/bundaberg_tanker_0.png") {
-  spriteset_template_purchase_bundaberg_tanker()
-}
-
-spritegroup bundaberg_tanker_sg_purchase {
-    loaded:  [
-        bundaberg_tanker_ss_purchase,
-    ];
-    loading: [
-        bundaberg_tanker_ss_purchase,
-    ];
-}
-
-// -- set speed a little higher than rated speed when unladen -- //
-// -- also apply the param_adjust_ship_speed parameter -- //
-
-    switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_speed_varies_with_load_amount_0, cargo_count*100/cargo_capacity) {
-        0 : 48;
-        1..25 : 47;
-        26..50 : 46;
-        51..75 : 44;
-        76..100 : 43;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-    switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_speed_varies_with_load_amount_1, cargo_count*100/cargo_capacity) {
-        0 : 71;
-        1..25 : 69;
-        26..50 : 68;
-        51..75 : 66;
-        76..100 : 65;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-    switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_speed_varies_with_load_amount_2, cargo_count*100/cargo_capacity) {
-        0 : 94;
-        1..25 : 92;
-        26..50 : 90;
-        51..75 : 88;
-        76..100 : 86;
-        return 0; // should never reach this result, make it show up as a problem
-    }
-
-switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_speed_varies_with_load_amount, param_adjust_ship_speed) {
-    0: bundaberg_tanker_switch_speed_varies_with_load_amount_0;
-    1: bundaberg_tanker_switch_speed_varies_with_load_amount_1;
-    2: bundaberg_tanker_switch_speed_varies_with_load_amount_2;
-}
-switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_purchase_speed, param_adjust_ship_speed) {
-    0: 43;
-    1: 65;
-    2: 86;
-}
-
-
-// -- capacity determined according to specific labels that might need to be handled, and otherwise cargo class -- //
-switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_cargo_capacity_classes, cargo_classes) {
-    bitmask(CC_PASSENGERS): return 0;
-    bitmask(CC_MAIL): return 0;
-    return 1060;
-}
-switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_cargo_capacity, cargo_type_in_veh) {
-    
-    bundaberg_tanker_switch_cargo_capacity_classes;
-}
-
-// -- handle subtype strings, used to aid players understand auto-refitting -- //
-switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_cargo_subtype_text, cargo_subtype) {
-    return CB_RESULT_NO_TEXT;
-}
-
-
-// -- some switches are common to all vehicles so included with properties -- //
-
-// -- dibble about with purchase menu capacity to handle various cargo-specific capacity issues (cargo might be missing etc) -- //
-switch (FEAT_SHIPS, SELF, bundaberg_tanker_switch_purchase_cargo_capacity, cargo_type_in_veh) {
-    
-    
-    return 1060;
-}
-
-// -- smoke -- //
-switch (FEAT_SHIPS, SELF, bundaberg_tanker_create_visual_effect, [STORE_TEMP(create_effect(EFFECT_SPRITE_STEAM, 16, 0, 26), 0x100)]) {
-    return 1;
-}
-
-
-// -- props -- //
-item(FEAT_SHIPS, bundaberg_tanker, 1258) {
-    property {
-        name:                           string(STR_NAME_bundaberg_tanker, string(STR_NAME_SUFFIX_TANKER));
-        climates_available:             NO_CLIMATE; // nml constant
-        sound_effect:                   SOUND_SHIP_HORN;
-        effect_spawn_model:             EFFECT_SPAWN_MODEL_STEAM;
-        introduction_date:              date(1914,01,01); // ship just supplies intro year - openttd randomises intro dates a bit anyway
-        cargo_capacity:                 1060;
-        sprite_id:                      SPRITE_ID_NEW_SHIP; //enable new graphics - nml constant
-        speed:                          20.0mph;
-        ocean_speed_fraction:           1;
-        canal_speed_fraction:           0.7;
-        cost_factor:                    78;
-        running_cost_factor:            174;
-        refit_cost:                     0; // leave at 0 for refitting without defining cb
-        is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_LIQUID);
-        non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
-        cargo_allow_refit:              [];
-        cargo_disallow_refit:           [MILK,WATR,BEER,FOOD];
-        default_cargo_type:             OIL_;
-        loading_speed:                  20;
-        cargo_age_period:               740;
-        misc_flags:                     bitmask(SHIP_FLAG_2CC, SHIP_FLAG_AUTOREFIT); // nml constants
-        model_life:                     VEHICLE_NEVER_EXPIRES;
-        retire_early:                   31; // magic from Eddi
-        reliability_decay:              20; // default value
-        vehicle_life:                   35;
-    }
-    graphics {
-        speed:                          bundaberg_tanker_switch_speed_varies_with_load_amount;
-        purchase_speed:                 bundaberg_tanker_switch_purchase_speed;
-        cargo_capacity:                 bundaberg_tanker_switch_cargo_capacity;
-        purchase_cargo_capacity:        bundaberg_tanker_switch_purchase_cargo_capacity;
-        additional_text:                string(STR_BUY_MENU_TEXT, string(STR_COASTAL_TANKER), string(STR_EMPTY));
-        cargo_subtype_text:             bundaberg_tanker_switch_cargo_subtype_text;
-        default:                        bundaberg_tanker_switch_graphics;
-        purchase:                       bundaberg_tanker_sg_purchase;
-        create_effect:                  bundaberg_tanker_create_visual_effect;
-    }
-}
-
-if (param[2]==0) {
-    item(FEAT_SHIPS, bundaberg_tanker, 1258) {
-        property {
-            climates_available:             ALL_CLIMATES;
-        }
-    }
-}
-
-// -- end Bundaberg [Tanker] -- 
-
-
 
 
 // -- begin Nanaimo 70 [Hovercraft] -- 
@@ -16197,7 +15964,7 @@ item(FEAT_SHIPS, nanaimo_70_hovercraft, 1050) {
         running_cost_factor:            97;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [FISH];
@@ -16434,7 +16201,7 @@ item(FEAT_SHIPS, gorky_freight_barge, 2125) {
         running_cost_factor:            86;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_REFRIGERATED,CC_EXPRESS,CC_BULK,CC_PIECE_GOODS,CC_COVERED,CC_LIQUID,CC_ARMOURED,CC_NON_POURABLE);
+        refittable_cargo_classes:       bitmask(CC_LIQUID,CC_BULK,CC_EXPRESS,CC_ARMOURED,CC_REFRIGERATED,CC_NON_POURABLE,CC_PIECE_GOODS,CC_COVERED);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [];
         cargo_disallow_refit:           [TOUR];
@@ -16664,7 +16431,7 @@ item(FEAT_SHIPS, josephine_trawler, 1210) {
         running_cost_factor:            18;
         refit_cost:                     0; // leave at 0 for refitting without defining cb
         is_refittable:                  1;
-        refittable_cargo_classes:       bitmask(CC_PASSENGERS,CC_EXPRESS,CC_MAIL,CC_ARMOURED);
+        refittable_cargo_classes:       bitmask(CC_ARMOURED,CC_PASSENGERS,CC_EXPRESS,CC_MAIL);
         non_refittable_cargo_classes:   bitmask(); // don't set non-refittable classes, increases likelihood of breaking cargo support
         cargo_allow_refit:              [BDMT,FISH,FRUT,LVST,VEHI,WATR];
         cargo_disallow_refit:           [];

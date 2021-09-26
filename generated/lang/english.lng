@@ -92,13 +92,19 @@ STR_GRF_NAME                                                    :SHARK 1.0
 
 
 
+STR_NAME_bundaberg_tanker                                          :Bundaberg {STRING} 
+
 STR_NAME_saint_marie_freight_barge                                          :Saint Marie {STRING} 
+
+STR_NAME_lorraine_edibles_tanker                                          :Lorraine Edibles {STRING} 
 
 STR_NAME_port_jackson_ferry                                          :Port Jackson {STRING} 
 
 STR_NAME_labrador_utility_vessel                                          :Labrador {STRING} 
 
 STR_NAME_finisterre_freighter                                          :Finisterre {STRING} 
+
+STR_NAME_lantau_ferry                                          :Lantau {STRING} 
 
 STR_NAME_mcclure_livestock_ship                                          :McClure {STRING} 
 
@@ -122,8 +128,6 @@ STR_NAME_hammerhead_vehicle_ferry                                          :Hamm
 
 STR_NAME_hitsuji_livestock_ship                                          :Hitsuji {STRING} 
 
-STR_NAME_provincetown_ferry                                          :Provincetown {STRING} 
-
 STR_NAME_whetstone_tanker                                          :Whetstone {STRING} 
 
 STR_NAME_volgoneft_three_twenty_tanker_barge                                          :Volgoneft 320 {STRING} 
@@ -137,6 +141,8 @@ STR_NAME_altamira_freighter                                          :Altamira {
 STR_NAME_constance_freight_barge                                          :Constance {STRING} 
 
 STR_NAME_maddalena_vehicle_ferry                                          :Maddalena {STRING} 
+
+STR_NAME_provincetown_ferry                                          :Provincetown {STRING} 
 
 STR_NAME_connor_freight_ferry                                          :Connor Freight {STRING} 
 
@@ -176,11 +182,13 @@ STR_NAME_newport_container_feeder                                          :Newp
 
 STR_NAME_yokohama_tanker                                          :Yokohama {STRING} 
 
-STR_NAME_freshney_tanker_barge                                          :Freshney {STRING} 
-
 STR_NAME_volgoneft_six_thirty_tanker_barge                                          :Volgoneft 630 {STRING} 
 
+STR_NAME_friedrich_paddle_steamer                                          :Friedrich {STRING} 
+
 STR_NAME_malin_freighter                                          :Malin {STRING} 
+
+STR_NAME_bernard_paddle_steamer                                          :Bernard {STRING} 
 
 STR_NAME_munkegrund_freighter                                          :Munkegrund {STRING} 
 
@@ -188,17 +196,9 @@ STR_NAME_grindavik_reefer                                          :Grindavik {S
 
 STR_NAME_winterhold_container_reefer                                          :Winterhold {STRING} 
 
-STR_NAME_friedrich_paddle_steamer                                          :Friedrich {STRING} 
-
-STR_NAME_lantau_ferry                                          :Lantau {STRING} 
-
 STR_NAME_huanghai_lng_tanker                                          :Huanghai LNG {STRING} 
 
 STR_NAME_matsushima_hydrofoil                                          :Matsushima {STRING} 
-
-STR_NAME_bernard_paddle_steamer                                          :Bernard {STRING} 
-
-STR_NAME_la_orchilla_tanker                                          :La Orchilla {STRING} 
 
 STR_NAME_taurus_freighter                                          :Taurus {STRING} 
 
@@ -216,17 +216,15 @@ STR_NAME_wellfleet_trawler                                          :Wellfleet {
 
 STR_NAME_lampwick_steamer                                          :Lampwick {STRING} 
 
-STR_NAME_dieze_container_barge                                          :Dieze {STRING} 
+STR_NAME_la_orchilla_tanker                                          :La Orchilla {STRING} 
 
 STR_NAME_provence_edibles_tanker                                          :Provence Edibles {STRING} 
 
 STR_NAME_island_trader                                          :Island Trader {STRING} 
 
-STR_NAME_lorraine_edibles_tanker                                          :Lorraine Edibles {STRING} 
+STR_NAME_freshney_tanker_barge                                          :Freshney {STRING} 
 
 STR_NAME_helsinki_reefer                                          :Helsinki {STRING} 
-
-STR_NAME_bundaberg_tanker                                          :Bundaberg {STRING} 
 
 STR_NAME_nanaimo_70_hovercraft                                          :Nanaimo 70 {STRING} 
 

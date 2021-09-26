@@ -148,9 +148,7 @@ roster = Roster(id = 'brit',
                          lutschine_freight_barge,
                          schipbeek_freight_barge,
                          saint_marie_freight_barge,
-                         
-                         dieze_container_barge,
-                         
+                        
                          roland_tanker,
                          bundaberg_tanker,
                          eddystone_tanker,
