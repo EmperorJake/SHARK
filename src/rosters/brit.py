@@ -55,6 +55,8 @@ from ships import schipbeek_freight_barge
 
 from ships import dieze_container_barge
 from ships import saint_marie_freight_barge
+from ships import marquette_freight_barge
+
 from ships import volgoneft_two_seventy_tanker_barge
 from ships import volgoneft_three_twenty_tanker_barge
 from ships import volgoneft_five_forty_tanker_barge
@@ -147,7 +149,9 @@ roster = Roster(id = 'brit',
                          gorky_freight_barge,
                          lutschine_freight_barge,
                          schipbeek_freight_barge,
+                         
                          saint_marie_freight_barge,
+                         marquette_freight_barge,
                         
                          roland_tanker,
                          bundaberg_tanker,
