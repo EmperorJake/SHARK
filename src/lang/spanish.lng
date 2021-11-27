@@ -18,10 +18,12 @@ STR_PARAM_ROSTER_DESC                                           :Selecciona el g
 STR_PARAM_ROSTER_OPTION_0                                       :Este trono real de reyes, esta isla por el cetro consagrada, ...
 STR_PARAM_ROSTER_OPTION_1                                       :El Danubio Azul
 
+STR_NAME_SUFFIX_BLANK											:
 STR_NAME_SUFFIX_BARGE_TUG                                       :Barcaza remolcadora
 STR_NAME_SUFFIX_CATAMARAN                                       :Catamarán
 STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Barco portacontenedores
 STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Barcaza portacontenedores
+STR_NAME_SUFFIX_CONTAINER_REEFER                                :Portacontenedores refrixerado Reefer
 STR_NAME_SUFFIX_FERRY                                           :Ferry
 STR_NAME_SUFFIX_FAST_FERRY                                      :Ferry rápido
 STR_NAME_SUFFIX_FREIGHTER                                       :Buque carguero
@@ -74,14 +76,107 @@ STR_RIG_SUPPLY_FAST_CATAMARAN                                   :Catamarán ráp
 STR_REEFER                                                      :Barco refrigerado (ideal para un estado óptimo de las cargas perecederas así como mejorar su ratio de pagos)
 STR_SMALL_FREIGHTER                                             :Carguero pequeño para la costa y vías fluviales (ríos, canales y lagos)
 STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Pequeño barco de propósito general
+STR_SMALL_TANKER_INLAND                     		            :Buque cisterna pequeño para vías fluviales (ríos, canales y lagos)
 STR_SMALL_TANKER_COASTAL_INLAND                                 :Barco cisterna pequeño para costas y vías fluviales (ríos, canales y lagos)
 STR_TRAWLER                                                     :Barco rastreador (pesquero con redes de arrastre)
 STR_VEHICLE_FERRY                                               :Ferry de vehículos
 
 
-STR_GENERIC_REFIT_SUBTYPE                                       :({COMMA}{STRING})
+STR_GENERIC_REFIT_SUBTYPE                                       : ({COMMA}{STRING})
 STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}Capacidades de reforma: {GOLD}{COMMA}, {COMMA} o {COMMA}{STRING}
-STR_QUANTITY_WOOD                                               :toneladas de madera
-STR_QUANTITY_LIVESTOCK                                          :cabezas de ganado
-STR_UNIT_TONNES                                                 :toneladas
-STR_UNIT_ITEMS                                                  :objetos
+STR_QUANTITY_WOOD                                               : toneladas de madera
+STR_QUANTITY_FOOD                                               : toneladas de carga refrigerada
+STR_QUANTITY_LIVESTOCK                                          : cabezas de ganado
+STR_UNIT_TONNES                                                 : toneladas
+STR_UNIT_ITEMS                                                  : objetos
+
+STR_GRF_NAME                                                    :SHARK 1.0
+
+
+STR_NAME_island_trader                                          :{STRING} Comerciante Insular
+
+STR_NAME_duckitt_400_hovercraft                                 :{STRING} Duckitt 400
+STR_NAME_nanaimo_70_hovercraft                                  :{STRING} Nanaimo 70
+STR_NAME_ohshima_freight_hovercraft                             :{STRING} Ohshima Freight
+
+STR_NAME_josephine_trawler                                      :{STRING} Josephine
+STR_NAME_kwangtung_trawler                                      :{STRING} Kwangtung
+STR_NAME_wellfleet_trawler                                      :{STRING} Wellfleet
+
+STR_NAME_freshney_tanker_barge                                  :{STRING} Freshney
+STR_NAME_volgoneft_two_seventy_tanker_barge                     :{STRING} Volgoneft 270
+STR_NAME_volgoneft_three_twenty_tanker_barge                    :{STRING} Volgoneft 320
+STR_NAME_volgoneft_five_forty_tanker_barge                      :{STRING} Volgoneft 540
+STR_NAME_volgoneft_six_thirty_tanker_barge                      :{STRING} Volgoneft 630
+
+STR_NAME_constance_freight_barge                                :{STRING} Constance
+STR_NAME_gorky_freight_barge                                    :{STRING} Gorky
+STR_NAME_lutschine_freight_barge                                :{STRING} Lutschine
+STR_NAME_schipbeek_freight_barge                                :{STRING} Schipbeek
+STR_NAME_whitgift_freight_barge                                 :{STRING} Whitgift
+
+STR_NAME_bundaberg_tanker                                       :{STRING} Bundaberg
+STR_NAME_eddystone_tanker                                       :{STRING} Eddystone
+STR_NAME_huanghai_lng_tanker                                    :{STRING} Huanghai LNG
+STR_NAME_kagoshima_tanker                                       :{STRING} Kagoshima
+STR_NAME_la_orchilla_tanker                                     :{STRING} La Orchilla
+STR_NAME_lorraine_edibles_tanker                                :{STRING} Lorraine Edibles
+STR_NAME_nagasaki_tanker                                        :{STRING} Nagasaki
+STR_NAME_provence_edibles_tanker                                :{STRING} Provence Edibles
+STR_NAME_roland_tanker                                          :{STRING} Roland
+STR_NAME_whetstone_tanker                                       :{STRING} Whetstone
+STR_NAME_yokohama_tanker                                        :{STRING} Yokohama
+
+STR_NAME_newport_container_feeder                               :{STRING} Newport
+
+STR_NAME_altamira_freighter                                     :{STRING} Altamira
+STR_NAME_cadiz_freighter                                        :{STRING} Cadiz
+STR_NAME_finisterre_freighter                                   :{STRING} Finisterrae
+STR_NAME_frisco_bay_freighter                                   :{STRING} Frisco Bay
+STR_NAME_little_cumbrae_freighter                               :{STRING} Little Cumbrae
+STR_NAME_malin_freighter                                        :{STRING} Marín
+STR_NAME_marstein_freighter                                     :{STRING} Marstein
+STR_NAME_maspalomas_freighter                                   :{STRING} Maspalomas
+STR_NAME_meteor_freighter                                       :{STRING} Meteor
+STR_NAME_munkegrund_freighter                                   :{STRING} Munkegrund
+STR_NAME_oran_freighter                                         :{STRING} Oran
+STR_NAME_quessant_freighter                                     :{STRING} Quessant
+STR_NAME_santorini_freighter                                    :{STRING} Santorini
+STR_NAME_shannon_freighter                                      :{STRING} Shannon
+STR_NAME_taurus_freighter                                       :{STRING} Taurus
+
+STR_NAME_hitsuji_livestock_ship                                 :{STRING} Hitsuji
+STR_NAME_mcclure_livestock_ship                                 :{STRING} McClure
+
+STR_NAME_harbour_point_utility_vessel                           :{STRING} Harbour Point
+STR_NAME_labrador_utility_vessel                                :{STRING} Labrador
+
+STR_NAME_winterhold_container_reefer                            :{STRING} Winterhold
+STR_NAME_grindavik_reefer                                       :{STRING} Grindavik
+STR_NAME_helsinki_reefer                                        :{STRING} Helsinki
+
+STR_NAME_enoshima_catamaran_ferry                               :{STRING} Enoshima
+STR_NAME_port_jackson_ferry                                     :{STRING} Port Jackson
+
+STR_NAME_matsushima_hydrofoil                                   :{STRING} Matsushima
+STR_NAME_tigershark_hydrofoil                                   :{STRING} Tigershark
+
+STR_NAME_marquette_freight_barge                                :{STRING} Marquette
+STR_NAME_saint_marie_freight_barge                              :{STRING} Santa Mariña
+
+STR_NAME_connor_freight_ferry                                   :{STRING} Connor Freight
+STR_NAME_great_white_vehicle_ferry                              :{STRING} Great White
+STR_NAME_hammerhead_vehicle_ferry                               :{STRING} Hammerhead
+STR_NAME_lantau_ferry                                           :{STRING} Lantau
+STR_NAME_maddalena_vehicle_ferry                                :{STRING} Maddalena
+STR_NAME_provincetown_ferry                                     :{STRING} Provincetown
+STR_NAME_rosario_vehicle_ferry                                  :{STRING} Rosario
+STR_NAME_stornoway_vehicle_ferry                                :{STRING} Stornoway
+STR_NAME_tyree_vehicle_ferry                                    :{STRING} Tyree
+STR_NAME_mako_catamaran_ferry                                   :{STRING} Mako
+
+STR_NAME_lampwick_steamer                                       :{STRING} Lampwick
+STR_NAME_bernard_paddle_steamer                                 :{STRING} Bernard
+STR_NAME_friedrich_paddle_steamer                               :{STRING} Friedrich
+
+STR_NAME_olympic_log_tug                                        :{STRING} Olympic
