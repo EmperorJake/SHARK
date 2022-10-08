@@ -13,6 +13,7 @@ template spriteset_template_${ship.id}(y) {
     [762,       y,          113,        71,          ${ship.offsets[7][0]}, ${ship.offsets[7][1]}, ANIM]
 }
 
+
 <tal:sprites_random_variations repeat="variation_num python:range(ship.get_num_spritesets())">
     spriteset(${ship.id}_ss_not_loaded_not_moving_${variation_num}, "src/graphics/${ship.id}_${variation_num}.png") {
       spriteset_template_${ship.id}(10)
