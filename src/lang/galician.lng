@@ -1,0 +1,182 @@
+##grflangid 0x31
+##plural 0
+##gender m f
+STR_GRF_DESCRIPTION                                             :{GOLD}SHARK ate SQUID ate FISH{BLACK} {}70 barcos! Un Fork de Squid comeuse FISH por andythenorth. Deseñado por Emperor Jake, Gráficos por andythenorth, andrew350, Coxx, DanMack, Emperor Jake e outros. Licenza: {SILVER}GPL v2{}{BLACK}
+
+
+STR_EMPTY                                                       :
+
+
+STR_PARAM_RESET_CONSTRUCTION_COSTS                              :Usar os costes de construción mellorados para canais, acueductos e esclusas.
+STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :Reduce os costes de construcción (e destrucción) de canais, acueductos e esclusas.  Establece un mellor balance entre o transporte por auga e outros tipos de transporte.
+STR_PARAM_ADJUST_SHIP_SPEEDS                                    :Velocidade dos barcos
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :Lento coma un caracol
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :Balanceado
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :La fura de diante
+STR_PARAM_ROSTER                                                :Lista a usar
+STR_PARAM_ROSTER_DESC                                           :Escolle o set de barcos que se usara.
+STR_PARAM_ROSTER_OPTION_0                                       :Só hai unha lista
+STR_PARAM_ROSTER_OPTION_1                                       :O Danubio Azul
+
+STR_NAME_SUFFIX_BLANK											:
+STR_NAME_SUFFIX_BARGE_TUG                                       :Remolcador
+STR_NAME_SUFFIX_CATAMARAN                                       :Catamarán
+STR_NAME_SUFFIX_CONTAINER_FEEDER                                :Buque alimentador
+STR_NAME_SUFFIX_CONTAINER_BARGE                                 :Buque portacontedores
+STR_NAME_SUFFIX_CONTAINER_REEFER                                :Buque portacontedores refrixerado
+STR_NAME_SUFFIX_FERRY                                           :Transbordador
+STR_NAME_SUFFIX_FAST_FERRY                                      :Transbordador rápido
+STR_NAME_SUFFIX_FREIGHTER                                       :Buque cargueiro
+STR_NAME_SUFFIX_FREIGHT_BARGE                                   :Barcaza cargueira
+STR_NAME_SUFFIX_HOVERCRAFT                                      :Aeroescorregador
+STR_NAME_SUFFIX_HYDROFOIL                                       :Hidrofólio
+STR_NAME_SUFFIX_LIVESTOCK_SHIP                                  :Buque gandeiro
+STR_NAME_SUFFIX_LOG_TUG                                         :Remolcador de troncos
+STR_NAME_SUFFIX_PADDLE_STEAMER                                  :Vapor de roda
+STR_NAME_SUFFIX_REEFER                                          :Buque refrixerado
+STR_NAME_SUFFIX_RIG_SUPPLY_FAST_CATAMARAN                       :Catamarán de abastecemento rápido
+STR_NAME_SUFFIX_STEAMER                                         :Vapor
+STR_NAME_SUFFIX_TANKER                                          :Buque Cisterna
+STR_NAME_SUFFIX_TANKER_BARGE                                    :Barcaza Cisterna
+STR_NAME_SUFFIX_TRAWLER                                         :Arrastreiro
+STR_NAME_SUFFIX_UTILITY_VESSEL                                  :Buque polivalente
+STR_NAME_SUFFIX_UTILITY_TUG                                     :Remolcador polivalente
+
+
+STR_BUY_MENU_TEXT                                               :{}Type: {GOLD}{STRING}{}{STRING}
+STR_BUY_MENU_REFIT_CAPACITIES_PACKET                            :{}{BLACK}Capacidade ó reformarse: {GOLD}{COMMA} sacos de correo ou {COMMA}t de carga exprés
+STR_BUY_MENU_REFIT_CAPACITIES_TRAWLER                           :{}{BLACK}Capacidade ó reformarse: {GOLD}{COMMA} pasaxeiros, {COMMA} sacos de correo, {COMMA}t de peixe na bodega, ou {COMMA}t de carga exprés na cuberta
+STR_BUY_MENU_REFIT_CAPACITIES_UTILITY                           :{}{BLACK}Capacidade ó reformarse: {GOLD}{COMMA} sacos de correo ou {COMMA}t de carga
+
+
+STR_BARGE_TUG                                                   :Remolcador
+STR_CARGO_HOVERCRAFT                                            :Cargueiro Aeroescorregador
+STR_CARGO_VESSEL_INLAND                                         :Cargueiro fluvial (ríos, canles e lagos)
+STR_SMALL_CARGO_VESSEL_INLAND                                   :Cargueiro pequeno fluvial (ríos, canles e lagos)
+STR_CATAMARAN_FAST_FERRY                                        :Catamarán rápido
+STR_COASTAL_TANKER                                              :Busque cisterna costeiro
+STR_COASTER                                                     :Cargueiro costeiro
+STR_CONTAINER_FEEDER                                            :Portacontedores pequeno
+STR_CONTAINER_BARGE                                             :Portacontedores fluvial (ríos, canles e lagos)
+STR_FAST_GENERAL_PURPOSE_VESSEL                                 :Buque rápido de propósito xeral
+STR_FAST_PACKET_STEAMER                                         :Vapor rápido de carga
+STR_SMALL_FERRY                                                 :Transbordador pequeno
+STR_GENERAL_PURPOSE_SEA_GOING_VESSEL                            :Buque de altura de propósito xeral
+STR_GENERAL_PURPOSE_VESSEL                                      :Buque de propósito xeral
+STR_HOVERCRAFT_FAST_FERRY                                       :Transbordador rápido aeroescorregador
+STR_HYDROFOIL_FAST_FERRY                                        :Transbordador rápido hidrofólio
+STR_JUMBO_VEHICLE_FERRY                                         :Transbordador xigante
+STR_LARGE_COASTAL_TANKER                                        :Buque cisterna costeiro grande
+STR_LARGE_TANKER_COASTAL_INLAND                                 :Buque cisterna grande (costeiro e fluvial)
+STR_LARGE_COASTER                                               :Cargueiro costeiro grande
+STR_LIVESTOCK_SHIP                                              :Buque gandeiro
+STR_LOG_TUG                                                     :Remolcador de troncos
+STR_PADDLE_STEAMER                                              :Vapor de rodas
+STR_RIG_SUPPLY_FAST_CATAMARAN                                   :Catamarán rápido para abastecemento de illas e industrias mariñas
+STR_REEFER                                                      :Buque refrixerado (mellora o pago de cargas perecedoiras)
+STR_SMALL_FREIGHTER                                             :Cargueiro pequeno
+STR_SMALL_GENERAL_PURPOSE_VESSEL                                :Buque pequeno de propósito xeral
+STR_SMALL_TANKER_INLAND                     		            :Buque cisterna fluvial pequeno
+STR_SMALL_TANKER_COASTAL_INLAND                                 :Buque cisterna pequeno (costeiro e fluvial)
+STR_TRAWLER                                                     :Arrastreiro (Cuberta adicada o peixe)
+STR_VEHICLE_FERRY                                               :Transbordador de vehículos
+
+
+STR_GENERIC_REFIT_SUBTYPE                                       : ({COMMA}{STRING})
+STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}Capacidades de reforma: {GOLD}{COMMA}, {COMMA} ou {COMMA}{STRING}
+STR_QUANTITY_WOOD                                               : toneladas de madeira
+STR_QUANTITY_FOOD                                               : toneladas de carga refrixerada
+STR_QUANTITY_LIVESTOCK                                          : cabezas de gando
+STR_UNIT_TONNES                                                 : toneladas
+STR_UNIT_ITEMS                                                  : items
+
+STR_GRF_NAME                                                    :SHARK 1.0
+
+
+STR_NAME_island_trader                                          :{STRING} Comerciante Insular
+
+STR_NAME_duckitt_400_hovercraft                                 :{STRING} Duckitt 400
+STR_NAME_nanaimo_70_hovercraft                                  :{STRING} Nanaimo 70
+STR_NAME_ohshima_freight_hovercraft                             :{STRING} Ohshima Freight
+
+STR_NAME_josephine_trawler                                      :{STRING} Josephine
+STR_NAME_kwangtung_trawler                                      :{STRING} Kwangtung
+STR_NAME_wellfleet_trawler                                      :{STRING} Wellfleet
+
+STR_NAME_freshney_tanker_barge                                  :{STRING} Freshney
+STR_NAME_volgoneft_two_seventy_tanker_barge                     :{STRING} Volgoneft 270
+STR_NAME_volgoneft_three_twenty_tanker_barge                    :{STRING} Volgoneft 320
+STR_NAME_volgoneft_five_forty_tanker_barge                      :{STRING} Volgoneft 540
+STR_NAME_volgoneft_six_thirty_tanker_barge                      :{STRING} Volgoneft 630
+
+STR_NAME_constance_freight_barge                                :{STRING} Constance
+STR_NAME_gorky_freight_barge                                    :{STRING} Gorky
+STR_NAME_lutschine_freight_barge                                :{STRING} Lutschine
+STR_NAME_schipbeek_freight_barge                                :{STRING} Schipbeek
+STR_NAME_whitgift_freight_barge                                 :{STRING} Whitgift
+
+STR_NAME_bundaberg_tanker                                       :{STRING} Bundaberg
+STR_NAME_eddystone_tanker                                       :{STRING} Eddystone
+STR_NAME_huanghai_lng_tanker                                    :{STRING} Huanghai LNG
+STR_NAME_kagoshima_tanker                                       :{STRING} Kagoshima
+STR_NAME_la_orchilla_tanker                                     :{STRING} La Orchilla
+STR_NAME_lorraine_edibles_tanker                                :{STRING} Lorraine Edibles
+STR_NAME_nagasaki_tanker                                        :{STRING} Nagasaki
+STR_NAME_provence_edibles_tanker                                :{STRING} Provence Edibles
+STR_NAME_roland_tanker                                          :{STRING} Roland
+STR_NAME_whetstone_tanker                                       :{STRING} Whetstone
+STR_NAME_yokohama_tanker                                        :{STRING} Yokohama
+
+STR_NAME_newport_container_feeder                               :{STRING} Newport
+
+STR_NAME_altamira_freighter                                     :{STRING} Altamira
+STR_NAME_cadiz_freighter                                        :{STRING} Cadiz
+STR_NAME_finisterre_freighter                                   :{STRING} Finisterrae
+STR_NAME_frisco_bay_freighter                                   :{STRING} Frisco Bay
+STR_NAME_little_cumbrae_freighter                               :{STRING} Little Cumbrae
+STR_NAME_malin_freighter                                        :{STRING} Marín
+STR_NAME_marstein_freighter                                     :{STRING} Marstein
+STR_NAME_maspalomas_freighter                                   :{STRING} Maspalomas
+STR_NAME_meteor_freighter                                       :{STRING} Meteor
+STR_NAME_munkegrund_freighter                                   :{STRING} Munkegrund
+STR_NAME_oran_freighter                                         :{STRING} Oran
+STR_NAME_quessant_freighter                                     :{STRING} Quessant
+STR_NAME_santorini_freighter                                    :{STRING} Santorini
+STR_NAME_shannon_freighter                                      :{STRING} Shannon
+STR_NAME_taurus_freighter                                       :{STRING} Taurus
+
+STR_NAME_hitsuji_livestock_ship                                 :{STRING} Hitsuji
+STR_NAME_mcclure_livestock_ship                                 :{STRING} McClure
+
+STR_NAME_harbour_point_utility_vessel                           :{STRING} Harbour Point
+STR_NAME_labrador_utility_vessel                                :{STRING} Labrador
+
+STR_NAME_winterhold_container_reefer                            :{STRING} Winterhold
+STR_NAME_grindavik_reefer                                       :{STRING} Grindavik
+STR_NAME_helsinki_reefer                                        :{STRING} Helsinki
+
+STR_NAME_enoshima_catamaran_ferry                               :{STRING} Enoshima
+STR_NAME_port_jackson_ferry                                     :{STRING} Port Jackson
+
+STR_NAME_matsushima_hydrofoil                                   :{STRING} Matsushima
+STR_NAME_tigershark_hydrofoil                                   :{STRING} Tigershark
+
+STR_NAME_marquette_freight_barge                                :{STRING} Marquette
+STR_NAME_saint_marie_freight_barge                              :{STRING} Santa Mariña
+
+STR_NAME_connor_freight_ferry                                   :{STRING} Connor Freight
+STR_NAME_great_white_vehicle_ferry                              :{STRING} Great White
+STR_NAME_hammerhead_vehicle_ferry                               :{STRING} Hammerhead
+STR_NAME_lantau_ferry                                           :{STRING} Lantau
+STR_NAME_maddalena_vehicle_ferry                                :{STRING} Maddalena
+STR_NAME_provincetown_ferry                                     :{STRING} Provincetown
+STR_NAME_rosario_vehicle_ferry                                  :{STRING} Rosario
+STR_NAME_stornoway_vehicle_ferry                                :{STRING} Stornoway
+STR_NAME_tyree_vehicle_ferry                                    :{STRING} Tyree
+STR_NAME_mako_catamaran_ferry                                   :{STRING} Mako
+
+STR_NAME_lampwick_steamer                                       :{STRING} Lampwick
+STR_NAME_bernard_paddle_steamer                                 :{STRING} Bernard
+STR_NAME_friedrich_paddle_steamer                               :{STRING} Friedrich
+
+STR_NAME_olympic_log_tug                                        :{STRING} Olympic
