@@ -1,7 +1,7 @@
 ##grflangid 0x3a
 ##plural 11
 ##gender m f
-STR_GRF_DESCRIPTION                                             :라이선스: {SILVER}GPL v2{}{BLACK}
+STR_GRF_DESCRIPTION                                             :{GOLD}FISH를 먹은 SQUID를 먹은 SHARK{BLACK}70 종류의 선박! andythenorth의 FISH 먹은 Squid의 복제판입니다.{}디자인: Emperor Jake 디자인{}그래픽: andrew350, Coxx, DanMack, Emperor Jake 등{}}라이선스: {SILVER}GPL v2{}{BLACK}
 
 
 STR_EMPTY                                                       :
@@ -10,18 +10,20 @@ STR_EMPTY                                                       :
 STR_PARAM_RESET_CONSTRUCTION_COSTS                              :운하, 송수로, 갑문 건설시 개선된 건설 비용을 사용합니다.
 STR_PARAM_RESET_CONSTRUCTION_COSTS_DESC                         :운하, 송수로, 갑문 건설 및 파괴시 비용을 감소시킵니다. 해안 운송과 다른 운송을 더 균형잡히게 합니다.
 STR_PARAM_ADJUST_SHIP_SPEEDS                                    :배의 속력
-STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :매우 지루하다
-STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :필수적인
-STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :치트
-STR_PARAM_ROSTER                                                :등록부
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_0                           :느림
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_1                           :보통
+STR_PARAM_ADJUST_SHIP_SPEEDS_OPTION_2                           :빠름
+STR_PARAM_ROSTER                                                :선박 세트
 STR_PARAM_ROSTER_DESC                                           :어떤 종류의 선박 세트를 사용할 것인지 고르십시오.
-STR_PARAM_ROSTER_OPTION_0                                       :중심 섬
+STR_PARAM_ROSTER_OPTION_0                                       :사용할 수 있는 선박 세트가 하나 뿐입니다
 STR_PARAM_ROSTER_OPTION_1                                       :푸른 다뉴브 호
 
+STR_NAME_SUFFIX_BLANK											:
 STR_NAME_SUFFIX_BARGE_TUG                                       :예인 바지선
 STR_NAME_SUFFIX_CATAMARAN                                       :쌍둥선
 STR_NAME_SUFFIX_CONTAINER_FEEDER                                :컨테이너 선박
 STR_NAME_SUFFIX_CONTAINER_BARGE                                 :컨테이너 바지선
+STR_NAME_SUFFIX_CONTAINER_REEFER                                :컨테이너 냉동선
 STR_NAME_SUFFIX_FERRY                                           :연락선
 STR_NAME_SUFFIX_FAST_FERRY                                      :빠른 연락선
 STR_NAME_SUFFIX_FREIGHTER                                       :화물선
@@ -82,6 +84,7 @@ STR_VEHICLE_FERRY                                               :차량 연락�
 STR_GENERIC_REFIT_SUBTYPE                                       :{COMMA}{STRING}
 STR_GENERIC_REFIT_SUBTYPE_BUY_MENU_INFO                         :{}{BLACK}확장 가능 수용량: {GOLD}{COMMA}, {COMMA} 또는 {COMMA}{STRING}
 STR_QUANTITY_WOOD                                               :톤의 나무
+STR_QUANTITY_FOOD                                               :톤의 냉동 화물
 STR_QUANTITY_LIVESTOCK                                          :가축의 수량
 STR_UNIT_TONNES                                                 :톤
 STR_UNIT_ITEMS                                                  :아이템
